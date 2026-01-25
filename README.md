@@ -43,9 +43,11 @@ Professional WordPress theme for real estate businesses with property listings, 
 
 ### Step 1: Install Theme
 
-1. Upload the theme folder to `/wp-content/themes/`
-2. Go to `WordPress Admin → Appearance → Themes`
-3. Activate "Estatein Real Estate Theme"
+1. **Download the theme**.  
+2. **Rename the folder** to `"figma-custom-theme"`.  
+3. Upload the theme folder to `/wp-content/themes/`  
+4. Go to `WordPress Admin → Appearance → Themes`  
+5. Activate **"Estatein Real Estate Theme"**  
 
 ### Step 2: Install Required Plugins
 
