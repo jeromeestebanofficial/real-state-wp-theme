@@ -69,7 +69,6 @@ Professional WordPress theme for real estate businesses with property listings, 
    - Go to `Properties → Property Types`
    - Add types: Villa, Apartment, Townhouse, Commercial
    - Go to `Properties → Locations`
-   - Add your cities/neighborhoods
 
 3. **Create Pages:**
    - Create a "Services" page and select "Services Page" template
@@ -161,5 +160,5 @@ This theme is released under GPL v2 or later license.
 ---
 
 **Version:** 1.0.0  
-**Author:** Your Name  
+**Author:** Jerome Esteban
 **UI Reference:** [Figma Design](https://www.figma.com/community/file/1314076616839640516)
