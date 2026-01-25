@@ -1,0 +1,929 @@
+/**
+ * Services Page Styles
+ * Based on Figma design layout
+ * UI Reference: https://www.figma.com/community/file/1314076616839640516
+ */
+
+/* ========================================
+   BASE STYLES
+======================================== */
+.services-page {
+    background: #141414 !important;
+    color: white;
+    padding: 0 !important;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.site-main.services-page {
+    background: #141414 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Override any default WordPress container styles for service sections only */
+.services-property-selling-section .container,
+.services-property-management-section .container,
+.services-investment-advisory-section .container {
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.services-page .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Remove container padding for hero section - it has its own padding */
+.services-hero-section .container,
+.services-main-cards-wrapper .container {
+    padding: 0 !important;
+    max-width: 100%;
+}
+
+/* Ensure sections are full width */
+.services-hero-section,
+.services-main-cards-wrapper,
+.services-property-selling-section,
+.services-property-management-section,
+.services-investment-advisory-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+.services-hero-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.services-hero-wrapper {
+    padding: 150px 0 100px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background: linear-gradient(154deg, #262626 0%, rgba(38.25, 38.25, 38.25, 0) 53%);
+    border-bottom: 1px solid #262626;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+@media (min-width: 1920px) {
+    .services-hero-wrapper {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+}
+
+@media (max-width: 1919px) {
+    .services-hero-wrapper {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+}
+
+@media (max-width: 1439px) {
+    .services-hero-wrapper {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .services-hero-wrapper {
+        padding: 100px 0 60px;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-hero-wrapper {
+        padding: 80px 0 40px;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+.services-hero-content {
+    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.services-hero-title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 72px;
+    color: white;
+    margin: 0 0 14px 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.services-hero-description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    color: #999999;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.services-main-cards-wrapper {
+    width: 100%;
+    padding: 20px;
+    background: #141414;
+    box-shadow: 0px 0px 0px 10px #191919;
+    border: 1px solid #262626;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+    .services-main-cards-wrapper {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-main-cards-wrapper {
+        padding: 12px;
+    }
+}
+
+.services-main-cards {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 1023px) {
+    .services-main-cards {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-main-cards {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* Reuse feature-card styles from features section */
+.services-main-cards .feature-card {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 40px 20px;
+    background: #1A1A1A;
+    border-radius: 12px;
+    border: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    min-height: 200px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+    .services-main-cards .feature-card {
+        flex: 1 1 calc(50% - 7.5px);
+        min-width: 200px;
+        padding: 35px 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-main-cards .feature-card {
+        flex: 1 1 100%;
+        width: 100%;
+        padding: 30px 15px;
+        min-height: auto;
+    }
+}
+
+.services-main-cards .feature-card svg {
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+    .services-main-cards .feature-card svg {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.services-main-cards .feature-card .feature-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    color: white;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+@media (max-width: 1023px) {
+    .services-main-cards .feature-card .feature-title {
+        font-size: 19px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-main-cards .feature-card .feature-title {
+        font-size: 18px;
+        line-height: 27px;
+    }
+}
+
+.service-main-card {
+    flex: 1 1 0;
+    padding: 40px 20px;
+    background: #1A1A1A;
+    border-radius: 12px;
+    border: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    min-height: 200px;
+}
+
+.service-icon-wrapper {
+    padding: 10px;
+    border-radius: 100px;
+    border: 1px solid #A685FA;
+}
+
+.service-icon-inner {
+    padding: 14px;
+    border-radius: 100px;
+    border: 1px solid #A685FA;
+}
+
+.service-icon {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.service-main-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    width: 100%;
+}
+
+.service-card-corner-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================
+   SERVICE SECTIONS
+======================================== */
+.services-property-selling-section,
+.services-property-management-section,
+.services-investment-advisory-section {
+    padding: 80px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+    .services-property-selling-section,
+    .services-property-management-section,
+    .services-investment-advisory-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-property-selling-section,
+    .services-property-management-section,
+    .services-investment-advisory-section {
+        padding: 50px 0;
+    }
+}
+
+.services-property-selling-section .container,
+.services-property-management-section .container,
+.services-investment-advisory-section .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1920px) {
+    .services-property-selling-section .container,
+    .services-property-management-section .container,
+    .services-investment-advisory-section .container {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+}
+
+@media (max-width: 1919px) {
+    .services-property-selling-section .container,
+    .services-property-management-section .container,
+    .services-investment-advisory-section .container {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+}
+
+@media (max-width: 1439px) {
+    .services-property-selling-section .container,
+    .services-property-management-section .container,
+    .services-investment-advisory-section .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .services-property-selling-section .container,
+    .services-property-management-section .container,
+    .services-investment-advisory-section .container {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-property-selling-section .container,
+    .services-property-management-section .container,
+    .services-investment-advisory-section .container {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+.service-section-header {
+    position: relative;
+    margin-bottom: 80px;
+    padding-right: 300px;
+    width: 100%;
+}
+
+@media (max-width: 1439px) {
+    .service-section-header {
+        padding-right: 0;
+    }
+}
+
+.decorative-pattern {
+    position: absolute;
+    left: -20px;
+    top: -40px;
+    width: 68.4px;
+    height: 30px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    z-index: 1;
+}
+
+.decorative-pattern::before,
+.decorative-pattern::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    background: #666666;
+    flex-shrink: 0;
+}
+
+.decorative-pattern::before {
+    width: 30px;
+    height: 30px;
+}
+
+.decorative-pattern::after {
+    width: 18px;
+    height: 18px;
+}
+
+.decorative-pattern::before::after {
+    content: '';
+    width: 8.4px;
+    height: 8.4px;
+    border-radius: 50%;
+    background: #333333;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.service-section-title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 72px;
+    color: white;
+    margin: 0 0 14px 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.service-section-description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    color: #999999;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+/* ========================================
+   SERVICE CARDS GRID
+======================================== */
+.service-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.service-cards-row {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1023px) {
+    .service-cards-row {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-cards-row {
+        gap: 15px;
+        flex-direction: column;
+    }
+}
+
+.service-card {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 50px;
+    background: #141414;
+    border-radius: 12px;
+    border: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1023px) {
+    .service-card {
+        padding: 40px;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-card {
+        padding: 30px 20px;
+        gap: 20px;
+        width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
+.service-card-small {
+    flex: 0 1 513.67px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+    .service-card-small {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+.service-card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.service-card-title {
+    flex: 1 1 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    color: white;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.service-card-description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    color: #999999;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+/* ========================================
+   CTA CARD
+======================================== */
+.service-card-cta {
+    position: relative;
+    background: #1A1A1A;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.service-cta-pattern {
+    position: absolute;
+    width: 1924px;
+    height: 1286px;
+    left: -101.67px;
+    top: -608px;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        #333333 2px,
+        #333333 4px
+    );
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.service-cta-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.service-cta-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.service-cta-title {
+    flex: 1 1 0;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+    color: white;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.service-cta-button {
+    padding: 18px 24px;
+    background: #141414;
+    border-radius: 10px;
+    border: 1px solid #262626;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Urbanist', sans-serif;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.service-cta-button:hover {
+    background: #1A1A1A;
+    border-color: #A685FA;
+    color: #A685FA;
+}
+
+.service-cta-description {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    color: #999999;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.service-card-cta-vertical .service-cta-content {
+    gap: 30px;
+}
+
+.service-card-cta-vertical .service-cta-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.service-card-cta-vertical .service-cta-description {
+    color: #E4E4E7;
+}
+
+.service-cta-button-full {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ========================================
+   INVESTMENT ADVISORY SECTION
+======================================== */
+.investment-service-layout {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.investment-service-left {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    flex: 0 1 519px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+    .investment-service-left {
+        flex: 1 1 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+.investment-service-right {
+    flex: 1 1 0;
+}
+
+.investment-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: #1A1A1A;
+    border-radius: 12px;
+}
+
+.investment-cards-row {
+    display: flex;
+    gap: 10px;
+}
+
+.service-card-investment {
+    flex: 1 1 0;
+    background: #141414;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+/* Large Desktop (1920px and above) */
+@media (min-width: 1920px) {
+    .services-hero-title,
+    .service-section-title {
+        font-size: 48px;
+        line-height: 72px;
+    }
+}
+
+/* Desktop (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .services-hero-title,
+    .service-section-title {
+        font-size: 44px;
+        line-height: 66px;
+    }
+}
+
+/* Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .service-section-header {
+        padding-right: 0;
+        margin-bottom: 60px;
+    }
+    
+    .services-hero-title,
+    .service-section-title {
+        font-size: 40px;
+        line-height: 60px;
+    }
+    
+    .services-hero-description,
+    .service-section-description {
+        font-size: 17px;
+        line-height: 26px;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .services-hero-wrapper {
+        padding: 100px 0 60px;
+    }
+    
+    .service-section-header {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+    
+    .services-hero-title,
+    .service-section-title {
+        font-size: 36px;
+        line-height: 54px;
+    }
+    
+    .services-hero-description,
+    .service-section-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .service-cards-row {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .service-card {
+        flex: 1 1 calc(50% - 10px);
+        min-width: 280px;
+    }
+    
+    .investment-service-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .investment-cards-row {
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile (320px - 767px) */
+@media (max-width: 767px) {
+    .services-property-selling-section,
+    .services-property-management-section,
+    .services-investment-advisory-section {
+        padding: 60px 0;
+    }
+    
+    .service-section-header {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .services-hero-title,
+    .service-section-title {
+        font-size: 32px;
+        line-height: 48px;
+    }
+    
+    .services-hero-description,
+    .service-section-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .service-cards-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+        width: 100%;
+        flex: 1 1 100%;
+    }
+    
+    .service-card-small {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+    
+    .service-card-title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    .service-card-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .service-cta-title {
+        font-size: 24px;
+        line-height: 36px;
+    }
+    
+    .service-cta-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .service-cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .investment-service-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .investment-cards-grid {
+        padding: 10px;
+    }
+    
+    .investment-cards-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .decorative-pattern {
+        display: none;
+    }
+}
+
+/* Extra Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .services-page .container {
+        padding: 0 3%;
+    }
+    
+    .services-hero-title,
+    .service-section-title {
+        font-size: 28px;
+        line-height: 42px;
+    }
+    
+    .service-card {
+        padding: 25px;
+    }
+    
+    .service-cta-title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+

@@ -1,0 +1,237 @@
+/* ========================================
+   ABOUT JOURNEY SECTION
+======================================== */
+
+.about-journey-section {
+    padding: var(--space-20) 0;
+}
+
+.journey-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-20);
+}
+
+.journey-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-20);
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.section-header .section-title {
+    display: block;
+    margin-bottom: var(--space-4);
+}
+
+.section-header .section-description {
+    display: block;
+    margin-top: 0;
+}
+
+.journey-stats {
+    display: flex;
+    gap: var(--space-5);
+}
+
+.stat-card {
+    flex: 1;
+    padding: var(--space-6);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-bg-tertiary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.stat-number {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+}
+
+.stat-label {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+.journey-image {
+    flex: 1;
+    position: relative;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-bg-tertiary);
+    overflow: hidden;
+    background: var(--color-bg-primary);
+}
+
+.journey-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 546px;
+    background: var(--color-bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder::before {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+/* Desktop (1400px and above) */
+/* Large Desktop (1920px and above) */
+@media (min-width: 1920px) {
+    .about-journey-section {
+        padding: 6rem 0;
+    }
+    
+    .journey-content {
+        gap: 8rem;
+    }
+}
+
+/* Desktop (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .about-journey-section {
+        padding: var(--space-24) 0;
+    }
+    
+    .journey-content {
+        gap: 6rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .journey-content {
+        gap: 6rem;
+    }
+    
+    .journey-text {
+        gap: 4rem;
+    }
+    
+    .journey-stats {
+        gap: var(--space-6);
+    }
+    
+    .stat-card {
+        padding: var(--space-8);
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+    
+    .image-placeholder {
+        height: 600px;
+    }
+}
+
+/* Laptop (1024px - 1399px) */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .journey-content {
+        gap: var(--space-16);
+    }
+    
+    .journey-text {
+        gap: var(--space-16);
+    }
+    
+    .journey-stats {
+        gap: var(--space-5);
+    }
+    
+    .image-placeholder {
+        height: 500px;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .journey-content {
+        flex-direction: column;
+        gap: var(--space-12);
+    }
+    
+    .journey-text {
+        gap: var(--space-12);
+    }
+    
+    .journey-image {
+        width: 100%;
+    }
+    
+    .journey-stats {
+        gap: var(--space-4);
+    }
+    
+    .stat-card {
+        padding: var(--space-5);
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .image-placeholder {
+        height: 400px;
+    }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 767px) {
+    .journey-content {
+        flex-direction: column;
+        gap: var(--space-10);
+    }
+    
+    .journey-text {
+        gap: var(--space-10);
+    }
+    
+    .journey-image {
+        width: 100%;
+    }
+    
+    .journey-stats {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    
+    .stat-card {
+        padding: var(--space-5);
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .stat-label {
+        font-size: var(--font-size-base);
+    }
+    
+    .image-placeholder {
+        height: 280px;
+    }
+}
+

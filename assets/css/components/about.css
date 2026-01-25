@@ -1,0 +1,260 @@
+/* ========================================
+   ABOUT PAGE MAIN STYLES
+======================================== */
+
+.about-page {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+}
+
+.about-page .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+}
+
+/* Section Spacing */
+.about-page section {
+    padding: var(--space-20) 0;
+    position: relative;
+}
+
+/* Large Desktop (1920px and above) */
+@media (min-width: 1920px) {
+    .about-page section {
+        padding: 6rem 0;
+    }
+    
+    .about-page .container {
+        max-width: 1800px;
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+
+/* Desktop (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .about-page section {
+        padding: 6rem 0;
+    }
+    
+    .about-page .container {
+        max-width: 1600px;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+}
+
+/* Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .about-page section {
+        padding: var(--space-20) 0;
+    }
+    
+    .about-page .container {
+        max-width: 1200px;
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .about-page section {
+        padding: var(--space-16) 0;
+    }
+    
+    .about-page .container {
+        max-width: 960px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 767px) {
+    .about-page section {
+        padding: var(--space-12) 0;
+    }
+    
+    .about-page .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Section Headers */
+.section-header,
+.achievements-header,
+.process-header,
+.team-header,
+.clients-header,
+.values-header,
+.journey-text .section-header {
+    position: relative;
+    margin-bottom: var(--space-20);
+}
+
+.section-title {
+    font-size: var(--font-size-5xl);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-4) 0;
+    display: block;
+    letter-spacing: -0.02em;
+}
+
+.section-description {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0;
+    display: block;
+}
+
+/* Decorative Pattern */
+.decorative-pattern {
+    position: absolute;
+    left: -20px;
+    top: -40px;
+    width: 68.4px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.decorative-pattern::before,
+.decorative-pattern::after {
+    content: '';
+    position: absolute;
+    background: var(--color-text-muted);
+    border-radius: 2px;
+}
+
+.decorative-pattern::before {
+    width: 30px;
+    height: 30px;
+    left: 0;
+    top: 0;
+    box-shadow: 
+        -15px 15px 0 var(--color-bg-primary),
+        15px 15px 0 var(--color-bg-primary),
+        -15px -15px 0 var(--color-bg-primary),
+        15px -15px 0 var(--color-bg-primary);
+}
+
+.decorative-pattern::after {
+    width: 18px;
+    height: 18px;
+    left: 36px;
+    top: 6px;
+    box-shadow: 
+        -9px 9px 0 var(--color-bg-primary),
+        9px 9px 0 var(--color-bg-primary),
+        -9px -9px 0 var(--color-bg-primary),
+        9px -9px 0 var(--color-bg-primary);
+}
+
+/* Desktop Typography */
+@media (min-width: 1400px) {
+    .section-title {
+        font-size: 3.5rem;
+    }
+    
+    .section-description {
+        font-size: 1.25rem;
+        max-width: 900px;
+    }
+}
+
+/* Laptop Typography */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .section-title {
+        font-size: var(--font-size-5xl);
+    }
+    
+    .section-description {
+        font-size: var(--font-size-lg);
+    }
+    
+    .section-header,
+    .achievements-header,
+    .process-header,
+    .team-header,
+    .clients-header,
+    .values-header {
+        margin-bottom: var(--space-16);
+    }
+}
+
+/* Tablet Typography */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .section-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    .section-description {
+        font-size: var(--font-size-base);
+        max-width: 700px;
+    }
+    
+    .section-header,
+    .achievements-header,
+    .process-header,
+    .team-header,
+    .clients-header,
+    .values-header {
+        margin-bottom: var(--space-12);
+    }
+    
+    .decorative-pattern {
+        left: -15px;
+        top: -30px;
+        width: 50px;
+        height: 22px;
+    }
+    
+    .decorative-pattern::before {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .decorative-pattern::after {
+        width: 14px;
+        height: 14px;
+        left: 28px;
+        top: 4px;
+    }
+}
+
+/* Mobile Typography */
+@media (max-width: 767px) {
+    .decorative-pattern {
+        display: none;
+    }
+    
+    .section-title {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--space-3);
+    }
+    
+    .section-description {
+        font-size: var(--font-size-base);
+        line-height: 1.7;
+    }
+    
+    .section-header,
+    .achievements-header,
+    .process-header,
+    .team-header,
+    .clients-header,
+    .values-header {
+        margin-bottom: var(--space-10);
+    }
+}
+
