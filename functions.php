@@ -2669,51 +2669,88 @@ add_action('admin_enqueue_scripts', 'figma_custom_theme_admin_scripts');
  */
 if (!function_exists('figma_custom_theme_process_contact_form')) {
     function figma_custom_theme_process_contact_form() {
-        // Check if form was submitted
-        if (!isset($_POST['properties_contact_nonce']) || !wp_verify_nonce($_POST['properties_contact_nonce'], 'properties_contact_form')) {
-            wp_redirect(add_query_arg('form_submitted', 'error', wp_get_referer()));
+        $referer_url = wp_get_referer();
+        $redirect_base = $referer_url ? $referer_url : home_url('/');
+
+        $redirect_with_status = static function ($status) use ($redirect_base) {
+            wp_safe_redirect(add_query_arg('form_submitted', $status, $redirect_base));
             exit;
+        };
+
+        // Check if form was submitted
+        if (
+            !isset($_POST['properties_contact_nonce']) ||
+            !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['properties_contact_nonce'])), 'properties_contact_form')
+        ) {
+            $redirect_with_status('error');
         }
 
         // Sanitize and validate form data
-        $first_name = isset($_POST['first_name']) ? sanitize_text_field($_POST['first_name']) : '';
-        $last_name = isset($_POST['last_name']) ? sanitize_text_field($_POST['last_name']) : '';
-        $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
-        $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
-        $preferred_location = isset($_POST['preferred_location']) ? sanitize_text_field($_POST['preferred_location']) : '';
-        $property_type = isset($_POST['property_type_select']) ? sanitize_text_field($_POST['property_type_select']) : '';
-        $bathrooms = isset($_POST['bathrooms']) ? sanitize_text_field($_POST['bathrooms']) : '';
-        $bedrooms = isset($_POST['bedrooms']) ? sanitize_text_field($_POST['bedrooms']) : '';
-        $budget = isset($_POST['budget']) ? sanitize_text_field($_POST['budget']) : '';
-        $contact_method = isset($_POST['contact_method']) ? sanitize_text_field($_POST['contact_method']) : 'phone';
-        $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+        $first_name = isset($_POST['first_name']) ? sanitize_text_field(wp_unslash($_POST['first_name'])) : '';
+        $last_name = isset($_POST['last_name']) ? sanitize_text_field(wp_unslash($_POST['last_name'])) : '';
+        $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+        $phone = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
+        $preferred_location = isset($_POST['preferred_location']) ? sanitize_title(wp_unslash($_POST['preferred_location'])) : '';
+        $property_type = isset($_POST['property_type_select']) ? sanitize_title(wp_unslash($_POST['property_type_select'])) : '';
+        $bathrooms = isset($_POST['bathrooms']) ? sanitize_text_field(wp_unslash($_POST['bathrooms'])) : '';
+        $bedrooms = isset($_POST['bedrooms']) ? sanitize_text_field(wp_unslash($_POST['bedrooms'])) : '';
+        $budget = isset($_POST['budget']) ? sanitize_text_field(wp_unslash($_POST['budget'])) : '';
+        $contact_method = isset($_POST['contact_method']) ? sanitize_key(wp_unslash($_POST['contact_method'])) : 'phone';
+        $message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+        $selected_property = isset($_POST['selected_property']) ? sanitize_text_field(wp_unslash($_POST['selected_property'])) : '';
         $terms = isset($_POST['terms']) ? true : false;
+
+        $allowed_contact_methods = array('phone', 'email');
+        $allowed_bathroom_values = array('', '1', '2', '3', '4');
+        $allowed_bedroom_values = array('', '1', '2', '3', '4');
+        $allowed_budget_ranges = array('', '0-250000', '250000-500000', '500000-1000000', '1000000+');
+
+        if (!in_array($contact_method, $allowed_contact_methods, true)) {
+            $contact_method = 'phone';
+        }
+
+        if (!in_array($bathrooms, $allowed_bathroom_values, true)) {
+            $bathrooms = '';
+        }
+
+        if (!in_array($bedrooms, $allowed_bedroom_values, true)) {
+            $bedrooms = '';
+        }
+
+        if (!in_array($budget, $allowed_budget_ranges, true)) {
+            $budget = '';
+        }
+
+        if ($preferred_location && !term_exists($preferred_location, 'property_location')) {
+            $preferred_location = '';
+        }
+
+        if ($property_type && !term_exists($property_type, 'property_type')) {
+            $property_type = '';
+        }
 
         // Validate required fields
         if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) || !$terms) {
-            wp_redirect(add_query_arg('form_submitted', 'error', wp_get_referer()));
-            exit;
+            $redirect_with_status('error');
         }
 
         // Validate email
         if (!is_email($email)) {
-            wp_redirect(add_query_arg('form_submitted', 'error', wp_get_referer()));
-            exit;
+            $redirect_with_status('error');
         }
 
         // Create submission post
         $submission_data = array(
-            'post_title'    => $first_name . ' ' . $last_name . ' - ' . date('Y-m-d H:i:s'),
+            'post_title'    => wp_strip_all_tags($first_name . ' ' . $last_name . ' - ' . current_time('mysql')),
             'post_content'  => $message,
-            'post_status'   => 'publish',
+            'post_status'   => 'private',
             'post_type'     => 'contact_submission',
         );
 
         $submission_id = wp_insert_post($submission_data);
 
         if (is_wp_error($submission_id)) {
-            wp_redirect(add_query_arg('form_submitted', 'error', wp_get_referer()));
-            exit;
+            $redirect_with_status('error');
         }
 
         // Save form data as post meta
@@ -2727,6 +2764,7 @@ if (!function_exists('figma_custom_theme_process_contact_form')) {
         update_post_meta($submission_id, '_contact_bedrooms', $bedrooms);
         update_post_meta($submission_id, '_contact_budget', $budget);
         update_post_meta($submission_id, '_contact_method', $contact_method);
+        update_post_meta($submission_id, '_contact_selected_property', $selected_property);
         update_post_meta($submission_id, '_contact_submission_date', current_time('mysql'));
 
         // Send email notification to admin
@@ -2751,6 +2789,9 @@ if (!function_exists('figma_custom_theme_process_contact_form')) {
         $email_message .= sprintf(__('Bedrooms: %s\n', 'figma-custom-theme'), $bedrooms ?: 'N/A');
         $email_message .= sprintf(__('Bathrooms: %s\n', 'figma-custom-theme'), $bathrooms ?: 'N/A');
         $email_message .= sprintf(__('Budget: %s\n', 'figma-custom-theme'), $budget ?: 'N/A');
+        if ($selected_property) {
+            $email_message .= sprintf(__('Selected Property: %s\n', 'figma-custom-theme'), $selected_property);
+        }
         $email_message .= sprintf(__('Preferred Contact Method: %s\n', 'figma-custom-theme'), $contact_method);
         $email_message .= sprintf(__('Message: %s\n\n', 'figma-custom-theme'), $message);
         $email_message .= sprintf(__('View submission in admin: %s', 'figma-custom-theme'), admin_url('post.php?post=' . $submission_id . '&action=edit'));
@@ -2758,8 +2799,7 @@ if (!function_exists('figma_custom_theme_process_contact_form')) {
         wp_mail($admin_email, $subject, $email_message);
 
         // Redirect with success message
-        wp_redirect(add_query_arg('form_submitted', 'success', wp_get_referer()));
-        exit;
+        $redirect_with_status('success');
     }
 }
 add_action('admin_post_nopriv_properties_contact_form', 'figma_custom_theme_process_contact_form');

@@ -226,8 +226,8 @@
     align-items: center;
     gap: 20px;
     padding: 20px 24px 20px 24px;
-    background: #141414 !important;
-    box-shadow: 0px 0px 0px 10px #191919;
+    background: linear-gradient(180deg, #181818 0%, #141414 100%) !important;
+    box-shadow: 0 0 0 10px #191919, 0 18px 40px rgba(0, 0, 0, 0.3);
     border-radius: 12px 12px 0 0;
     border: 1px solid #262626;
     border-bottom: none;
@@ -287,6 +287,19 @@
 
 .search-submit-btn:hover {
     background: #5a2fc7;
+}
+
+.search-submit-btn:focus-visible,
+.clear-filters-btn:focus-visible,
+.property-cta:focus-visible,
+.submit-btn:focus-visible,
+.nav-btn:focus-visible,
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible,
+.terms-checkbox input[type="checkbox"]:focus-visible {
+    outline: 2px solid #8f6ffb;
+    outline-offset: 2px;
 }
 
 .search-submit-btn:disabled {
@@ -1001,6 +1014,7 @@
     padding: 100px;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
@@ -2032,18 +2046,21 @@
     font-size: 16px;
     line-height: 1.5;
     animation: slideDown 0.3s ease;
+    border-left: 4px solid transparent;
 }
 
 .form-success {
-    background: #4CAF50;
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.22) 0%, rgba(76, 175, 80, 0.12) 100%);
     color: white;
     border: 1px solid #45a049;
+    border-left-color: #66bb6a;
 }
 
 .form-error {
-    background: #f44336;
+    background: linear-gradient(90deg, rgba(244, 67, 54, 0.22) 0%, rgba(244, 67, 54, 0.12) 100%);
     color: white;
     border: 1px solid #da190b;
+    border-left-color: #ef5350;
 }
 
 @keyframes slideDown {

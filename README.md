@@ -164,3 +164,5 @@ This theme is released under GPL v2 or later license.
 **Version:** 1.0.0  
 **Author:** Jerome Esteban
 **UI Reference:** [Figma Design](https://www.figma.com/community/file/1314076616839640516)
+
+# real-state-wp-theme

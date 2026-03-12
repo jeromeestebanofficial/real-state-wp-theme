@@ -328,6 +328,14 @@ if (!function_exists('parse_property_field')) {
                 <!-- Contact Form Section -->
                 <div class="property-contact-section">
                     <div class="contact-section-wrapper">
+                        <?php
+                        $form_submitted_status = isset($_GET['form_submitted']) ? sanitize_key(wp_unslash($_GET['form_submitted'])) : '';
+                        $posted_first_name = isset($_POST['first_name']) ? sanitize_text_field(wp_unslash($_POST['first_name'])) : '';
+                        $posted_last_name = isset($_POST['last_name']) ? sanitize_text_field(wp_unslash($_POST['last_name'])) : '';
+                        $posted_email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+                        $posted_phone = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
+                        $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+                        ?>
                         <div class="contact-header">
                             <div class="decorative-pattern"></div>
                             <h2 class="section-title-large"><?php echo esc_html__('Inquire About', 'figma-custom-theme'); ?> <?php the_title(); ?></h2>
@@ -337,12 +345,12 @@ if (!function_exists('parse_property_field')) {
                         <div class="contact-form-container">
                             <?php
                             // Display success/error messages
-                            if (isset($_GET['form_submitted']) && $_GET['form_submitted'] === 'success') {
+                            if ('success' === $form_submitted_status) {
                                 echo '<div class="form-message form-success">';
                                 echo esc_html__('Thank you! Your message has been sent successfully. We will get back to you soon.', 'figma-custom-theme');
                                 echo '</div>';
                             }
-                            if (isset($_GET['form_submitted']) && $_GET['form_submitted'] === 'error') {
+                            if ('error' === $form_submitted_status) {
                                 echo '<div class="form-message form-error">';
                                 echo esc_html__('Sorry, there was an error sending your message. Please try again.', 'figma-custom-theme');
                                 echo '</div>';
@@ -357,22 +365,22 @@ if (!function_exists('parse_property_field')) {
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label for="first_name"><?php echo esc_html__('First Name', 'figma-custom-theme'); ?></label>
-                                            <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['first_name']) ? esc_attr($_POST['first_name']) : ''; ?>" required>
+                                            <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_first_name); ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="last_name"><?php echo esc_html__('Last Name', 'figma-custom-theme'); ?></label>
-                                            <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['last_name']) ? esc_attr($_POST['last_name']) : ''; ?>" required>
+                                            <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_last_name); ?>" required>
                                         </div>
                                     </div>
                                     
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label for="email"><?php echo esc_html__('Email', 'figma-custom-theme'); ?></label>
-                                            <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['email']) ? esc_attr($_POST['email']) : ''; ?>" required>
+                                            <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_email); ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="phone"><?php echo esc_html__('Phone', 'figma-custom-theme'); ?></label>
-                                            <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['phone']) ? esc_attr($_POST['phone']) : ''; ?>" required>
+                                            <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_phone); ?>" required>
                                         </div>
                                     </div>
                                     
@@ -389,7 +397,7 @@ if (!function_exists('parse_property_field')) {
                                     
                                     <div class="form-group full-width">
                                         <label for="message"><?php echo esc_html__('Message', 'figma-custom-theme'); ?></label>
-                                        <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'figma-custom-theme'); ?>" required><?php echo isset($_POST['message']) ? esc_textarea($_POST['message']) : ''; ?></textarea>
+                                        <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'figma-custom-theme'); ?>" required><?php echo esc_textarea($posted_message); ?></textarea>
                                     </div>
                                 </div>
                                 

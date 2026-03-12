@@ -19,6 +19,20 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
     $contact_title = esc_html__('Let\'s Make it Happen', 'figma-custom-theme');
     $contact_description = esc_html__('Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don\'t wait; let\'s embark on this exciting journey together.', 'figma-custom-theme');
 }
+
+$form_submitted_status = isset($_GET['form_submitted']) ? sanitize_key(wp_unslash($_GET['form_submitted'])) : '';
+
+$posted_first_name = isset($_POST['first_name']) ? sanitize_text_field(wp_unslash($_POST['first_name'])) : '';
+$posted_last_name = isset($_POST['last_name']) ? sanitize_text_field(wp_unslash($_POST['last_name'])) : '';
+$posted_email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+$posted_phone = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
+$posted_preferred_location = isset($_POST['preferred_location']) ? sanitize_title(wp_unslash($_POST['preferred_location'])) : '';
+$posted_property_type = isset($_POST['property_type_select']) ? sanitize_title(wp_unslash($_POST['property_type_select'])) : '';
+$posted_bathrooms = isset($_POST['bathrooms']) ? sanitize_text_field(wp_unslash($_POST['bathrooms'])) : '';
+$posted_bedrooms = isset($_POST['bedrooms']) ? sanitize_text_field(wp_unslash($_POST['bedrooms'])) : '';
+$posted_budget = isset($_POST['budget']) ? sanitize_text_field(wp_unslash($_POST['budget'])) : '';
+$posted_contact_method = isset($_POST['contact_method']) ? sanitize_key(wp_unslash($_POST['contact_method'])) : 'phone';
+$posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
 ?>
 
 <section class="properties-contact-section">
@@ -34,13 +48,13 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
         <div class="contact-form-wrapper">
             <?php
             // Display success/error messages
-            if (isset($_GET['form_submitted']) && $_GET['form_submitted'] === 'success') {
-                echo '<div class="form-message form-success" style="padding: 20px; background: #4CAF50; color: white; border-radius: 8px; margin-bottom: 20px;">';
+            if ('success' === $form_submitted_status) {
+                echo '<div class="form-message form-success">';
                 echo esc_html__('Thank you! Your message has been sent successfully. We will get back to you soon.', 'figma-custom-theme');
                 echo '</div>';
             }
-            if (isset($_GET['form_submitted']) && $_GET['form_submitted'] === 'error') {
-                echo '<div class="form-message form-error" style="padding: 20px; background: #f44336; color: white; border-radius: 8px; margin-bottom: 20px;">';
+            if ('error' === $form_submitted_status) {
+                echo '<div class="form-message form-error">';
                 echo esc_html__('Sorry, there was an error sending your message. Please try again.', 'figma-custom-theme');
                 echo '</div>';
             }
@@ -53,25 +67,25 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                         <div class="form-group">
                             <label for="first_name"><?php echo esc_html__('First Name', 'figma-custom-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['first_name']) ? esc_attr($_POST['first_name']) : ''; ?>" required>
+                                <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_first_name); ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="last_name"><?php echo esc_html__('Last Name', 'figma-custom-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['last_name']) ? esc_attr($_POST['last_name']) : ''; ?>" required>
+                                <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_last_name); ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email"><?php echo esc_html__('Email', 'figma-custom-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['email']) ? esc_attr($_POST['email']) : ''; ?>" required>
+                                <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_email); ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="phone"><?php echo esc_html__('Phone', 'figma-custom-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'figma-custom-theme'); ?>" value="<?php echo isset($_POST['phone']) ? esc_attr($_POST['phone']) : ''; ?>" required>
+                                <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_phone); ?>" required>
                             </div>
                         </div>
                     </div>
@@ -87,7 +101,7 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                                         'taxonomy' => 'property_location',
                                         'hide_empty' => false,
                                     ));
-                                    $selected_location = isset($_POST['preferred_location']) ? sanitize_text_field($_POST['preferred_location']) : '';
+                                    $selected_location = $posted_preferred_location;
                                     if ($locations && !is_wp_error($locations)) :
                                         foreach ($locations as $location) :
                                     ?>
@@ -114,7 +128,7 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                                         'taxonomy' => 'property_type',
                                         'hide_empty' => false,
                                     ));
-                                    $selected_type = isset($_POST['property_type_select']) ? sanitize_text_field($_POST['property_type_select']) : '';
+                                    $selected_type = $posted_property_type;
                                     if ($types && !is_wp_error($types)) :
                                         foreach ($types as $type) :
                                     ?>
@@ -137,7 +151,7 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                                 <select id="bathrooms" name="bathrooms" class="form-select">
                                     <option value=""><?php echo esc_html__('Select no. of Bathrooms', 'figma-custom-theme'); ?></option>
                                     <?php
-                                    $selected_bathrooms = isset($_POST['bathrooms']) ? sanitize_text_field($_POST['bathrooms']) : '';
+                                    $selected_bathrooms = $posted_bathrooms;
                                     ?>
                                     <option value="1" <?php selected($selected_bathrooms, '1'); ?>>1</option>
                                     <option value="2" <?php selected($selected_bathrooms, '2'); ?>>2</option>
@@ -157,7 +171,7 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                                 <select id="bedrooms" name="bedrooms" class="form-select">
                                     <option value=""><?php echo esc_html__('Select no. of Bedrooms', 'figma-custom-theme'); ?></option>
                                     <?php
-                                    $selected_bedrooms = isset($_POST['bedrooms']) ? sanitize_text_field($_POST['bedrooms']) : '';
+                                    $selected_bedrooms = $posted_bedrooms;
                                     ?>
                                     <option value="1" <?php selected($selected_bedrooms, '1'); ?>>1</option>
                                     <option value="2" <?php selected($selected_bedrooms, '2'); ?>>2</option>
@@ -180,7 +194,7 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                                 <select id="budget" name="budget" class="form-select">
                                     <option value=""><?php echo esc_html__('Select Budget', 'figma-custom-theme'); ?></option>
                                     <?php
-                                    $selected_budget = isset($_POST['budget']) ? sanitize_text_field($_POST['budget']) : '';
+                                    $selected_budget = $posted_budget;
                                     ?>
                                     <option value="0-250000" <?php selected($selected_budget, '0-250000'); ?>>$0 - $250,000</option>
                                     <option value="250000-500000" <?php selected($selected_budget, '250000-500000'); ?>>$250,000 - $500,000</option>
@@ -198,7 +212,7 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                             <label><?php echo esc_html__('Preferred Contact Method', 'figma-custom-theme'); ?></label>
                             <div class="contact-method-group">
                                 <?php
-                                $selected_method = isset($_POST['contact_method']) ? sanitize_text_field($_POST['contact_method']) : 'phone';
+                                $selected_method = $posted_contact_method;
                                 ?>
                                 <label class="contact-method-option">
                                     <input type="radio" name="contact_method" value="phone" <?php checked($selected_method, 'phone'); ?>>
@@ -228,7 +242,7 @@ if (is_page_template('page-properties.php') || (is_page() && get_queried_object(
                     <div class="form-group">
                         <label for="message"><?php echo esc_html__('Message', 'figma-custom-theme'); ?></label>
                         <div class="form-textarea-wrapper">
-                            <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'figma-custom-theme'); ?>"><?php echo isset($_POST['message']) ? esc_textarea($_POST['message']) : ''; ?></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'figma-custom-theme'); ?>"><?php echo esc_textarea($posted_message); ?></textarea>
                         </div>
                     </div>
                 </div>
