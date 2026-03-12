@@ -12,6 +12,21 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+if (!function_exists('figma_custom_theme_runtime_slug')) {
+    /**
+     * Returns the active theme slug at runtime.
+     * This keeps internal IDs resilient if the folder name changes.
+     */
+    function figma_custom_theme_runtime_slug() {
+        $slug = get_template();
+        return $slug ? sanitize_key($slug) : 'figma-custom-theme';
+    }
+}
+
+if (!defined('FIGMA_CUSTOM_THEME_RUNTIME_SLUG')) {
+    define('FIGMA_CUSTOM_THEME_RUNTIME_SLUG', figma_custom_theme_runtime_slug());
+}
+
 // Graceful fallback when ACF is inactive.
 if (!function_exists('get_field')) {
     function get_field($selector, $post_id = false, $format_value = true) {
@@ -33,7 +48,7 @@ function figma_custom_theme_register_required_plugins() {
     ];
 
     $config = [
-        'id'           => 'figma-custom-theme',
+        'id'           => FIGMA_CUSTOM_THEME_RUNTIME_SLUG,
         'menu'         => 'tgmpa-install-plugins',
         'has_notices'  => true,
         'dismissable'  => false,

@@ -24,8 +24,6 @@ It includes custom content models for properties, team members, services, testim
 
 ## Installation
 
-> Important: keep the theme directory name as `real-state-wp-theme` (do not rename to `figma-custom-theme`).
-
 ### Option A: WordPress Admin Upload
 
 1. Zip the theme folder.
@@ -35,7 +33,7 @@ It includes custom content models for properties, team members, services, testim
 
 ### Option B: Manual Install
 
-1. Copy the `real-state-wp-theme` folder to `wp-content/themes/`.
+1. Copy the theme folder to `wp-content/themes/`.
 2. Activate `Estatein Real Estate Theme` from `Appearance -> Themes`.
 3. Install/activate ACF Free.
 4. Go to `Settings -> Permalinks` and click **Save Changes** once.
@@ -54,7 +52,7 @@ It includes custom content models for properties, team members, services, testim
 ## Project Structure
 
 ```text
-real-state-theme/
+your-theme/
 ├── assets/
 │   ├── css/
 │   └── js/
