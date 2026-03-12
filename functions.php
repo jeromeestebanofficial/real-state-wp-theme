@@ -12,6 +12,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Graceful fallback when ACF is inactive.
+if (!function_exists('get_field')) {
+    function get_field($selector, $post_id = false, $format_value = true) {
+        return null;
+    }
+}
+
 require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 add_action( 'tgmpa_register', 'figma_custom_theme_register_required_plugins' );
 
