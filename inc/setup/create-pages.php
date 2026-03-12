@@ -1,8 +1,8 @@
 <?php
 
 
-add_action('after_switch_theme', 'figma_theme_create_pages');
-function figma_theme_create_pages() {
+add_action('after_switch_theme', 'figma_custom_theme_create_pages');
+function figma_custom_theme_create_pages() {
 
     $pages = [
         ['title' => 'Home',       'slug' => ''],

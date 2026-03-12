@@ -2977,7 +2977,7 @@ if (!function_exists('figma_custom_theme_submission_meta_box_callback')) {
 if (!function_exists('figma_custom_theme_dashboard_widget')) {
     function figma_custom_theme_dashboard_widget() {
         wp_add_dashboard_widget(
-            'figma_theme_stats',
+            'figma_custom_theme_stats',
             'Real Estate Dashboard',
             'figma_custom_theme_dashboard_widget_content'
         );
