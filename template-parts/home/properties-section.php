@@ -2,7 +2,7 @@
 /**
  * Template part for displaying properties section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 ?>
 
@@ -112,7 +112,7 @@
                                         <?php echo esc_html(wp_trim_words(get_the_excerpt(), 15)); ?>
                                         <span> </span>
                                         <a href="<?php the_permalink(); ?>" class="read-more">
-                                            <?php echo esc_html__('Read More', 'figma-custom-theme'); ?>
+                                            <?php echo esc_html__('Read More', 'estatein-theme'); ?>
                                         </a>  
                                     </p>
                                 <?php endif; ?>
@@ -150,13 +150,13 @@
                             <div class="property-footer">
                                 <?php if ($property_price) : ?>
                                     <div class="property-price">
-                                        <span class="price-label"><?php echo esc_html__('Price', 'figma-custom-theme'); ?></span>
+                                        <span class="price-label"><?php echo esc_html__('Price', 'estatein-theme'); ?></span>
                                         <span class="price-value"><?php echo esc_html($property_price); ?></span>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <a href="<?php the_permalink(); ?>" class="btn btn-primary property-cta">
-                                    <?php echo esc_html__('View Details', 'figma-custom-theme'); ?>
+                                    <?php echo esc_html__('View Details', 'estatein-theme'); ?>
                                 </a>
                             </div>
                         </div>
@@ -169,7 +169,7 @@
                 ?>
                 <div class="no-properties-found">
                     <p class="no-properties-message">
-                        <?php echo esc_html__('No properties found.', 'figma-custom-theme'); ?>
+                        <?php echo esc_html__('No properties found.', 'estatein-theme'); ?>
                     </p>
                 </div>
                 <?php
@@ -180,7 +180,7 @@
         <div class="properties-pagination">
             <span class="pagination-info">
                 <span class="current">01</span> 
-                <span class="total"><?php echo esc_html__('of 60', 'figma-custom-theme'); ?></span>
+                <span class="total"><?php echo esc_html__('of 60', 'estatein-theme'); ?></span>
             </span>
             <div class="pagination-nav">
                 <button class="nav-btn nav-prev" disabled>

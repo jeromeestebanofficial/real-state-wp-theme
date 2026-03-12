@@ -2,10 +2,10 @@
 /**
  * Template part for displaying Our Achievements section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
-$achievements_title = get_field('about_achievements_title') ?: esc_html__('Our Achievements', 'figma-custom-theme');
+$achievements_title = get_field('about_achievements_title') ?: esc_html__('Our Achievements', 'estatein-theme');
 $achievements_description = get_field('about_achievements_description') ?: '';
 $achievements = get_field('about_achievements') ?: array();
 ?>

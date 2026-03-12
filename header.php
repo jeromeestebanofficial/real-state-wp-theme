@@ -4,7 +4,7 @@
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 ?>
@@ -26,16 +26,16 @@
 
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#primary">
-        <?php esc_html_e('Skip to content', 'figma-custom-theme'); ?>
+        <?php esc_html_e('Skip to content', 'estatein-theme'); ?>
     </a>
 
     <header id="masthead" class="site-header">
         <!-- Top Banner -->
         <div class="header-banner">
             <div class="container">
-                ✨<?php echo esc_html__('Discover Your Dream Property with Estatein', 'figma-custom-theme'); ?>
+                ✨<?php echo esc_html__('Discover Your Dream Property with Estatein', 'estatein-theme'); ?>
                 <a href="#about" class="banner-link">
-                    <?php echo esc_html__('Learn More', 'figma-custom-theme'); ?>
+                    <?php echo esc_html__('Learn More', 'estatein-theme'); ?>
                 </a>
             </div>
         </div>
@@ -90,7 +90,7 @@
                                 'menu_id'        => 'primary-menu',
                                 'menu_class'     => 'nav-menu',
                                 'container'      => false,
-                                'fallback_cb'    => 'figma_custom_theme_default_menu',
+                                'fallback_cb'    => 'estatein_theme_default_menu',
                             )
                         );
                         ?>
@@ -113,17 +113,17 @@
                         ?>
                         
                         <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="btn btn-outline">
-                            <?php echo esc_html__('Contact Us', 'figma-custom-theme'); ?>
+                            <?php echo esc_html__('Contact Us', 'estatein-theme'); ?>
                         </a>
                     </nav><!-- #site-navigation -->
 
-                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle Menu', 'figma-custom-theme'); ?>">
+                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle Menu', 'estatein-theme'); ?>">
                         <span class="hamburger">
                             <span></span>
                             <span></span>
                             <span></span>
                         </span>
-                        <span class="sr-only"><?php esc_html_e('Toggle Menu', 'figma-custom-theme'); ?></span>
+                        <span class="sr-only"><?php esc_html_e('Toggle Menu', 'estatein-theme'); ?></span>
                     </button>
                 </div>
             </div>

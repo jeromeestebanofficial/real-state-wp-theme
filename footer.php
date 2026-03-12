@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after.
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 ?>
@@ -67,7 +67,7 @@
                                 <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
                                 <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            <input type="email" placeholder="<?php echo esc_attr__('Enter Your Email', 'figma-custom-theme'); ?>" class="footer-email-input">
+                            <input type="email" placeholder="<?php echo esc_attr__('Enter Your Email', 'estatein-theme'); ?>" class="footer-email-input">
                             <button type="submit" class="footer-email-submit">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                     <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"/>
@@ -80,57 +80,57 @@
                     <!-- Footer Menu Columns -->
                     <div class="footer-menu footer-menu-home">
                         <h3 class="footer-menu-title">
-                            <?php echo esc_html__('Home', 'figma-custom-theme'); ?>
+                            <?php echo esc_html__('Home', 'estatein-theme'); ?>
                         </h3>
                         <ul class="footer-menu-list">
-                            <li><a href="#hero"><?php echo esc_html__('Hero Section', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#features"><?php echo esc_html__('Features', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#properties"><?php echo esc_html__('Properties', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#testimonials"><?php echo esc_html__('Testimonials', 'figma-custom-theme'); ?></a></li>
+                            <li><a href="#hero"><?php echo esc_html__('Hero Section', 'estatein-theme'); ?></a></li>
+                            <li><a href="#features"><?php echo esc_html__('Features', 'estatein-theme'); ?></a></li>
+                            <li><a href="#properties"><?php echo esc_html__('Properties', 'estatein-theme'); ?></a></li>
+                            <li><a href="#testimonials"><?php echo esc_html__('Testimonials', 'estatein-theme'); ?></a></li>
                         </ul>
                     </div>
 
                     <div class="footer-menu footer-menu-about">
                         <h3 class="footer-menu-title">
-                            <?php echo esc_html__('About Us', 'figma-custom-theme'); ?>
+                            <?php echo esc_html__('About Us', 'estatein-theme'); ?>
                         </h3>
                         <ul class="footer-menu-list">
-                            <li><a href="#"><?php echo esc_html__('Our Story', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('Our Works', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('How It Works', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('Our Team', 'figma-custom-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Our Story', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Our Works', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('How It Works', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Our Team', 'estatein-theme'); ?></a></li>
                         </ul>
                     </div>
 
                     <div class="footer-menu footer-menu-properties">
                         <h3 class="footer-menu-title">
-                            <?php echo esc_html__('Properties', 'figma-custom-theme'); ?>
+                            <?php echo esc_html__('Properties', 'estatein-theme'); ?>
                         </h3>
                         <ul class="footer-menu-list">
-                            <li><a href="#"><?php echo esc_html__('Portfolio', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('Categories', 'figma-custom-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Portfolio', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Categories', 'estatein-theme'); ?></a></li>
                         </ul>
                     </div>
 
                     <div class="footer-menu footer-menu-services">
                         <h3 class="footer-menu-title">
-                            <?php echo esc_html__('Services', 'figma-custom-theme'); ?>
+                            <?php echo esc_html__('Services', 'estatein-theme'); ?>
                         </h3>
                         <ul class="footer-menu-list">
-                            <li><a href="#"><?php echo esc_html__('Valuation Mastery', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('Strategic Marketing', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('Negotiation Wizardry', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('Property Management', 'figma-custom-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Valuation Mastery', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Strategic Marketing', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Negotiation Wizardry', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Property Management', 'estatein-theme'); ?></a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-menu footer-menu-contact">
                         <h3 class="footer-menu-title">
-                            <?php echo esc_html__('Contact Us', 'figma-custom-theme'); ?>
+                            <?php echo esc_html__('Contact Us', 'estatein-theme'); ?>
                         </h3>
                         <ul class="footer-menu-list">
-                            <li><a href="#"><?php echo esc_html__('Get in Touch', 'figma-custom-theme'); ?></a></li>
-                            <li><a href="#"><?php echo esc_html__('Support', 'figma-custom-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Get in Touch', 'estatein-theme'); ?></a></li>
+                            <li><a href="#"><?php echo esc_html__('Support', 'estatein-theme'); ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,13 +144,13 @@
                         <p class="footer-copyright-text">
                             <?php
                             printf(
-                                esc_html__('@%1$s Estatein. All Rights Reserved.', 'figma-custom-theme'),
+                                esc_html__('@%1$s Estatein. All Rights Reserved.', 'estatein-theme'),
                                 date('Y')
                             );
                             ?>
                         </p>
                         <a href="#" class="footer-terms-link">
-                            <?php echo esc_html__('Terms & Conditions', 'figma-custom-theme'); ?>
+                            <?php echo esc_html__('Terms & Conditions', 'estatein-theme'); ?>
                         </a>
                     </div>
 

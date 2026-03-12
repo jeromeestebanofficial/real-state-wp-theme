@@ -3,7 +3,7 @@
  * Template Name: Services Page
  * The template for displaying the Services page
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header(); ?>

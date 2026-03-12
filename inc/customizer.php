@@ -2,7 +2,7 @@
 /**
  * Figma Custom Theme Customizer
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 /**
@@ -10,8 +10,8 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-if (!function_exists('figma_custom_theme_customize_register')) {
-    function figma_custom_theme_customize_register($wp_customize) {
+if (!function_exists('estatein_theme_customize_register')) {
+    function estatein_theme_customize_register($wp_customize) {
     $wp_customize->get_setting('blogname')->transport         = 'postMessage';
     $wp_customize->get_setting('blogdescription')->transport  = 'postMessage';
     $wp_customize->get_setting('header_textcolor')->transport = 'postMessage';
@@ -21,37 +21,37 @@ if (!function_exists('figma_custom_theme_customize_register')) {
             'blogname',
             array(
                 'selector'        => '.site-title a',
-                'render_callback' => 'figma_custom_theme_customize_partial_blogname',
+                'render_callback' => 'estatein_theme_customize_partial_blogname',
             )
         );
         $wp_customize->selective_refresh->add_partial(
             'blogdescription',
             array(
                 'selector'        => '.site-description',
-                'render_callback' => 'figma_custom_theme_customize_partial_blogdescription',
+                'render_callback' => 'estatein_theme_customize_partial_blogdescription',
             )
         );
     }
 
     // Theme Options Section
-    $wp_customize->add_section('figma_custom_theme_options', array(
-        'title'    => esc_html__('Theme Options', 'figma-custom-theme'),
+    $wp_customize->add_section('estatein_theme_options', array(
+        'title'    => esc_html__('Theme Options', 'estatein-theme'),
         'priority' => 130,
     ));
 
     // Header Layout
     $wp_customize->add_setting('header_layout', array(
         'default'           => 'default',
-        'sanitize_callback' => 'figma_custom_theme_sanitize_select',
+        'sanitize_callback' => 'estatein_theme_sanitize_select',
     ));
 
     $wp_customize->add_control('header_layout', array(
-        'label'    => esc_html__('Header Layout', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_options',
+        'label'    => esc_html__('Header Layout', 'estatein-theme'),
+        'section'  => 'estatein_theme_options',
         'type'     => 'select',
         'choices'  => array(
-            'default' => esc_html__('Default', 'figma-custom-theme'),
-            'centered' => esc_html__('Centered', 'figma-custom-theme'),
+            'default' => esc_html__('Default', 'estatein-theme'),
+            'centered' => esc_html__('Centered', 'estatein-theme'),
         ),
     ));
 
@@ -62,14 +62,14 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('footer_text', array(
-        'label'    => esc_html__('Footer Text', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_options',
+        'label'    => esc_html__('Footer Text', 'estatein-theme'),
+        'section'  => 'estatein_theme_options',
         'type'     => 'text',
     ));
 
     // Color Options Section
-    $wp_customize->add_section('figma_custom_theme_colors', array(
-        'title'    => esc_html__('Color Options', 'figma-custom-theme'),
+    $wp_customize->add_section('estatein_theme_colors', array(
+        'title'    => esc_html__('Color Options', 'estatein-theme'),
         'priority' => 140,
     ));
 
@@ -80,8 +80,8 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'primary_color', array(
-        'label'    => esc_html__('Primary Color', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_colors',
+        'label'    => esc_html__('Primary Color', 'estatein-theme'),
+        'section'  => 'estatein_theme_colors',
         'settings' => 'primary_color',
     )));
 
@@ -92,16 +92,16 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'secondary_color', array(
-        'label'    => esc_html__('Secondary Color', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_colors',
+        'label'    => esc_html__('Secondary Color', 'estatein-theme'),
+        'section'  => 'estatein_theme_colors',
         'settings' => 'secondary_color',
     )));
 
     // Images Section
-    $wp_customize->add_section('figma_custom_theme_images', array(
-        'title'    => esc_html__('Theme Images', 'figma-custom-theme'),
+    $wp_customize->add_section('estatein_theme_images', array(
+        'title'    => esc_html__('Theme Images', 'estatein-theme'),
         'priority' => 150,
-        'description' => esc_html__('Customize images throughout your website. Upload your own images to replace the default ones.', 'figma-custom-theme'),
+        'description' => esc_html__('Customize images throughout your website. Upload your own images to replace the default ones.', 'estatein-theme'),
     ));
 
     // Hero Image
@@ -112,10 +112,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'hero_image', array(
-        'label'     => esc_html__('Hero Section Image', 'figma-custom-theme'),
-        'section'   => 'figma_custom_theme_images',
+        'label'     => esc_html__('Hero Section Image', 'estatein-theme'),
+        'section'   => 'estatein_theme_images',
         'mime_type' => 'image',
-        'description' => esc_html__('Upload an image for the hero section. Recommended size: 600x600px. This takes priority over the URL field below.', 'figma-custom-theme'),
+        'description' => esc_html__('Upload an image for the hero section. Recommended size: 600x600px. This takes priority over the URL field below.', 'estatein-theme'),
     )));
 
     // Hero Image URL (fallback when no upload is selected)
@@ -126,10 +126,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('hero_image_url', array(
-        'label'       => esc_html__('Hero Section Image URL', 'figma-custom-theme'),
-        'section'     => 'figma_custom_theme_images',
+        'label'       => esc_html__('Hero Section Image URL', 'estatein-theme'),
+        'section'     => 'estatein_theme_images',
         'type'        => 'url',
-        'description' => esc_html__('Paste a direct image URL. Used only when no uploaded Hero Section Image is selected.', 'figma-custom-theme'),
+        'description' => esc_html__('Paste a direct image URL. Used only when no uploaded Hero Section Image is selected.', 'estatein-theme'),
     ));
 
     // Property Images
@@ -140,10 +140,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         ));
 
         $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, "property_image_{$i}", array(
-            'label'     => sprintf(esc_html__('Property Image %d', 'figma-custom-theme'), $i),
-            'section'   => 'figma_custom_theme_images',
+            'label'     => sprintf(esc_html__('Property Image %d', 'estatein-theme'), $i),
+            'section'   => 'estatein_theme_images',
             'mime_type' => 'image',
-            'description' => esc_html__('Upload an image for the properties section. Recommended size: 400x240px', 'figma-custom-theme'),
+            'description' => esc_html__('Upload an image for the properties section. Recommended size: 400x240px', 'estatein-theme'),
         )));
     }
 
@@ -155,18 +155,18 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         ));
 
         $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, "testimonial_avatar_{$i}", array(
-            'label'     => sprintf(esc_html__('Testimonial Avatar %d', 'figma-custom-theme'), $i),
-            'section'   => 'figma_custom_theme_images',
+            'label'     => sprintf(esc_html__('Testimonial Avatar %d', 'estatein-theme'), $i),
+            'section'   => 'estatein_theme_images',
             'mime_type' => 'image',
-            'description' => esc_html__('Upload an avatar image for testimonials. Recommended size: 60x60px', 'figma-custom-theme'),
+            'description' => esc_html__('Upload an avatar image for testimonials. Recommended size: 60x60px', 'estatein-theme'),
         )));
     }
 
     // Content Section
-    $wp_customize->add_section('figma_custom_theme_content', array(
-        'title'    => esc_html__('Theme Content', 'figma-custom-theme'),
+    $wp_customize->add_section('estatein_theme_content', array(
+        'title'    => esc_html__('Theme Content', 'estatein-theme'),
         'priority' => 160,
-        'description' => esc_html__('Customize text content throughout your website.', 'figma-custom-theme'),
+        'description' => esc_html__('Customize text content throughout your website.', 'estatein-theme'),
     ));
 
     // Hero Title
@@ -177,8 +177,8 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('hero_title', array(
-        'label'    => esc_html__('Hero Title', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_content',
+        'label'    => esc_html__('Hero Title', 'estatein-theme'),
+        'section'  => 'estatein_theme_content',
         'type'     => 'text',
     ));
 
@@ -190,8 +190,8 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('hero_subtitle', array(
-        'label'    => esc_html__('Hero Subtitle', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_content',
+        'label'    => esc_html__('Hero Subtitle', 'estatein-theme'),
+        'section'  => 'estatein_theme_content',
         'type'     => 'textarea',
     ));
 
@@ -203,8 +203,8 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('hero_button_1_text', array(
-        'label'    => esc_html__('Hero - Button 1 Text (Learn More)', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_content',
+        'label'    => esc_html__('Hero - Button 1 Text (Learn More)', 'estatein-theme'),
+        'section'  => 'estatein_theme_content',
         'type'     => 'text',
     ));
 
@@ -216,8 +216,8 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('hero_button_2_text', array(
-        'label'    => esc_html__('Hero - Button 2 Text (Browse Properties)', 'figma-custom-theme'),
-        'section'  => 'figma_custom_theme_content',
+        'label'    => esc_html__('Hero - Button 2 Text (Browse Properties)', 'estatein-theme'),
+        'section'  => 'estatein_theme_content',
         'type'     => 'text',
     ));
 
@@ -236,8 +236,8 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         ));
 
         $wp_customize->add_control("hero_stat_{$i}_number", array(
-            'label'    => sprintf(esc_html__('Hero Stat %d Number', 'figma-custom-theme'), $i),
-            'section'  => 'figma_custom_theme_content',
+            'label'    => sprintf(esc_html__('Hero Stat %d Number', 'estatein-theme'), $i),
+            'section'  => 'estatein_theme_content',
             'type'     => 'text',
         ));
 
@@ -248,17 +248,17 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         ));
 
         $wp_customize->add_control("hero_stat_{$i}_label", array(
-            'label'    => sprintf(esc_html__('Hero Stat %d Label', 'figma-custom-theme'), $i),
-            'section'  => 'figma_custom_theme_content',
+            'label'    => sprintf(esc_html__('Hero Stat %d Label', 'estatein-theme'), $i),
+            'section'  => 'estatein_theme_content',
             'type'     => 'text',
         ));
     }
 
     // Homepage Sections
     $wp_customize->add_section('figma_homepage_sections', array(
-        'title'    => esc_html__('Homepage Sections', 'figma-custom-theme'),
+        'title'    => esc_html__('Homepage Sections', 'estatein-theme'),
         'priority' => 165,
-        'description' => esc_html__('Customize content for homepage sections (Features, Properties, Testimonials).', 'figma-custom-theme'),
+        'description' => esc_html__('Customize content for homepage sections (Features, Properties, Testimonials).', 'estatein-theme'),
     ));
 
     // Features Section - Feature 1
@@ -268,7 +268,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('feature_1_title', array(
-        'label'    => esc_html__('Feature 1 - Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Feature 1 - Title', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
@@ -280,7 +280,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('feature_2_title', array(
-        'label'    => esc_html__('Feature 2 - Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Feature 2 - Title', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
@@ -292,7 +292,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('feature_3_title', array(
-        'label'    => esc_html__('Feature 3 - Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Feature 3 - Title', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
@@ -304,7 +304,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('feature_4_title', array(
-        'label'    => esc_html__('Feature 4 - Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Feature 4 - Title', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
@@ -316,7 +316,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('homepage_properties_title', array(
-        'label'    => esc_html__('Properties Section - Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Properties Section - Title', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
@@ -328,7 +328,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('homepage_properties_description', array(
-        'label'    => esc_html__('Properties Section - Description', 'figma-custom-theme'),
+        'label'    => esc_html__('Properties Section - Description', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'textarea',
     ));
@@ -340,7 +340,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('homepage_properties_button_text', array(
-        'label'    => esc_html__('Properties Section - Button Text', 'figma-custom-theme'),
+        'label'    => esc_html__('Properties Section - Button Text', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
@@ -352,7 +352,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('homepage_testimonials_title', array(
-        'label'    => esc_html__('Testimonials Section - Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Testimonials Section - Title', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
@@ -364,7 +364,7 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('homepage_testimonials_description', array(
-        'label'    => esc_html__('Testimonials Section - Description', 'figma-custom-theme'),
+        'label'    => esc_html__('Testimonials Section - Description', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'textarea',
     ));
@@ -376,16 +376,16 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'transport'         => 'postMessage',
     ));
     $wp_customize->add_control('homepage_testimonials_button_text', array(
-        'label'    => esc_html__('Testimonials Section - Button Text', 'figma-custom-theme'),
+        'label'    => esc_html__('Testimonials Section - Button Text', 'estatein-theme'),
         'section'  => 'figma_homepage_sections',
         'type'     => 'text',
     ));
 
     // Properties Archive Page Section
     $wp_customize->add_section('figma_properties_archive', array(
-        'title'    => esc_html__('Properties Archive Page', 'figma-custom-theme'),
+        'title'    => esc_html__('Properties Archive Page', 'estatein-theme'),
         'priority' => 170,
-        'description' => esc_html__('Customize the content for the Properties Archive page (/properties). These settings apply to the archive page where all properties are listed.', 'figma-custom-theme'),
+        'description' => esc_html__('Customize the content for the Properties Archive page (/properties). These settings apply to the archive page where all properties are listed.', 'estatein-theme'),
     ));
 
     // Hero Section Title
@@ -396,10 +396,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('properties_archive_hero_title', array(
-        'label'    => esc_html__('Hero Section Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Hero Section Title', 'estatein-theme'),
         'section'  => 'figma_properties_archive',
         'type'     => 'text',
-        'description' => esc_html__('The main title displayed in the hero section of the properties archive page.', 'figma-custom-theme'),
+        'description' => esc_html__('The main title displayed in the hero section of the properties archive page.', 'estatein-theme'),
     ));
 
     // Hero Section Description
@@ -410,10 +410,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('properties_archive_hero_description', array(
-        'label'    => esc_html__('Hero Section Description', 'figma-custom-theme'),
+        'label'    => esc_html__('Hero Section Description', 'estatein-theme'),
         'section'  => 'figma_properties_archive',
         'type'     => 'textarea',
-        'description' => esc_html__('The description text displayed below the hero title.', 'figma-custom-theme'),
+        'description' => esc_html__('The description text displayed below the hero title.', 'estatein-theme'),
     ));
 
     // Listing Section Title
@@ -424,10 +424,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('properties_archive_section_title', array(
-        'label'    => esc_html__('Properties Listing Section Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Properties Listing Section Title', 'estatein-theme'),
         'section'  => 'figma_properties_archive',
         'type'     => 'text',
-        'description' => esc_html__('The title displayed above the properties listing grid.', 'figma-custom-theme'),
+        'description' => esc_html__('The title displayed above the properties listing grid.', 'estatein-theme'),
     ));
 
     // Listing Section Description
@@ -438,10 +438,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('properties_archive_section_description', array(
-        'label'    => esc_html__('Properties Listing Section Description', 'figma-custom-theme'),
+        'label'    => esc_html__('Properties Listing Section Description', 'estatein-theme'),
         'section'  => 'figma_properties_archive',
         'type'     => 'textarea',
-        'description' => esc_html__('The description text displayed below the listing section title.', 'figma-custom-theme'),
+        'description' => esc_html__('The description text displayed below the listing section title.', 'estatein-theme'),
     ));
 
     // Contact Section Title
@@ -452,10 +452,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('properties_archive_contact_title', array(
-        'label'    => esc_html__('Contact Form Section Title', 'figma-custom-theme'),
+        'label'    => esc_html__('Contact Form Section Title', 'estatein-theme'),
         'section'  => 'figma_properties_archive',
         'type'     => 'text',
-        'description' => esc_html__('The title displayed above the contact form.', 'figma-custom-theme'),
+        'description' => esc_html__('The title displayed above the contact form.', 'estatein-theme'),
     ));
 
     // Contact Section Description
@@ -466,10 +466,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('properties_archive_contact_description', array(
-        'label'    => esc_html__('Contact Form Section Description', 'figma-custom-theme'),
+        'label'    => esc_html__('Contact Form Section Description', 'estatein-theme'),
         'section'  => 'figma_properties_archive',
         'type'     => 'textarea',
-        'description' => esc_html__('The description text displayed below the contact form title.', 'figma-custom-theme'),
+        'description' => esc_html__('The description text displayed below the contact form title.', 'estatein-theme'),
     ));
 
     // Add selective refresh for homepage content (with edit indicators)
@@ -649,9 +649,9 @@ if (!function_exists('figma_custom_theme_customize_register')) {
 
     // Footer Section
     $wp_customize->add_section('figma_footer_settings', array(
-        'title'    => esc_html__('Footer Settings', 'figma-custom-theme'),
+        'title'    => esc_html__('Footer Settings', 'estatein-theme'),
         'priority' => 180,
-        'description' => esc_html__('Customize the footer content including the call-to-action section.', 'figma-custom-theme'),
+        'description' => esc_html__('Customize the footer content including the call-to-action section.', 'estatein-theme'),
     ));
 
     // Footer CTA Title
@@ -662,10 +662,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('footer_cta_title', array(
-        'label'    => esc_html__('CTA Section Title', 'figma-custom-theme'),
+        'label'    => esc_html__('CTA Section Title', 'estatein-theme'),
         'section'  => 'figma_footer_settings',
         'type'     => 'text',
-        'description' => esc_html__('The main title in the footer call-to-action section.', 'figma-custom-theme'),
+        'description' => esc_html__('The main title in the footer call-to-action section.', 'estatein-theme'),
     ));
 
     // Footer CTA Description
@@ -676,10 +676,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('footer_cta_description', array(
-        'label'    => esc_html__('CTA Section Description', 'figma-custom-theme'),
+        'label'    => esc_html__('CTA Section Description', 'estatein-theme'),
         'section'  => 'figma_footer_settings',
         'type'     => 'textarea',
-        'description' => esc_html__('The description text in the footer call-to-action section.', 'figma-custom-theme'),
+        'description' => esc_html__('The description text in the footer call-to-action section.', 'estatein-theme'),
     ));
 
     // Footer CTA Button Text
@@ -690,10 +690,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('footer_cta_button_text', array(
-        'label'    => esc_html__('CTA Button Text', 'figma-custom-theme'),
+        'label'    => esc_html__('CTA Button Text', 'estatein-theme'),
         'section'  => 'figma_footer_settings',
         'type'     => 'text',
-        'description' => esc_html__('The text displayed on the call-to-action button.', 'figma-custom-theme'),
+        'description' => esc_html__('The text displayed on the call-to-action button.', 'estatein-theme'),
     ));
 
     // Footer CTA Button Link
@@ -704,10 +704,10 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     ));
 
     $wp_customize->add_control('footer_cta_button_link', array(
-        'label'    => esc_html__('CTA Button Link', 'figma-custom-theme'),
+        'label'    => esc_html__('CTA Button Link', 'estatein-theme'),
         'section'  => 'figma_footer_settings',
         'type'     => 'url',
-        'description' => esc_html__('The URL for the call-to-action button. Leave empty to use the Properties page link.', 'figma-custom-theme'),
+        'description' => esc_html__('The URL for the call-to-action button. Leave empty to use the Properties page link.', 'estatein-theme'),
     ));
 
     // Add selective refresh for footer CTA
@@ -738,14 +738,14 @@ if (!function_exists('figma_custom_theme_customize_register')) {
     }
     }
 }
-add_action('customize_register', 'figma_custom_theme_customize_register');
+add_action('customize_register', 'estatein_theme_customize_register');
 
 /**
  * Render the site title for the selective refresh partial.
  *
  * @return void
  */
-function figma_custom_theme_customize_partial_blogname() {
+function estatein_theme_customize_partial_blogname() {
     bloginfo('name');
 }
 
@@ -754,22 +754,22 @@ function figma_custom_theme_customize_partial_blogname() {
  *
  * @return void
  */
-function figma_custom_theme_customize_partial_blogdescription() {
+function estatein_theme_customize_partial_blogdescription() {
     bloginfo('description');
 }
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function figma_custom_theme_customize_preview_js() {
-    wp_enqueue_script('figma-custom-theme-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array('customize-preview'), wp_get_theme()->get('Version'), true);
+function estatein_theme_customize_preview_js() {
+    wp_enqueue_script('estatein-theme-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array('customize-preview'), wp_get_theme()->get('Version'), true);
 }
-add_action('customize_preview_init', 'figma_custom_theme_customize_preview_js');
+add_action('customize_preview_init', 'estatein_theme_customize_preview_js');
 
 /**
  * Sanitize select options
  */
-function figma_custom_theme_sanitize_select($input, $setting) {
+function estatein_theme_sanitize_select($input, $setting) {
     // Ensure input is a slug.
     $input = sanitize_key($input);
 

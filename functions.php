@@ -2,7 +2,7 @@
 /**
  * Theme functions and definitions
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  * 
  * UI Design Reference: https://www.figma.com/community/file/1314076616839640516
  */
@@ -12,19 +12,19 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-if (!function_exists('figma_custom_theme_runtime_slug')) {
+if (!function_exists('estatein_theme_runtime_slug')) {
     /**
      * Returns the active theme slug at runtime.
      * This keeps internal IDs resilient if the folder name changes.
      */
-    function figma_custom_theme_runtime_slug() {
+    function estatein_theme_runtime_slug() {
         $slug = get_template();
-        return $slug ? sanitize_key($slug) : 'figma-custom-theme';
+        return $slug ? sanitize_key($slug) : 'estatein-theme';
     }
 }
 
 if (!defined('FIGMA_CUSTOM_THEME_RUNTIME_SLUG')) {
-    define('FIGMA_CUSTOM_THEME_RUNTIME_SLUG', figma_custom_theme_runtime_slug());
+    define('FIGMA_CUSTOM_THEME_RUNTIME_SLUG', estatein_theme_runtime_slug());
 }
 
 // Graceful fallback when ACF is inactive.
@@ -35,9 +35,9 @@ if (!function_exists('get_field')) {
 }
 
 require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
-add_action( 'tgmpa_register', 'figma_custom_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'estatein_theme_register_required_plugins' );
 
-function figma_custom_theme_register_required_plugins() {
+function estatein_theme_register_required_plugins() {
 
     $plugins = [
         [
@@ -70,8 +70,8 @@ require_once get_template_directory() . '/inc/setup/create-menus.php';
 /**
  * Theme setup function
  */
-if (!function_exists('figma_custom_theme_setup')) {
-    function figma_custom_theme_setup() {
+if (!function_exists('estatein_theme_setup')) {
+    function estatein_theme_setup() {
     // Add default posts and comments RSS feed links to head
     add_theme_support('automatic-feed-links');
 
@@ -100,8 +100,8 @@ if (!function_exists('figma_custom_theme_setup')) {
 
     // This theme uses wp_nav_menu() in one location
     register_nav_menus(array(
-        'primary' => esc_html__('Primary Menu', 'figma-custom-theme'),
-        'footer'  => esc_html__('Footer Menu', 'figma-custom-theme'),
+        'primary' => esc_html__('Primary Menu', 'estatein-theme'),
+        'footer'  => esc_html__('Footer Menu', 'estatein-theme'),
     ));
 
     // Add support for HTML5 markup
@@ -116,7 +116,7 @@ if (!function_exists('figma_custom_theme_setup')) {
     ));
 
     // Add support for custom background
-    add_theme_support('custom-background', apply_filters('figma_custom_theme_custom_background_args', array(
+    add_theme_support('custom-background', apply_filters('estatein_theme_custom_background_args', array(
         'default-color' => 'ffffff',
         'default-image' => '',
     )));
@@ -127,54 +127,54 @@ if (!function_exists('figma_custom_theme_setup')) {
     // Add support for core custom colors
     add_theme_support('editor-color-palette', array(
         array(
-            'name'  => esc_html__('Primary', 'figma-custom-theme'),
+            'name'  => esc_html__('Primary', 'estatein-theme'),
             'slug'  => 'primary',
             'color' => '#007cba',
         ),
         array(
-            'name'  => esc_html__('Secondary', 'figma-custom-theme'),
+            'name'  => esc_html__('Secondary', 'estatein-theme'),
             'slug'  => 'secondary',
             'color' => '#666666',
         ),
         array(
-            'name'  => esc_html__('Dark Gray', 'figma-custom-theme'),
+            'name'  => esc_html__('Dark Gray', 'estatein-theme'),
             'slug'  => 'dark-gray',
             'color' => '#333333',
         ),
         array(
-            'name'  => esc_html__('Light Gray', 'figma-custom-theme'),
+            'name'  => esc_html__('Light Gray', 'estatein-theme'),
             'slug'  => 'light-gray',
             'color' => '#f9f9f9',
         ),
         array(
-            'name'  => esc_html__('White', 'figma-custom-theme'),
+            'name'  => esc_html__('White', 'estatein-theme'),
             'slug'  => 'white',
             'color' => '#ffffff',
         ),
     ));
     }
 }
-add_action('after_setup_theme', 'figma_custom_theme_setup');
+add_action('after_setup_theme', 'estatein_theme_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet
  */
-if (!function_exists('figma_custom_theme_content_width')) {
-    function figma_custom_theme_content_width() {
-        $GLOBALS['content_width'] = apply_filters('figma_custom_theme_content_width', 1200);
+if (!function_exists('estatein_theme_content_width')) {
+    function estatein_theme_content_width() {
+        $GLOBALS['content_width'] = apply_filters('estatein_theme_content_width', 1200);
     }
 }
-add_action('after_setup_theme', 'figma_custom_theme_content_width', 0);
+add_action('after_setup_theme', 'estatein_theme_content_width', 0);
 
 /**
  * Register widget area
  */
-if (!function_exists('figma_custom_theme_widgets_init')) {
-    function figma_custom_theme_widgets_init() {
+if (!function_exists('estatein_theme_widgets_init')) {
+    function estatein_theme_widgets_init() {
     register_sidebar(array(
-        'name'          => esc_html__('Sidebar', 'figma-custom-theme'),
+        'name'          => esc_html__('Sidebar', 'estatein-theme'),
         'id'            => 'sidebar-1',
-        'description'   => esc_html__('Add widgets here.', 'figma-custom-theme'),
+        'description'   => esc_html__('Add widgets here.', 'estatein-theme'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h2 class="widget-title">',
@@ -182,9 +182,9 @@ if (!function_exists('figma_custom_theme_widgets_init')) {
     ));
 
     register_sidebar(array(
-        'name'          => esc_html__('Footer Widget Area', 'figma-custom-theme'),
+        'name'          => esc_html__('Footer Widget Area', 'estatein-theme'),
         'id'            => 'footer-1',
-        'description'   => esc_html__('Add footer widgets here.', 'figma-custom-theme'),
+        'description'   => esc_html__('Add footer widgets here.', 'estatein-theme'),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
@@ -192,31 +192,31 @@ if (!function_exists('figma_custom_theme_widgets_init')) {
     ));
     }
 }
-add_action('widgets_init', 'figma_custom_theme_widgets_init');
+add_action('widgets_init', 'estatein_theme_widgets_init');
 
 /**
  * Enqueue scripts and styles
  */
-if (!function_exists('figma_custom_theme_scripts')) {
-    function figma_custom_theme_scripts() {
+if (!function_exists('estatein_theme_scripts')) {
+    function estatein_theme_scripts() {
     // Enqueue main stylesheet
-    wp_enqueue_style('figma-custom-theme-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
+    wp_enqueue_style('estatein-theme-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
 
     // Enqueue component stylesheets
-    wp_enqueue_style('figma-custom-theme-hero', get_template_directory_uri() . '/assets/css/components/hero.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
-    wp_enqueue_style('figma-custom-theme-features', get_template_directory_uri() . '/assets/css/components/features.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
-    wp_enqueue_style('figma-custom-theme-properties', get_template_directory_uri() . '/assets/css/components/properties.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
-    wp_enqueue_style('figma-custom-theme-testimonials', get_template_directory_uri() . '/assets/css/components/testimonials.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
+    wp_enqueue_style('estatein-theme-hero', get_template_directory_uri() . '/assets/css/components/hero.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
+    wp_enqueue_style('estatein-theme-features', get_template_directory_uri() . '/assets/css/components/features.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
+    wp_enqueue_style('estatein-theme-properties', get_template_directory_uri() . '/assets/css/components/properties.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
+    wp_enqueue_style('estatein-theme-testimonials', get_template_directory_uri() . '/assets/css/components/testimonials.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
     
     // Enqueue About page styles
     if (is_page_template('page-about.php') || (is_page() && get_queried_object() && get_queried_object()->post_name === 'about') || (is_page() && get_query_var('pagename') === 'about')) {
-        wp_enqueue_style('figma-custom-theme-about', get_template_directory_uri() . '/assets/css/components/about.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
-        wp_enqueue_style('figma-custom-theme-about-journey', get_template_directory_uri() . '/assets/css/components/about-journey.css', array('figma-custom-theme-about'), wp_get_theme()->get('Version'));
-        wp_enqueue_style('figma-custom-theme-about-values', get_template_directory_uri() . '/assets/css/components/about-values.css', array('figma-custom-theme-about'), wp_get_theme()->get('Version'));
-        wp_enqueue_style('figma-custom-theme-about-achievements', get_template_directory_uri() . '/assets/css/components/about-achievements.css', array('figma-custom-theme-about'), wp_get_theme()->get('Version'));
-        wp_enqueue_style('figma-custom-theme-about-process', get_template_directory_uri() . '/assets/css/components/about-process.css', array('figma-custom-theme-about'), wp_get_theme()->get('Version'));
-        wp_enqueue_style('figma-custom-theme-about-team', get_template_directory_uri() . '/assets/css/components/about-team.css', array('figma-custom-theme-about'), wp_get_theme()->get('Version'));
-        wp_enqueue_style('figma-custom-theme-about-clients', get_template_directory_uri() . '/assets/css/components/about-clients.css', array('figma-custom-theme-about'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-about', get_template_directory_uri() . '/assets/css/components/about.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-about-journey', get_template_directory_uri() . '/assets/css/components/about-journey.css', array('estatein-theme-about'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-about-values', get_template_directory_uri() . '/assets/css/components/about-values.css', array('estatein-theme-about'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-about-achievements', get_template_directory_uri() . '/assets/css/components/about-achievements.css', array('estatein-theme-about'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-about-process', get_template_directory_uri() . '/assets/css/components/about-process.css', array('estatein-theme-about'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-about-team', get_template_directory_uri() . '/assets/css/components/about-team.css', array('estatein-theme-about'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-about-clients', get_template_directory_uri() . '/assets/css/components/about-clients.css', array('estatein-theme-about'), wp_get_theme()->get('Version'));
     }
     
     // Enqueue Properties page styles
@@ -228,12 +228,12 @@ if (!function_exists('figma_custom_theme_scripts')) {
         || is_tax('property_location');
     
     if ($is_properties_page) {
-        wp_enqueue_style('figma-custom-theme-properties-page', get_template_directory_uri() . '/assets/css/properties-page.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-properties-page', get_template_directory_uri() . '/assets/css/properties-page.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
     }
     
     // Enqueue Single Property page styles
     if (is_singular('property')) {
-        wp_enqueue_style('figma-custom-theme-single-property', get_template_directory_uri() . '/assets/css/single-property.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-single-property', get_template_directory_uri() . '/assets/css/single-property.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
         wp_enqueue_script('figma-property-gallery', get_template_directory_uri() . '/assets/js/property-gallery.js', array('jquery'), wp_get_theme()->get('Version'), true);
     }
     
@@ -243,18 +243,18 @@ if (!function_exists('figma_custom_theme_scripts')) {
         || (is_page() && get_query_var('pagename') === 'services');
     
     if ($is_services_page) {
-        wp_enqueue_style('figma-custom-theme-services-page', get_template_directory_uri() . '/assets/css/services-page.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
+        wp_enqueue_style('estatein-theme-services-page', get_template_directory_uri() . '/assets/css/services-page.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
     }
     
     // Enqueue layout stylesheets
-    wp_enqueue_style('figma-custom-theme-blog', get_template_directory_uri() . '/assets/css/layout/blog.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
+    wp_enqueue_style('estatein-theme-blog', get_template_directory_uri() . '/assets/css/layout/blog.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
     
     // Enqueue footer styles (global)
-    wp_enqueue_style('figma-custom-theme-footer', get_template_directory_uri() . '/assets/css/footer.css', array('figma-custom-theme-style'), wp_get_theme()->get('Version'));
+    wp_enqueue_style('estatein-theme-footer', get_template_directory_uri() . '/assets/css/footer.css', array('estatein-theme-style'), wp_get_theme()->get('Version'));
 
 
     // Enqueue custom JavaScript
-    wp_enqueue_script('figma-custom-theme-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('estatein-theme-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), wp_get_theme()->get('Version'), true);
 
     // Add support for comment reply
     if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -262,7 +262,7 @@ if (!function_exists('figma_custom_theme_scripts')) {
     }
     }
 }
-add_action('wp_enqueue_scripts', 'figma_custom_theme_scripts');
+add_action('wp_enqueue_scripts', 'estatein_theme_scripts');
 
 /**
  * Custom template tags for this theme
@@ -282,45 +282,45 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Custom excerpt length
  */
-if (!function_exists('figma_custom_theme_excerpt_length')) {
-    function figma_custom_theme_excerpt_length($length) {
+if (!function_exists('estatein_theme_excerpt_length')) {
+    function estatein_theme_excerpt_length($length) {
         return 30;
     }
 }
-add_filter('excerpt_length', 'figma_custom_theme_excerpt_length');
+add_filter('excerpt_length', 'estatein_theme_excerpt_length');
 
 /**
  * Custom excerpt more
  */
-if (!function_exists('figma_custom_theme_excerpt_more')) {
-    function figma_custom_theme_excerpt_more($more) {
+if (!function_exists('estatein_theme_excerpt_more')) {
+    function estatein_theme_excerpt_more($more) {
         return '...';
     }
 }
-add_filter('excerpt_more', 'figma_custom_theme_excerpt_more');
+add_filter('excerpt_more', 'estatein_theme_excerpt_more');
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments
  */
-function figma_custom_theme_pingback_header() {
+function estatein_theme_pingback_header() {
     if (is_singular() && pings_open()) {
         printf('<link rel="pingback" href="%s">', esc_url(get_bloginfo('pingback_url')));
     }
 }
-add_action('wp_head', 'figma_custom_theme_pingback_header');
+add_action('wp_head', 'estatein_theme_pingback_header');
 
 /**
  * Enqueue Google Fonts
  */
-function figma_custom_theme_fonts() {
-    wp_enqueue_style('figma-custom-theme-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap', array(), null);
+function estatein_theme_fonts() {
+    wp_enqueue_style('estatein-theme-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap', array(), null);
 }
-add_action('wp_enqueue_scripts', 'figma_custom_theme_fonts');
+add_action('wp_enqueue_scripts', 'estatein_theme_fonts');
 
 /**
  * Add custom body classes
  */
-function figma_custom_theme_body_classes($classes) {
+function estatein_theme_body_classes($classes) {
     // Add class if we're viewing the Customizer for easier styling of theme options
     if (is_customize_preview()) {
         $classes[] = 'wp-customizer';
@@ -328,14 +328,14 @@ function figma_custom_theme_body_classes($classes) {
 
     return $classes;
 }
-add_filter('body_class', 'figma_custom_theme_body_classes');
+add_filter('body_class', 'estatein_theme_body_classes');
 
 /**
  * Fallback menu for when no menu is assigned
  */
-function figma_custom_theme_default_menu() {
+function estatein_theme_default_menu() {
     echo '<ul id="primary-menu" class="nav-menu">';
-    echo '<li class="current-menu-item"><a href="' . esc_url(home_url('/')) . '">' . esc_html__('Home', 'figma-custom-theme') . '</a></li>';
+    echo '<li class="current-menu-item"><a href="' . esc_url(home_url('/')) . '">' . esc_html__('Home', 'estatein-theme') . '</a></li>';
     
     // Add pages to menu
     $pages = get_pages(array(
@@ -367,7 +367,7 @@ add_theme_support('custom-line-height');
 add_theme_support('custom-spacing');
 
 // Optimize WordPress queries
-function figma_custom_theme_optimize_queries($query) {
+function estatein_theme_optimize_queries($query) {
     if (!is_admin() && $query->is_main_query()) {
         // Limit posts per page for performance
         if (is_home()) {
@@ -380,7 +380,7 @@ function figma_custom_theme_optimize_queries($query) {
         }
     }
 }
-add_action('pre_get_posts', 'figma_custom_theme_optimize_queries');
+add_action('pre_get_posts', 'estatein_theme_optimize_queries');
 
 // Remove unnecessary WordPress features for performance
 remove_action('wp_head', 'wlwmanifest_link');
@@ -394,16 +394,16 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0);
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 
 // Add preload for fonts
-function figma_custom_theme_preload_fonts() {
+function estatein_theme_preload_fonts() {
     ?>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap"></noscript>
     <?php
 }
-add_action('wp_head', 'figma_custom_theme_preload_fonts', 1);
+add_action('wp_head', 'estatein_theme_preload_fonts', 1);
 
 // Optimize images
-function figma_custom_theme_optimize_images($attr, $attachment, $size) {
+function estatein_theme_optimize_images($attr, $attachment, $size) {
     // Add loading="lazy" to images
     if (!isset($attr['loading'])) {
         $attr['loading'] = 'lazy';
@@ -416,36 +416,36 @@ function figma_custom_theme_optimize_images($attr, $attachment, $size) {
     
     return $attr;
 }
-add_filter('wp_get_attachment_image_attributes', 'figma_custom_theme_optimize_images', 10, 3);
+add_filter('wp_get_attachment_image_attributes', 'estatein_theme_optimize_images', 10, 3);
 
 // Add ARIA labels to navigation menus
-function figma_custom_theme_nav_menu_args($args) {
+function estatein_theme_nav_menu_args($args) {
     if ($args['theme_location'] === 'primary') {
         $args['menu_id'] = 'primary-menu';
-        $args['container_aria_label'] = esc_attr__('Primary Navigation', 'figma-custom-theme');
+        $args['container_aria_label'] = esc_attr__('Primary Navigation', 'estatein-theme');
     }
     
     if ($args['theme_location'] === 'footer') {
         $args['menu_id'] = 'footer-menu';
-        $args['container_aria_label'] = esc_attr__('Footer Navigation', 'figma-custom-theme');
+        $args['container_aria_label'] = esc_attr__('Footer Navigation', 'estatein-theme');
     }
     
     return $args;
 }
-add_filter('wp_nav_menu_args', 'figma_custom_theme_nav_menu_args');
+add_filter('wp_nav_menu_args', 'estatein_theme_nav_menu_args');
 
 // Improve accessibility for skip links
-function figma_custom_theme_skip_link_focus_fix() {
+function estatein_theme_skip_link_focus_fix() {
     ?>
     <script>
     /(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
     </script>
     <?php
 }
-add_action('wp_print_footer_scripts', 'figma_custom_theme_skip_link_focus_fix');
+add_action('wp_print_footer_scripts', 'estatein_theme_skip_link_focus_fix');
 
 // Add schema markup
-function figma_custom_theme_add_schema() {
+function estatein_theme_add_schema() {
     if (is_front_page()) {
         ?>
         <script type="application/ld+json">
@@ -465,10 +465,10 @@ function figma_custom_theme_add_schema() {
         <?php
     }
 }
-add_action('wp_head', 'figma_custom_theme_add_schema');
+add_action('wp_head', 'estatein_theme_add_schema');
 
 // Security enhancements
-function figma_custom_theme_security_headers() {
+function estatein_theme_security_headers() {
     if (!is_admin()) {
         header('X-Content-Type-Options: nosniff');
         header('X-Frame-Options: SAMEORIGIN');
@@ -476,13 +476,13 @@ function figma_custom_theme_security_headers() {
         header('Referrer-Policy: strict-origin-when-cross-origin');
     }
 }
-add_action('send_headers', 'figma_custom_theme_security_headers');
+add_action('send_headers', 'estatein_theme_security_headers');
 
 /**
  * Add custom image sizes for theme
  */
-if (!function_exists('figma_custom_theme_add_image_sizes')) {
-    function figma_custom_theme_add_image_sizes() {
+if (!function_exists('estatein_theme_add_image_sizes')) {
+    function estatein_theme_add_image_sizes() {
         // Hero image size
         add_image_size('hero-image', 600, 600, true);
         
@@ -496,13 +496,13 @@ if (!function_exists('figma_custom_theme_add_image_sizes')) {
         add_image_size('feature-image', 300, 200, true);
     }
 }
-add_action('after_setup_theme', 'figma_custom_theme_add_image_sizes');
+add_action('after_setup_theme', 'estatein_theme_add_image_sizes');
 
 /**
  * Add theme support for responsive images
  */
-if (!function_exists('figma_custom_theme_responsive_images')) {
-    function figma_custom_theme_responsive_images() {
+if (!function_exists('estatein_theme_responsive_images')) {
+    function estatein_theme_responsive_images() {
         // Add support for responsive images
         add_theme_support('responsive-embeds');
         
@@ -516,15 +516,15 @@ if (!function_exists('figma_custom_theme_responsive_images')) {
         ));
     }
 }
-add_action('after_setup_theme', 'figma_custom_theme_responsive_images');
+add_action('after_setup_theme', 'estatein_theme_responsive_images');
 
 /**
  * Enqueue additional mobile-specific styles
  */
-if (!function_exists('figma_custom_theme_mobile_styles')) {
-    function figma_custom_theme_mobile_styles() {
+if (!function_exists('estatein_theme_mobile_styles')) {
+    function estatein_theme_mobile_styles() {
         // Add mobile-specific CSS
-        wp_add_inline_style('figma-custom-theme-style', '
+        wp_add_inline_style('estatein-theme-style', '
             @media (max-width: 768px) {
                 .site-header.scrolled {
                     background-color: rgba(26, 26, 26, 0.95);
@@ -563,17 +563,17 @@ if (!function_exists('figma_custom_theme_mobile_styles')) {
         ');
     }
 }
-add_action('wp_enqueue_scripts', 'figma_custom_theme_mobile_styles');
+add_action('wp_enqueue_scripts', 'estatein_theme_mobile_styles');
 
 /**
  * Add viewport meta tag for better mobile experience
  */
-if (!function_exists('figma_custom_theme_viewport_meta')) {
-    function figma_custom_theme_viewport_meta() {
+if (!function_exists('estatein_theme_viewport_meta')) {
+    function estatein_theme_viewport_meta() {
         echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">';
     }
 }
-add_action('wp_head', 'figma_custom_theme_viewport_meta', 1);
+add_action('wp_head', 'estatein_theme_viewport_meta', 1);
 
 
 /* ========================================
@@ -583,32 +583,32 @@ add_action('wp_head', 'figma_custom_theme_viewport_meta', 1);
 /**
  * Register Properties Custom Post Type
  */
-if (!function_exists('figma_custom_theme_register_properties')) {
-    function figma_custom_theme_register_properties() {
+if (!function_exists('estatein_theme_register_properties')) {
+    function estatein_theme_register_properties() {
         $labels = array(
-            'name'                  => _x('Properties', 'Post Type General Name', 'figma-custom-theme'),
-            'singular_name'         => _x('Property', 'Post Type Singular Name', 'figma-custom-theme'),
-            'menu_name'             => __('Properties', 'figma-custom-theme'),
-            'name_admin_bar'        => __('Property', 'figma-custom-theme'),
-            'archives'              => __('Property Archives', 'figma-custom-theme'),
-            'attributes'            => __('Property Attributes', 'figma-custom-theme'),
-            'parent_item_colon'     => __('Parent Property:', 'figma-custom-theme'),
-            'all_items'             => __('All Properties', 'figma-custom-theme'),
-            'add_new_item'          => __('Add New Property', 'figma-custom-theme'),
-            'add_new'               => __('Add New', 'figma-custom-theme'),
-            'new_item'              => __('New Property', 'figma-custom-theme'),
-            'edit_item'             => __('Edit Property', 'figma-custom-theme'),
-            'update_item'           => __('Update Property', 'figma-custom-theme'),
-            'view_item'             => __('View Property', 'figma-custom-theme'),
-            'view_items'            => __('View Properties', 'figma-custom-theme'),
-            'search_items'          => __('Search Property', 'figma-custom-theme'),
-            'not_found'             => __('Not found', 'figma-custom-theme'),
-            'not_found_in_trash'    => __('Not found in Trash', 'figma-custom-theme'),
+            'name'                  => _x('Properties', 'Post Type General Name', 'estatein-theme'),
+            'singular_name'         => _x('Property', 'Post Type Singular Name', 'estatein-theme'),
+            'menu_name'             => __('Properties', 'estatein-theme'),
+            'name_admin_bar'        => __('Property', 'estatein-theme'),
+            'archives'              => __('Property Archives', 'estatein-theme'),
+            'attributes'            => __('Property Attributes', 'estatein-theme'),
+            'parent_item_colon'     => __('Parent Property:', 'estatein-theme'),
+            'all_items'             => __('All Properties', 'estatein-theme'),
+            'add_new_item'          => __('Add New Property', 'estatein-theme'),
+            'add_new'               => __('Add New', 'estatein-theme'),
+            'new_item'              => __('New Property', 'estatein-theme'),
+            'edit_item'             => __('Edit Property', 'estatein-theme'),
+            'update_item'           => __('Update Property', 'estatein-theme'),
+            'view_item'             => __('View Property', 'estatein-theme'),
+            'view_items'            => __('View Properties', 'estatein-theme'),
+            'search_items'          => __('Search Property', 'estatein-theme'),
+            'not_found'             => __('Not found', 'estatein-theme'),
+            'not_found_in_trash'    => __('Not found in Trash', 'estatein-theme'),
         );
         
         $args = array(
-            'label'                 => __('Property', 'figma-custom-theme'),
-            'description'           => __('Real Estate Properties', 'figma-custom-theme'),
+            'label'                 => __('Property', 'estatein-theme'),
+            'description'           => __('Real Estate Properties', 'estatein-theme'),
             'labels'                => $labels,
             'supports'              => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions'),
             'taxonomies'            => array('property_type', 'property_location'),
@@ -630,32 +630,32 @@ if (!function_exists('figma_custom_theme_register_properties')) {
         register_post_type('property', $args);
     }
 }
-add_action('init', 'figma_custom_theme_register_properties', 0);
+add_action('init', 'estatein_theme_register_properties', 0);
 
 /**
  * Register Team Members Custom Post Type
  */
-if (!function_exists('figma_custom_theme_register_team')) {
-    function figma_custom_theme_register_team() {
+if (!function_exists('estatein_theme_register_team')) {
+    function estatein_theme_register_team() {
         $labels = array(
-            'name'                  => _x('Team Members', 'Post Type General Name', 'figma-custom-theme'),
-            'singular_name'         => _x('Team Member', 'Post Type Singular Name', 'figma-custom-theme'),
-            'menu_name'             => __('Team', 'figma-custom-theme'),
-            'name_admin_bar'        => __('Team Member', 'figma-custom-theme'),
-            'add_new_item'          => __('Add New Team Member', 'figma-custom-theme'),
-            'add_new'               => __('Add New', 'figma-custom-theme'),
-            'new_item'              => __('New Team Member', 'figma-custom-theme'),
-            'edit_item'             => __('Edit Team Member', 'figma-custom-theme'),
-            'view_item'             => __('View Team Member', 'figma-custom-theme'),
-            'all_items'             => __('All Team Members', 'figma-custom-theme'),
-            'search_items'          => __('Search Team Members', 'figma-custom-theme'),
-            'not_found'             => __('No team members found.', 'figma-custom-theme'),
-            'not_found_in_trash'    => __('No team members found in Trash.', 'figma-custom-theme'),
+            'name'                  => _x('Team Members', 'Post Type General Name', 'estatein-theme'),
+            'singular_name'         => _x('Team Member', 'Post Type Singular Name', 'estatein-theme'),
+            'menu_name'             => __('Team', 'estatein-theme'),
+            'name_admin_bar'        => __('Team Member', 'estatein-theme'),
+            'add_new_item'          => __('Add New Team Member', 'estatein-theme'),
+            'add_new'               => __('Add New', 'estatein-theme'),
+            'new_item'              => __('New Team Member', 'estatein-theme'),
+            'edit_item'             => __('Edit Team Member', 'estatein-theme'),
+            'view_item'             => __('View Team Member', 'estatein-theme'),
+            'all_items'             => __('All Team Members', 'estatein-theme'),
+            'search_items'          => __('Search Team Members', 'estatein-theme'),
+            'not_found'             => __('No team members found.', 'estatein-theme'),
+            'not_found_in_trash'    => __('No team members found in Trash.', 'estatein-theme'),
         );
         
         $args = array(
-            'label'                 => __('Team Member', 'figma-custom-theme'),
-            'description'           => __('Team Members', 'figma-custom-theme'),
+            'label'                 => __('Team Member', 'estatein-theme'),
+            'description'           => __('Team Members', 'estatein-theme'),
             'labels'                => $labels,
             'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'),
             'hierarchical'          => false,
@@ -676,32 +676,32 @@ if (!function_exists('figma_custom_theme_register_team')) {
         register_post_type('team_member', $args);
     }
 }
-add_action('init', 'figma_custom_theme_register_team', 0);
+add_action('init', 'estatein_theme_register_team', 0);
 
 /**
  * Register Services Custom Post Type
  */
-if (!function_exists('figma_custom_theme_register_services')) {
-    function figma_custom_theme_register_services() {
+if (!function_exists('estatein_theme_register_services')) {
+    function estatein_theme_register_services() {
         $labels = array(
-            'name'                  => _x('Services', 'Post Type General Name', 'figma-custom-theme'),
-            'singular_name'         => _x('Service', 'Post Type Singular Name', 'figma-custom-theme'),
-            'menu_name'             => __('Services', 'figma-custom-theme'),
-            'name_admin_bar'        => __('Service', 'figma-custom-theme'),
-            'add_new_item'          => __('Add New Service', 'figma-custom-theme'),
-            'add_new'               => __('Add New', 'figma-custom-theme'),
-            'new_item'              => __('New Service', 'figma-custom-theme'),
-            'edit_item'             => __('Edit Service', 'figma-custom-theme'),
-            'view_item'             => __('View Service', 'figma-custom-theme'),
-            'all_items'             => __('All Services', 'figma-custom-theme'),
-            'search_items'          => __('Search Services', 'figma-custom-theme'),
-            'not_found'             => __('No services found.', 'figma-custom-theme'),
-            'not_found_in_trash'    => __('No services found in Trash.', 'figma-custom-theme'),
+            'name'                  => _x('Services', 'Post Type General Name', 'estatein-theme'),
+            'singular_name'         => _x('Service', 'Post Type Singular Name', 'estatein-theme'),
+            'menu_name'             => __('Services', 'estatein-theme'),
+            'name_admin_bar'        => __('Service', 'estatein-theme'),
+            'add_new_item'          => __('Add New Service', 'estatein-theme'),
+            'add_new'               => __('Add New', 'estatein-theme'),
+            'new_item'              => __('New Service', 'estatein-theme'),
+            'edit_item'             => __('Edit Service', 'estatein-theme'),
+            'view_item'             => __('View Service', 'estatein-theme'),
+            'all_items'             => __('All Services', 'estatein-theme'),
+            'search_items'          => __('Search Services', 'estatein-theme'),
+            'not_found'             => __('No services found.', 'estatein-theme'),
+            'not_found_in_trash'    => __('No services found in Trash.', 'estatein-theme'),
         );
         
         $args = array(
-            'label'                 => __('Service', 'figma-custom-theme'),
-            'description'           => __('Services offered', 'figma-custom-theme'),
+            'label'                 => __('Service', 'estatein-theme'),
+            'description'           => __('Services offered', 'estatein-theme'),
             'labels'                => $labels,
             'supports'              => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
             'hierarchical'          => false,
@@ -726,32 +726,32 @@ if (!function_exists('figma_custom_theme_register_services')) {
         register_post_type('service', $args);
     }
 }
-add_action('init', 'figma_custom_theme_register_services', 0);
+add_action('init', 'estatein_theme_register_services', 0);
 
 /**
  * Register Testimonials Custom Post Type
  */
-if (!function_exists('figma_custom_theme_register_testimonials')) {
-    function figma_custom_theme_register_testimonials() {
+if (!function_exists('estatein_theme_register_testimonials')) {
+    function estatein_theme_register_testimonials() {
         $labels = array(
-            'name'                  => _x('Testimonials', 'Post Type General Name', 'figma-custom-theme'),
-            'singular_name'         => _x('Testimonial', 'Post Type Singular Name', 'figma-custom-theme'),
-            'menu_name'             => __('Testimonials', 'figma-custom-theme'),
-            'name_admin_bar'        => __('Testimonial', 'figma-custom-theme'),
-            'add_new_item'          => __('Add New Testimonial', 'figma-custom-theme'),
-            'add_new'               => __('Add New', 'figma-custom-theme'),
-            'new_item'              => __('New Testimonial', 'figma-custom-theme'),
-            'edit_item'             => __('Edit Testimonial', 'figma-custom-theme'),
-            'view_item'             => __('View Testimonial', 'figma-custom-theme'),
-            'all_items'             => __('All Testimonials', 'figma-custom-theme'),
-            'search_items'          => __('Search Testimonials', 'figma-custom-theme'),
-            'not_found'             => __('No testimonials found.', 'figma-custom-theme'),
-            'not_found_in_trash'    => __('No testimonials found in Trash.', 'figma-custom-theme'),
+            'name'                  => _x('Testimonials', 'Post Type General Name', 'estatein-theme'),
+            'singular_name'         => _x('Testimonial', 'Post Type Singular Name', 'estatein-theme'),
+            'menu_name'             => __('Testimonials', 'estatein-theme'),
+            'name_admin_bar'        => __('Testimonial', 'estatein-theme'),
+            'add_new_item'          => __('Add New Testimonial', 'estatein-theme'),
+            'add_new'               => __('Add New', 'estatein-theme'),
+            'new_item'              => __('New Testimonial', 'estatein-theme'),
+            'edit_item'             => __('Edit Testimonial', 'estatein-theme'),
+            'view_item'             => __('View Testimonial', 'estatein-theme'),
+            'all_items'             => __('All Testimonials', 'estatein-theme'),
+            'search_items'          => __('Search Testimonials', 'estatein-theme'),
+            'not_found'             => __('No testimonials found.', 'estatein-theme'),
+            'not_found_in_trash'    => __('No testimonials found in Trash.', 'estatein-theme'),
         );
         
         $args = array(
-            'label'                 => __('Testimonial', 'figma-custom-theme'),
-            'description'           => __('Customer testimonials', 'figma-custom-theme'),
+            'label'                 => __('Testimonial', 'estatein-theme'),
+            'description'           => __('Customer testimonials', 'estatein-theme'),
             'labels'                => $labels,
             'supports'              => array('title', 'editor', 'thumbnail'),
             'hierarchical'          => false,
@@ -772,32 +772,32 @@ if (!function_exists('figma_custom_theme_register_testimonials')) {
         register_post_type('testimonial', $args);
     }
 }
-add_action('init', 'figma_custom_theme_register_testimonials', 0);
+add_action('init', 'estatein_theme_register_testimonials', 0);
 
 /**
  * Register Contact Form Submissions Custom Post Type
  */
-if (!function_exists('figma_custom_theme_register_contact_submissions')) {
-    function figma_custom_theme_register_contact_submissions() {
+if (!function_exists('estatein_theme_register_contact_submissions')) {
+    function estatein_theme_register_contact_submissions() {
         $labels = array(
-            'name'                  => _x('Contact Submissions', 'Post Type General Name', 'figma-custom-theme'),
-            'singular_name'         => _x('Contact Submission', 'Post Type Singular Name', 'figma-custom-theme'),
-            'menu_name'             => __('Contact Submissions', 'figma-custom-theme'),
-            'name_admin_bar'        => __('Contact Submission', 'figma-custom-theme'),
-            'add_new_item'          => __('Add New Submission', 'figma-custom-theme'),
-            'add_new'               => __('Add New', 'figma-custom-theme'),
-            'new_item'              => __('New Submission', 'figma-custom-theme'),
-            'edit_item'             => __('View Submission', 'figma-custom-theme'),
-            'view_item'             => __('View Submission', 'figma-custom-theme'),
-            'all_items'             => __('All Submissions', 'figma-custom-theme'),
-            'search_items'          => __('Search Submissions', 'figma-custom-theme'),
-            'not_found'             => __('No submissions found', 'figma-custom-theme'),
-            'not_found_in_trash'    => __('No submissions found in Trash', 'figma-custom-theme'),
+            'name'                  => _x('Contact Submissions', 'Post Type General Name', 'estatein-theme'),
+            'singular_name'         => _x('Contact Submission', 'Post Type Singular Name', 'estatein-theme'),
+            'menu_name'             => __('Contact Submissions', 'estatein-theme'),
+            'name_admin_bar'        => __('Contact Submission', 'estatein-theme'),
+            'add_new_item'          => __('Add New Submission', 'estatein-theme'),
+            'add_new'               => __('Add New', 'estatein-theme'),
+            'new_item'              => __('New Submission', 'estatein-theme'),
+            'edit_item'             => __('View Submission', 'estatein-theme'),
+            'view_item'             => __('View Submission', 'estatein-theme'),
+            'all_items'             => __('All Submissions', 'estatein-theme'),
+            'search_items'          => __('Search Submissions', 'estatein-theme'),
+            'not_found'             => __('No submissions found', 'estatein-theme'),
+            'not_found_in_trash'    => __('No submissions found in Trash', 'estatein-theme'),
         );
 
         $args = array(
-            'label'                 => __('Contact Submission', 'figma-custom-theme'),
-            'description'           => __('Contact form submissions from properties page', 'figma-custom-theme'),
+            'label'                 => __('Contact Submission', 'estatein-theme'),
+            'description'           => __('Contact form submissions from properties page', 'estatein-theme'),
             'labels'                => $labels,
             'supports'              => array('title', 'editor'),
             'hierarchical'          => false,
@@ -819,7 +819,7 @@ if (!function_exists('figma_custom_theme_register_contact_submissions')) {
         register_post_type('contact_submission', $args);
     }
 }
-add_action('init', 'figma_custom_theme_register_contact_submissions', 0);
+add_action('init', 'estatein_theme_register_contact_submissions', 0);
 
 /* ========================================
    CUSTOM TAXONOMIES
@@ -828,18 +828,18 @@ add_action('init', 'figma_custom_theme_register_contact_submissions', 0);
 /**
  * Register Property Type Taxonomy
  */
-if (!function_exists('figma_custom_theme_register_property_type')) {
-    function figma_custom_theme_register_property_type() {
+if (!function_exists('estatein_theme_register_property_type')) {
+    function estatein_theme_register_property_type() {
         $labels = array(
-            'name'              => _x('Property Types', 'taxonomy general name', 'figma-custom-theme'),
-            'singular_name'     => _x('Property Type', 'taxonomy singular name', 'figma-custom-theme'),
-            'search_items'      => __('Search Property Types', 'figma-custom-theme'),
-            'all_items'         => __('All Property Types', 'figma-custom-theme'),
-            'edit_item'         => __('Edit Property Type', 'figma-custom-theme'),
-            'update_item'       => __('Update Property Type', 'figma-custom-theme'),
-            'add_new_item'      => __('Add New Property Type', 'figma-custom-theme'),
-            'new_item_name'     => __('New Property Type Name', 'figma-custom-theme'),
-            'menu_name'         => __('Property Types', 'figma-custom-theme'),
+            'name'              => _x('Property Types', 'taxonomy general name', 'estatein-theme'),
+            'singular_name'     => _x('Property Type', 'taxonomy singular name', 'estatein-theme'),
+            'search_items'      => __('Search Property Types', 'estatein-theme'),
+            'all_items'         => __('All Property Types', 'estatein-theme'),
+            'edit_item'         => __('Edit Property Type', 'estatein-theme'),
+            'update_item'       => __('Update Property Type', 'estatein-theme'),
+            'add_new_item'      => __('Add New Property Type', 'estatein-theme'),
+            'new_item_name'     => __('New Property Type Name', 'estatein-theme'),
+            'menu_name'         => __('Property Types', 'estatein-theme'),
         );
 
         $args = array(
@@ -855,23 +855,23 @@ if (!function_exists('figma_custom_theme_register_property_type')) {
         register_taxonomy('property_type', array('property'), $args);
     }
 }
-add_action('init', 'figma_custom_theme_register_property_type', 0);
+add_action('init', 'estatein_theme_register_property_type', 0);
 
 /**
  * Register Property Location Taxonomy
  */
-if (!function_exists('figma_custom_theme_register_property_location')) {
-    function figma_custom_theme_register_property_location() {
+if (!function_exists('estatein_theme_register_property_location')) {
+    function estatein_theme_register_property_location() {
         $labels = array(
-            'name'              => _x('Property Locations', 'taxonomy general name', 'figma-custom-theme'),
-            'singular_name'     => _x('Property Location', 'taxonomy singular name', 'figma-custom-theme'),
-            'search_items'      => __('Search Property Locations', 'figma-custom-theme'),
-            'all_items'         => __('All Property Locations', 'figma-custom-theme'),
-            'edit_item'         => __('Edit Property Location', 'figma-custom-theme'),
-            'update_item'       => __('Update Property Location', 'figma-custom-theme'),
-            'add_new_item'      => __('Add New Property Location', 'figma-custom-theme'),
-            'new_item_name'     => __('New Property Location Name', 'figma-custom-theme'),
-            'menu_name'         => __('Locations', 'figma-custom-theme'),
+            'name'              => _x('Property Locations', 'taxonomy general name', 'estatein-theme'),
+            'singular_name'     => _x('Property Location', 'taxonomy singular name', 'estatein-theme'),
+            'search_items'      => __('Search Property Locations', 'estatein-theme'),
+            'all_items'         => __('All Property Locations', 'estatein-theme'),
+            'edit_item'         => __('Edit Property Location', 'estatein-theme'),
+            'update_item'       => __('Update Property Location', 'estatein-theme'),
+            'add_new_item'      => __('Add New Property Location', 'estatein-theme'),
+            'new_item_name'     => __('New Property Location Name', 'estatein-theme'),
+            'menu_name'         => __('Locations', 'estatein-theme'),
         );
 
         $args = array(
@@ -887,7 +887,7 @@ if (!function_exists('figma_custom_theme_register_property_location')) {
         register_taxonomy('property_location', array('property'), $args);
     }
 }
-add_action('init', 'figma_custom_theme_register_property_location', 0);
+add_action('init', 'estatein_theme_register_property_location', 0);
 
 /* ========================================
    ADVANCED CUSTOM FIELDS (ACF) INTEGRATION
@@ -921,8 +921,8 @@ if (function_exists('acf_add_options_page')) {
 /**
  * Auto-create ACF field groups programmatically
  */
-if (!function_exists('figma_custom_theme_create_acf_fields')) {
-    function figma_custom_theme_create_acf_fields() {
+if (!function_exists('estatein_theme_create_acf_fields')) {
+    function estatein_theme_create_acf_fields() {
         if (function_exists('acf_add_local_field_group')) {
             
             // Property Details Field Group
@@ -2350,14 +2350,14 @@ if (!function_exists('figma_custom_theme_create_acf_fields')) {
         }
     }
 }
-add_action('acf/init', 'figma_custom_theme_create_acf_fields');
+add_action('acf/init', 'estatein_theme_create_acf_fields');
 
 /**
  * Custom location rule to match pages by slug
  * This ensures About Page Settings appear on pages with slug "about"
  */
-if (!function_exists('figma_custom_theme_match_about_page')) {
-    function figma_custom_theme_match_about_page($match, $rule, $screen, $field_group) {
+if (!function_exists('estatein_theme_match_about_page')) {
+    function estatein_theme_match_about_page($match, $rule, $screen, $field_group) {
         // Only process for About Page Settings field group
         if (!isset($field_group['key']) || $field_group['key'] !== 'group_about_page_settings') {
             return $match;
@@ -2384,14 +2384,14 @@ if (!function_exists('figma_custom_theme_match_about_page')) {
         return $match;
     }
 }
-add_filter('acf/location/rule_match', 'figma_custom_theme_match_about_page', 10, 4);
+add_filter('acf/location/rule_match', 'estatein_theme_match_about_page', 10, 4);
 
 /**
  * Custom location rule to match Properties page by slug
  * This ensures Properties Page Settings appear on pages with slug "properties"
  */
-if (!function_exists('figma_custom_theme_match_properties_page')) {
-    function figma_custom_theme_match_properties_page($match, $rule, $screen, $field_group) {
+if (!function_exists('estatein_theme_match_properties_page')) {
+    function estatein_theme_match_properties_page($match, $rule, $screen, $field_group) {
         // Only process for Properties Page Settings field group
         if (!isset($field_group['key']) || $field_group['key'] !== 'group_properties_page_settings') {
             return $match;
@@ -2418,13 +2418,13 @@ if (!function_exists('figma_custom_theme_match_properties_page')) {
         return $match;
     }
 }
-add_filter('acf/location/rule_match/page_slug', 'figma_custom_theme_match_properties_page', 10, 4);
+add_filter('acf/location/rule_match/page_slug', 'estatein_theme_match_properties_page', 10, 4);
 
 /**
  * Force properties page template for pages with slug "properties"
  */
-if (!function_exists('figma_custom_theme_properties_page_template')) {
-    function figma_custom_theme_properties_page_template($template) {
+if (!function_exists('estatein_theme_properties_page_template')) {
+    function estatein_theme_properties_page_template($template) {
         if (is_page('properties') || (is_page() && get_queried_object() && get_queried_object()->post_name === 'properties')) {
             $properties_template = locate_template('page-properties.php');
             if ($properties_template) {
@@ -2434,14 +2434,14 @@ if (!function_exists('figma_custom_theme_properties_page_template')) {
         return $template;
     }
 }
-add_filter('template_include', 'figma_custom_theme_properties_page_template', 99);
+add_filter('template_include', 'estatein_theme_properties_page_template', 99);
 
 /**
  * Force services page template for pages with slug "services"
  * Prevents service post type archive from overriding the static page
  */
-if (!function_exists('figma_custom_theme_services_page_template')) {
-    function figma_custom_theme_services_page_template($template) {
+if (!function_exists('estatein_theme_services_page_template')) {
+    function estatein_theme_services_page_template($template) {
         global $wp_query;
         
         // Check if URL is /services/ and if a page with that slug exists
@@ -2488,13 +2488,13 @@ if (!function_exists('figma_custom_theme_services_page_template')) {
         return $template;
     }
 }
-add_filter('template_include', 'figma_custom_theme_services_page_template', 1);
+add_filter('template_include', 'estatein_theme_services_page_template', 1);
 
 /**
  * Modify query early to prevent service archive from overriding services page
  */
-if (!function_exists('figma_custom_theme_prevent_service_archive_override')) {
-    function figma_custom_theme_prevent_service_archive_override($query) {
+if (!function_exists('estatein_theme_prevent_service_archive_override')) {
+    function estatein_theme_prevent_service_archive_override($query) {
         if (is_admin() || !$query->is_main_query()) {
             return;
         }
@@ -2524,7 +2524,7 @@ if (!function_exists('figma_custom_theme_prevent_service_archive_override')) {
         }
     }
 }
-add_action('pre_get_posts', 'figma_custom_theme_prevent_service_archive_override', 1);
+add_action('pre_get_posts', 'estatein_theme_prevent_service_archive_override', 1);
 
 
 /* ========================================
@@ -2534,8 +2534,8 @@ add_action('pre_get_posts', 'figma_custom_theme_prevent_service_archive_override
 /**
  * Custom query modifications
  */
-if (!function_exists('figma_custom_theme_modify_main_query')) {
-    function figma_custom_theme_modify_main_query($query) {
+if (!function_exists('estatein_theme_modify_main_query')) {
+    function estatein_theme_modify_main_query($query) {
         if (!is_admin() && $query->is_main_query()) {
             // Show properties on front page
             if (is_home()) {
@@ -2552,13 +2552,13 @@ if (!function_exists('figma_custom_theme_modify_main_query')) {
         }
     }
 }
-add_action('pre_get_posts', 'figma_custom_theme_modify_main_query');
+add_action('pre_get_posts', 'estatein_theme_modify_main_query');
 
 /**
  * Add custom body classes for different post types
  */
-if (!function_exists('figma_custom_theme_custom_body_classes')) {
-    function figma_custom_theme_custom_body_classes($classes) {
+if (!function_exists('estatein_theme_custom_body_classes')) {
+    function estatein_theme_custom_body_classes($classes) {
         global $post;
         
         if (is_singular()) {
@@ -2573,7 +2573,7 @@ if (!function_exists('figma_custom_theme_custom_body_classes')) {
         return $classes;
     }
 }
-add_filter('body_class', 'figma_custom_theme_custom_body_classes');
+add_filter('body_class', 'estatein_theme_custom_body_classes');
 
 /* ========================================
    ADMIN INTERFACE ENHANCEMENTS
@@ -2582,8 +2582,8 @@ add_filter('body_class', 'figma_custom_theme_custom_body_classes');
 /**
  * Add admin styles and enhancements
  */
-if (!function_exists('figma_custom_theme_admin_styles')) {
-    function figma_custom_theme_admin_styles() {
+if (!function_exists('estatein_theme_admin_styles')) {
+    function estatein_theme_admin_styles() {
         wp_add_inline_style('wp-admin', '
             /* Custom Post Type Icons */
             #menu-posts-property .wp-menu-image:before { content: "\f102"; }
@@ -2650,13 +2650,13 @@ if (!function_exists('figma_custom_theme_admin_styles')) {
         ');
     }
 }
-add_action('admin_enqueue_scripts', 'figma_custom_theme_admin_styles');
+add_action('admin_enqueue_scripts', 'estatein_theme_admin_styles');
 
 /**
  * Enqueue admin scripts for property thumbnail checkboxes and features
  */
-if (!function_exists('figma_custom_theme_admin_scripts')) {
-    function figma_custom_theme_admin_scripts($hook) {
+if (!function_exists('estatein_theme_admin_scripts')) {
+    function estatein_theme_admin_scripts($hook) {
         // Only load on post edit screens for property post type
         global $post_type;
         if ($post_type === 'property' && ($hook === 'post.php' || $hook === 'post-new.php')) {
@@ -2684,13 +2684,13 @@ if (!function_exists('figma_custom_theme_admin_scripts')) {
         }
     }
 }
-add_action('admin_enqueue_scripts', 'figma_custom_theme_admin_scripts');
+add_action('admin_enqueue_scripts', 'estatein_theme_admin_scripts');
 
 /**
  * Process Properties Contact Form Submission
  */
-if (!function_exists('figma_custom_theme_process_contact_form')) {
-    function figma_custom_theme_process_contact_form() {
+if (!function_exists('estatein_theme_process_contact_form')) {
+    function estatein_theme_process_contact_form() {
         $referer_url = wp_get_referer();
         $redirect_base = $referer_url ? $referer_url : home_url('/');
 
@@ -2791,32 +2791,32 @@ if (!function_exists('figma_custom_theme_process_contact_form')) {
 
         // Send email notification to admin
         $admin_email = get_option('admin_email');
-        $subject = sprintf(__('New Contact Form Submission from %s %s', 'figma-custom-theme'), $first_name, $last_name);
+        $subject = sprintf(__('New Contact Form Submission from %s %s', 'estatein-theme'), $first_name, $last_name);
         
-        $email_message = sprintf(__('You have received a new contact form submission:\n\n', 'figma-custom-theme'));
-        $email_message .= sprintf(__('Name: %s %s\n', 'figma-custom-theme'), $first_name, $last_name);
-        $email_message .= sprintf(__('Email: %s\n', 'figma-custom-theme'), $email);
-        $email_message .= sprintf(__('Phone: %s\n', 'figma-custom-theme'), $phone);
+        $email_message = sprintf(__('You have received a new contact form submission:\n\n', 'estatein-theme'));
+        $email_message .= sprintf(__('Name: %s %s\n', 'estatein-theme'), $first_name, $last_name);
+        $email_message .= sprintf(__('Email: %s\n', 'estatein-theme'), $email);
+        $email_message .= sprintf(__('Phone: %s\n', 'estatein-theme'), $phone);
         
         if ($preferred_location) {
             $location_term = get_term_by('slug', $preferred_location, 'property_location');
-            $email_message .= sprintf(__('Preferred Location: %s\n', 'figma-custom-theme'), $location_term ? $location_term->name : $preferred_location);
+            $email_message .= sprintf(__('Preferred Location: %s\n', 'estatein-theme'), $location_term ? $location_term->name : $preferred_location);
         }
         
         if ($property_type) {
             $type_term = get_term_by('slug', $property_type, 'property_type');
-            $email_message .= sprintf(__('Property Type: %s\n', 'figma-custom-theme'), $type_term ? $type_term->name : $property_type);
+            $email_message .= sprintf(__('Property Type: %s\n', 'estatein-theme'), $type_term ? $type_term->name : $property_type);
         }
         
-        $email_message .= sprintf(__('Bedrooms: %s\n', 'figma-custom-theme'), $bedrooms ?: 'N/A');
-        $email_message .= sprintf(__('Bathrooms: %s\n', 'figma-custom-theme'), $bathrooms ?: 'N/A');
-        $email_message .= sprintf(__('Budget: %s\n', 'figma-custom-theme'), $budget ?: 'N/A');
+        $email_message .= sprintf(__('Bedrooms: %s\n', 'estatein-theme'), $bedrooms ?: 'N/A');
+        $email_message .= sprintf(__('Bathrooms: %s\n', 'estatein-theme'), $bathrooms ?: 'N/A');
+        $email_message .= sprintf(__('Budget: %s\n', 'estatein-theme'), $budget ?: 'N/A');
         if ($selected_property) {
-            $email_message .= sprintf(__('Selected Property: %s\n', 'figma-custom-theme'), $selected_property);
+            $email_message .= sprintf(__('Selected Property: %s\n', 'estatein-theme'), $selected_property);
         }
-        $email_message .= sprintf(__('Preferred Contact Method: %s\n', 'figma-custom-theme'), $contact_method);
-        $email_message .= sprintf(__('Message: %s\n\n', 'figma-custom-theme'), $message);
-        $email_message .= sprintf(__('View submission in admin: %s', 'figma-custom-theme'), admin_url('post.php?post=' . $submission_id . '&action=edit'));
+        $email_message .= sprintf(__('Preferred Contact Method: %s\n', 'estatein-theme'), $contact_method);
+        $email_message .= sprintf(__('Message: %s\n\n', 'estatein-theme'), $message);
+        $email_message .= sprintf(__('View submission in admin: %s', 'estatein-theme'), admin_url('post.php?post=' . $submission_id . '&action=edit'));
 
         wp_mail($admin_email, $subject, $email_message);
 
@@ -2824,31 +2824,31 @@ if (!function_exists('figma_custom_theme_process_contact_form')) {
         $redirect_with_status('success');
     }
 }
-add_action('admin_post_nopriv_properties_contact_form', 'figma_custom_theme_process_contact_form');
-add_action('admin_post_properties_contact_form', 'figma_custom_theme_process_contact_form');
+add_action('admin_post_nopriv_properties_contact_form', 'estatein_theme_process_contact_form');
+add_action('admin_post_properties_contact_form', 'estatein_theme_process_contact_form');
 
 /**
  * Add custom columns to Contact Submissions admin list
  */
-if (!function_exists('figma_custom_theme_contact_submission_columns')) {
-    function figma_custom_theme_contact_submission_columns($columns) {
+if (!function_exists('estatein_theme_contact_submission_columns')) {
+    function estatein_theme_contact_submission_columns($columns) {
         $new_columns = array();
         $new_columns['cb'] = $columns['cb'];
-        $new_columns['title'] = __('Name', 'figma-custom-theme');
-        $new_columns['email'] = __('Email', 'figma-custom-theme');
-        $new_columns['phone'] = __('Phone', 'figma-custom-theme');
-        $new_columns['property_type'] = __('Property Type', 'figma-custom-theme');
-        $new_columns['date'] = __('Date', 'figma-custom-theme');
+        $new_columns['title'] = __('Name', 'estatein-theme');
+        $new_columns['email'] = __('Email', 'estatein-theme');
+        $new_columns['phone'] = __('Phone', 'estatein-theme');
+        $new_columns['property_type'] = __('Property Type', 'estatein-theme');
+        $new_columns['date'] = __('Date', 'estatein-theme');
         return $new_columns;
     }
 }
-add_filter('manage_contact_submission_posts_columns', 'figma_custom_theme_contact_submission_columns');
+add_filter('manage_contact_submission_posts_columns', 'estatein_theme_contact_submission_columns');
 
 /**
  * Populate custom columns in Contact Submissions admin list
  */
-if (!function_exists('figma_custom_theme_contact_submission_column_content')) {
-    function figma_custom_theme_contact_submission_column_content($column, $post_id) {
+if (!function_exists('estatein_theme_contact_submission_column_content')) {
+    function estatein_theme_contact_submission_column_content($column, $post_id) {
         switch ($column) {
             case 'email':
                 $email = get_post_meta($post_id, '_contact_email', true);
@@ -2870,30 +2870,30 @@ if (!function_exists('figma_custom_theme_contact_submission_column_content')) {
         }
     }
 }
-add_action('manage_contact_submission_posts_custom_column', 'figma_custom_theme_contact_submission_column_content', 10, 2);
+add_action('manage_contact_submission_posts_custom_column', 'estatein_theme_contact_submission_column_content', 10, 2);
 
 /**
  * Add meta box to display submission details
  */
-if (!function_exists('figma_custom_theme_add_submission_meta_box')) {
-    function figma_custom_theme_add_submission_meta_box() {
+if (!function_exists('estatein_theme_add_submission_meta_box')) {
+    function estatein_theme_add_submission_meta_box() {
         add_meta_box(
             'contact_submission_details',
-            __('Submission Details', 'figma-custom-theme'),
-            'figma_custom_theme_submission_meta_box_callback',
+            __('Submission Details', 'estatein-theme'),
+            'estatein_theme_submission_meta_box_callback',
             'contact_submission',
             'normal',
             'high'
         );
     }
 }
-add_action('add_meta_boxes', 'figma_custom_theme_add_submission_meta_box');
+add_action('add_meta_boxes', 'estatein_theme_add_submission_meta_box');
 
 /**
  * Meta box callback to display submission details
  */
-if (!function_exists('figma_custom_theme_submission_meta_box_callback')) {
-    function figma_custom_theme_submission_meta_box_callback($post) {
+if (!function_exists('estatein_theme_submission_meta_box_callback')) {
+    function estatein_theme_submission_meta_box_callback($post) {
         $first_name = get_post_meta($post->ID, '_contact_first_name', true);
         $last_name = get_post_meta($post->ID, '_contact_last_name', true);
         $email = get_post_meta($post->ID, '_contact_email', true);
@@ -2909,23 +2909,23 @@ if (!function_exists('figma_custom_theme_submission_meta_box_callback')) {
         ?>
         <table class="form-table">
             <tr>
-                <th><label><?php echo esc_html__('First Name', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('First Name', 'estatein-theme'); ?></label></th>
                 <td><strong><?php echo esc_html($first_name); ?></strong></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Last Name', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Last Name', 'estatein-theme'); ?></label></th>
                 <td><strong><?php echo esc_html($last_name); ?></strong></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Email', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Email', 'estatein-theme'); ?></label></th>
                 <td><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Phone', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Phone', 'estatein-theme'); ?></label></th>
                 <td><a href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Preferred Location', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Preferred Location', 'estatein-theme'); ?></label></th>
                 <td><?php 
                     if ($preferred_location) {
                         $location_term = get_term_by('slug', $preferred_location, 'property_location');
@@ -2936,7 +2936,7 @@ if (!function_exists('figma_custom_theme_submission_meta_box_callback')) {
                 ?></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Property Type', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Property Type', 'estatein-theme'); ?></label></th>
                 <td><?php 
                     if ($property_type) {
                         $type_term = get_term_by('slug', $property_type, 'property_type');
@@ -2947,23 +2947,23 @@ if (!function_exists('figma_custom_theme_submission_meta_box_callback')) {
                 ?></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Bedrooms', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Bedrooms', 'estatein-theme'); ?></label></th>
                 <td><?php echo $bedrooms ? esc_html($bedrooms) : '—'; ?></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Bathrooms', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Bathrooms', 'estatein-theme'); ?></label></th>
                 <td><?php echo $bathrooms ? esc_html($bathrooms) : '—'; ?></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Budget', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Budget', 'estatein-theme'); ?></label></th>
                 <td><?php echo $budget ? esc_html($budget) : '—'; ?></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Preferred Contact Method', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Preferred Contact Method', 'estatein-theme'); ?></label></th>
                 <td><?php echo esc_html(ucfirst($contact_method)); ?></td>
             </tr>
             <tr>
-                <th><label><?php echo esc_html__('Submission Date', 'figma-custom-theme'); ?></label></th>
+                <th><label><?php echo esc_html__('Submission Date', 'estatein-theme'); ?></label></th>
                 <td><?php echo $submission_date ? esc_html($submission_date) : get_the_date('Y-m-d H:i:s', $post->ID); ?></td>
             </tr>
         </table>
@@ -2974,22 +2974,22 @@ if (!function_exists('figma_custom_theme_submission_meta_box_callback')) {
 /**
  * Add custom admin dashboard widget
  */
-if (!function_exists('figma_custom_theme_dashboard_widget')) {
-    function figma_custom_theme_dashboard_widget() {
+if (!function_exists('estatein_theme_dashboard_widget')) {
+    function estatein_theme_dashboard_widget() {
         wp_add_dashboard_widget(
-            'figma_custom_theme_stats',
+            'estatein_theme_stats',
             'Real Estate Dashboard',
-            'figma_custom_theme_dashboard_widget_content'
+            'estatein_theme_dashboard_widget_content'
         );
     }
 }
-add_action('wp_dashboard_setup', 'figma_custom_theme_dashboard_widget');
+add_action('wp_dashboard_setup', 'estatein_theme_dashboard_widget');
 
 /**
  * Dashboard widget content
  */
-if (!function_exists('figma_custom_theme_dashboard_widget_content')) {
-    function figma_custom_theme_dashboard_widget_content() {
+if (!function_exists('estatein_theme_dashboard_widget_content')) {
+    function estatein_theme_dashboard_widget_content() {
         $properties_count = wp_count_posts('property')->publish;
         $team_count = wp_count_posts('team_member')->publish;
         $services_count = wp_count_posts('service')->publish;
@@ -3016,8 +3016,8 @@ if (!function_exists('figma_custom_theme_dashboard_widget_content')) {
 /**
  * Add helpful admin notices
  */
-if (!function_exists('figma_custom_theme_admin_notices')) {
-    function figma_custom_theme_admin_notices() {
+if (!function_exists('estatein_theme_admin_notices')) {
+    function estatein_theme_admin_notices() {
         $screen = get_current_screen();
         
         // Show notice on theme-related pages
@@ -3028,13 +3028,13 @@ if (!function_exists('figma_custom_theme_admin_notices')) {
         }
     }
 }
-add_action('admin_notices', 'figma_custom_theme_admin_notices');
+add_action('admin_notices', 'estatein_theme_admin_notices');
 
 /**
  * Add custom columns to property admin list
  */
-if (!function_exists('figma_custom_theme_property_columns')) {
-    function figma_custom_theme_property_columns($columns) {
+if (!function_exists('estatein_theme_property_columns')) {
+    function estatein_theme_property_columns($columns) {
         $new_columns = array();
         foreach ($columns as $key => $value) {
             $new_columns[$key] = $value;
@@ -3047,13 +3047,13 @@ if (!function_exists('figma_custom_theme_property_columns')) {
         return $new_columns;
     }
 }
-add_filter('manage_property_posts_columns', 'figma_custom_theme_property_columns');
+add_filter('manage_property_posts_columns', 'estatein_theme_property_columns');
 
 /**
  * Fill custom columns with data
  */
-if (!function_exists('figma_custom_theme_property_column_data')) {
-    function figma_custom_theme_property_column_data($column, $post_id) {
+if (!function_exists('estatein_theme_property_column_data')) {
+    function estatein_theme_property_column_data($column, $post_id) {
         switch ($column) {
             case 'property_location':
                 $location = get_field('property_location', $post_id);
@@ -3070,5 +3070,5 @@ if (!function_exists('figma_custom_theme_property_column_data')) {
         }
     }
 }
-add_action('manage_property_posts_custom_column', 'figma_custom_theme_property_column_data', 10, 2);
+add_action('manage_property_posts_custom_column', 'estatein_theme_property_column_data', 10, 2);
 

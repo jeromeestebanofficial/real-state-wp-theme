@@ -2,22 +2,22 @@
 /**
  * Template part for displaying Properties Listing section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 // Get content - check if on page template first, then archive (customizer), then defaults
 if (is_page_template('page-properties.php') || (is_page() && get_queried_object() && get_queried_object()->post_name === 'properties')) {
     // Page template - use ACF fields
-    $section_title = get_field('properties_section_title') ?: esc_html__('Discover a World of Possibilities', 'figma-custom-theme');
-    $section_description = get_field('properties_section_description') ?: esc_html__('Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home', 'figma-custom-theme');
+    $section_title = get_field('properties_section_title') ?: esc_html__('Discover a World of Possibilities', 'estatein-theme');
+    $section_description = get_field('properties_section_description') ?: esc_html__('Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home', 'estatein-theme');
 } elseif (is_post_type_archive('property') || is_tax('property_type') || is_tax('property_location')) {
     // Archive page - use Customizer settings
     $section_title = get_theme_mod('properties_archive_section_title', 'Discover a World of Possibilities');
     $section_description = get_theme_mod('properties_archive_section_description', 'Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home');
 } else {
     // Defaults
-    $section_title = esc_html__('Discover a World of Possibilities', 'figma-custom-theme');
-    $section_description = esc_html__('Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home', 'figma-custom-theme');
+    $section_title = esc_html__('Discover a World of Possibilities', 'estatein-theme');
+    $section_description = esc_html__('Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home', 'estatein-theme');
 }
 
 // Get filter parameters
@@ -503,7 +503,7 @@ if (is_post_type_archive('property') || is_tax('property_type') || is_tax('prope
                                                 ?>
                                                 <span> </span>
                                                 <a href="<?php the_permalink(); ?>" class="read-more">
-                                                    <?php echo esc_html__('Read More', 'figma-custom-theme'); ?>
+                                                    <?php echo esc_html__('Read More', 'estatein-theme'); ?>
                                                 </a>
                                             </div>
                                         <?php endif; ?>
@@ -514,13 +514,13 @@ if (is_post_type_archive('property') || is_tax('property_type') || is_tax('prope
                             <div class="property-footer">
                                 <?php if ($property_price) : ?>
                                     <div class="property-price">
-                                        <span class="price-label"><?php echo esc_html__('Price', 'figma-custom-theme'); ?></span>
+                                        <span class="price-label"><?php echo esc_html__('Price', 'estatein-theme'); ?></span>
                                         <span class="price-value"><?php echo esc_html($property_price); ?></span>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <a href="<?php the_permalink(); ?>" class="property-cta">
-                                    <?php echo esc_html__('View Property Details', 'figma-custom-theme'); ?>
+                                    <?php echo esc_html__('View Property Details', 'estatein-theme'); ?>
                                 </a>
                             </div>
                         </div>
@@ -546,7 +546,7 @@ if (is_post_type_archive('property') || is_tax('property_type') || is_tax('prope
                 <div class="properties-pagination">
                     <div class="pagination-info">
                         <span class="current-page"><?php printf('%02d', $current_page); ?></span>
-                        <span class="total-pages"><?php printf(esc_html__(' of %02d', 'figma-custom-theme'), $total_pages); ?></span>
+                        <span class="total-pages"><?php printf(esc_html__(' of %02d', 'estatein-theme'), $total_pages); ?></span>
                     </div>
                     <div class="pagination-nav">
                         <?php
@@ -608,7 +608,7 @@ if (is_post_type_archive('property') || is_tax('property_type') || is_tax('prope
             
         <?php else : ?>
             <div class="no-properties-found">
-                <p><?php echo esc_html__('No properties found. Please try different search criteria.', 'figma-custom-theme'); ?></p>
+                <p><?php echo esc_html__('No properties found. Please try different search criteria.', 'estatein-theme'); ?></p>
             </div>
         <?php endif; ?>
     </div>

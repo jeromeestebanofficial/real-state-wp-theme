@@ -2,10 +2,10 @@
 /**
  * Template part for displaying Valued Clients section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
-$clients_title = get_field('about_clients_title') ?: esc_html__('Our Valued Clients', 'figma-custom-theme');
+$clients_title = get_field('about_clients_title') ?: esc_html__('Our Valued Clients', 'estatein-theme');
 $clients_description = get_field('about_clients_description') ?: '';
 ?>
 
@@ -93,7 +93,7 @@ $clients_description = get_field('about_clients_description') ?: '';
                             </div>
                             <?php if ($client['website_url']) : ?>
                                 <a href="<?php echo esc_url($client['website_url']); ?>" target="_blank" rel="noopener noreferrer" class="client-website-btn">
-                                    <?php echo esc_html__('Visit Website', 'figma-custom-theme'); ?>
+                                    <?php echo esc_html__('Visit Website', 'estatein-theme'); ?>
                                 </a>
                             <?php endif; ?>
                         </div>
@@ -104,7 +104,7 @@ $clients_description = get_field('about_clients_description') ?: '';
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/>
                                     </svg>
-                                    <span><?php echo esc_html__('Domain', 'figma-custom-theme'); ?></span>
+                                    <span><?php echo esc_html__('Domain', 'estatein-theme'); ?></span>
                                 </div>
                                 <p class="detail-value"><?php echo esc_html($client['domain'] ?: ''); ?></p>
                             </div>
@@ -116,7 +116,7 @@ $clients_description = get_field('about_clients_description') ?: '';
                                         <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5"/>
                                         <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5"/>
                                     </svg>
-                                    <span><?php echo esc_html__('Category', 'figma-custom-theme'); ?></span>
+                                    <span><?php echo esc_html__('Category', 'estatein-theme'); ?></span>
                                 </div>
                                 <p class="detail-value"><?php echo esc_html($client['category'] ?: ''); ?></p>
                             </div>
@@ -124,7 +124,7 @@ $clients_description = get_field('about_clients_description') ?: '';
                         
                         <?php if ($client['testimonial']) : ?>
                             <div class="client-testimonial">
-                                <p class="testimonial-label"><?php echo esc_html__('What They Said', 'figma-custom-theme'); ?> 🤗</p>
+                                <p class="testimonial-label"><?php echo esc_html__('What They Said', 'estatein-theme'); ?> 🤗</p>
                                 <p class="testimonial-text"><?php echo esc_html($client['testimonial']); ?></p>
                             </div>
                         <?php endif; ?>
@@ -136,7 +136,7 @@ $clients_description = get_field('about_clients_description') ?: '';
                 <div class="clients-pagination">
                     <div class="pagination-info">
                         <span class="current-page">01</span>
-                        <span class="total-pages"><?php printf(esc_html__('of %02d', 'figma-custom-theme'), $total_pages); ?></span>
+                        <span class="total-pages"><?php printf(esc_html__('of %02d', 'estatein-theme'), $total_pages); ?></span>
                     </div>
                     <div class="pagination-nav">
                         <button class="nav-btn nav-prev disabled" disabled>
@@ -154,7 +154,7 @@ $clients_description = get_field('about_clients_description') ?: '';
             <?php endif; ?>
         <?php else : ?>
             <div class="no-clients-found">
-                <p><?php echo esc_html__('No clients found.', 'figma-custom-theme'); ?></p>
+                <p><?php echo esc_html__('No clients found.', 'estatein-theme'); ?></p>
             </div>
         <?php endif; ?>
     </div>

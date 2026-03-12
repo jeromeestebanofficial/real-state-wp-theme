@@ -1,6 +1,6 @@
 <?php
-add_action('after_switch_theme', 'figma_custom_theme_create_menu_and_flush');
-function figma_custom_theme_create_menu_and_flush() {
+add_action('after_switch_theme', 'estatein_theme_create_menu_and_flush');
+function estatein_theme_create_menu_and_flush() {
 
     $menu_name = 'Primary Menu';
 
@@ -69,8 +69,8 @@ function figma_custom_theme_create_menu_and_flush() {
 // -----------------------------
 // Redirect /home to /
 // -----------------------------
-add_action('template_redirect', 'figma_custom_theme_redirect_home_slug');
-function figma_custom_theme_redirect_home_slug() {
+add_action('template_redirect', 'estatein_theme_redirect_home_slug');
+function estatein_theme_redirect_home_slug() {
     $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash($_SERVER['REQUEST_URI']) : '';
     if (untrailingslashit($request_uri) === '/home') {
         wp_safe_redirect(home_url('/'), 301);

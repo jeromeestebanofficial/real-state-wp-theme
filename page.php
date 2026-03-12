@@ -4,7 +4,7 @@
  *
  * This is the template that displays all pages by default.
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header();
@@ -34,7 +34,7 @@ get_header();
 
                             wp_link_pages(
                                 array(
-                                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'figma-custom-theme'),
+                                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'estatein-theme'),
                                     'after'  => '</div>',
                                 )
                             );
@@ -48,7 +48,7 @@ get_header();
                                     sprintf(
                                         wp_kses(
                                             /* translators: %s: Name of current post. Only visible to screen readers */
-                                            __('Edit <span class="screen-reader-text">%s</span>', 'figma-custom-theme'),
+                                            __('Edit <span class="screen-reader-text">%s</span>', 'estatein-theme'),
                                             array(
                                                 'span' => array(
                                                     'class' => array(),

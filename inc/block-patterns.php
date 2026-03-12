@@ -2,7 +2,7 @@
 /**
  * Block Patterns for Figma Custom Theme
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 // Prevent direct access
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 /**
  * Register block patterns
  */
-function figma_custom_theme_register_block_patterns() {
+function estatein_theme_register_block_patterns() {
     // Check if block patterns are supported
     if (!function_exists('register_block_pattern')) {
         return;
@@ -22,15 +22,15 @@ function figma_custom_theme_register_block_patterns() {
     // Register block pattern category
     register_block_pattern_category(
         'estatein',
-        array('label' => esc_html__('Estatein Patterns', 'figma-custom-theme'))
+        array('label' => esc_html__('Estatein Patterns', 'estatein-theme'))
     );
 
     // Hero Section Pattern
     register_block_pattern(
-        'figma-custom-theme/hero-section',
+        'estatein-theme/hero-section',
         array(
-            'title'       => esc_html__('Real Estate Hero Section', 'figma-custom-theme'),
-            'description' => esc_html__('A hero section with title, description, CTA buttons and statistics.', 'figma-custom-theme'),
+            'title'       => esc_html__('Real Estate Hero Section', 'estatein-theme'),
+            'description' => esc_html__('A hero section with title, description, CTA buttons and statistics.', 'estatein-theme'),
             'content'     => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"}}},"backgroundColor":"base","className":"hero-section"} -->
 <div class="wp-block-group alignfull hero-section has-base-background-color has-background" style="padding-top:5rem;padding-bottom:5rem">
 <!-- wp:columns {"verticalAlignment":"center","align":"wide"} -->
@@ -129,10 +129,10 @@ function figma_custom_theme_register_block_patterns() {
 
     // Features Grid Pattern
     register_block_pattern(
-        'figma-custom-theme/features-grid',
+        'estatein-theme/features-grid',
         array(
-            'title'       => esc_html__('Real Estate Features Grid', 'figma-custom-theme'),
-            'description' => esc_html__('A grid of feature cards highlighting services and benefits.', 'figma-custom-theme'),
+            'title'       => esc_html__('Real Estate Features Grid', 'estatein-theme'),
+            'description' => esc_html__('A grid of feature cards highlighting services and benefits.', 'estatein-theme'),
             'content'     => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"}}},"backgroundColor":"secondary","className":"features-section"} -->
 <div class="wp-block-group alignfull features-section has-secondary-background-color has-background" style="padding-top:5rem;padding-bottom:5rem">
 <!-- wp:columns {"align":"wide"} -->
@@ -211,10 +211,10 @@ function figma_custom_theme_register_block_patterns() {
 
     // Property Showcase Pattern
     register_block_pattern(
-        'figma-custom-theme/property-showcase',
+        'estatein-theme/property-showcase',
         array(
-            'title'       => esc_html__('Property Showcase Card', 'figma-custom-theme'),
-            'description' => esc_html__('A showcase card for displaying property details with image, features and CTA.', 'figma-custom-theme'),
+            'title'       => esc_html__('Property Showcase Card', 'estatein-theme'),
+            'description' => esc_html__('A showcase card for displaying property details with image, features and CTA.', 'estatein-theme'),
             'content'     => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"2.5rem","right":"2.5rem","bottom":"2.5rem","left":"2.5rem"}},"border":{"radius":"0.75rem"}},"backgroundColor":"base","className":"property-card"} -->
 <div class="wp-block-group property-card has-base-background-color has-background" style="border-radius:0.75rem;padding-top:2.5rem;padding-right:2.5rem;padding-bottom:2.5rem;padding-left:2.5rem">
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"0.5rem"}}} -->
@@ -265,10 +265,10 @@ function figma_custom_theme_register_block_patterns() {
 
     // Testimonial Pattern
     register_block_pattern(
-        'figma-custom-theme/testimonial-card',
+        'estatein-theme/testimonial-card',
         array(
-            'title'       => esc_html__('Customer Testimonial Card', 'figma-custom-theme'),
-            'description' => esc_html__('A testimonial card with rating, quote, and customer details.', 'figma-custom-theme'),
+            'title'       => esc_html__('Customer Testimonial Card', 'estatein-theme'),
+            'description' => esc_html__('A testimonial card with rating, quote, and customer details.', 'estatein-theme'),
             'content'     => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"3rem","right":"3rem","bottom":"3rem","left":"3rem"}},"border":{"radius":"0.75rem"}},"backgroundColor":"base","className":"testimonial-card"} -->
 <div class="wp-block-group testimonial-card has-base-background-color has-background" style="border-radius:0.75rem;padding-top:3rem;padding-right:3rem;padding-bottom:3rem;padding-left:3rem">
 <!-- wp:paragraph {"style":{"typography":{"fontSize":"1.5rem"}},"textColor":"primary"} -->
@@ -311,10 +311,10 @@ function figma_custom_theme_register_block_patterns() {
 
     // Call to Action Pattern
     register_block_pattern(
-        'figma-custom-theme/cta-section',
+        'estatein-theme/cta-section',
         array(
-            'title'       => esc_html__('Call to Action Section', 'figma-custom-theme'),
-            'description' => esc_html__('A prominent call to action section with gradient background.', 'figma-custom-theme'),
+            'title'       => esc_html__('Call to Action Section', 'estatein-theme'),
+            'description' => esc_html__('A prominent call to action section with gradient background.', 'estatein-theme'),
             'content'     => '<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"5rem","bottom":"5rem"}},"color":{"gradient":"linear-gradient(135deg,var(--wp--preset--color--secondary) 0%,var(--wp--preset--color--base) 100%)"}},"className":"cta-section"} -->
 <div class="wp-block-group alignfull cta-section has-background" style="background:linear-gradient(135deg,var(--wp--preset--color--secondary) 0%,var(--wp--preset--color--base) 100%);padding-top:5rem;padding-bottom:5rem">
 <!-- wp:group {"align":"wide","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
@@ -343,4 +343,4 @@ function figma_custom_theme_register_block_patterns() {
         )
     );
 }
-add_action('init', 'figma_custom_theme_register_block_patterns');
+add_action('init', 'estatein_theme_register_block_patterns');

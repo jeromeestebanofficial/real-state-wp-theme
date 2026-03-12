@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header();
@@ -14,7 +14,7 @@ get_header();
             <div class="main-content">
                 <section class="error-404 not-found">
                     <header class="page-header">
-                        <h1 class="page-title"><?php esc_html_e('Oops! That page can&rsquo;t be found.', 'figma-custom-theme'); ?></h1>
+                        <h1 class="page-title"><?php esc_html_e('Oops! That page can&rsquo;t be found.', 'estatein-theme'); ?></h1>
                     </header><!-- .page-header -->
 
                     <div class="page-content">
@@ -24,8 +24,8 @@ get_header();
                             </div>
                             
                             <div class="error-message">
-                                <h2><?php esc_html_e('Page Not Found', 'figma-custom-theme'); ?></h2>
-                                <p><?php esc_html_e('It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'figma-custom-theme'); ?></p>
+                                <h2><?php esc_html_e('Page Not Found', 'estatein-theme'); ?></h2>
+                                <p><?php esc_html_e('It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'estatein-theme'); ?></p>
                             </div>
                         </div>
 
@@ -36,7 +36,7 @@ get_header();
                         <div class="error-404-widgets">
                             <div class="widget-area">
                                 <aside class="widget">
-                                    <h2 class="widget-title"><?php esc_html_e('Most Used Categories', 'figma-custom-theme'); ?></h2>
+                                    <h2 class="widget-title"><?php esc_html_e('Most Used Categories', 'estatein-theme'); ?></h2>
                                     <ul>
                                         <?php
                                         wp_list_categories(
@@ -53,7 +53,7 @@ get_header();
                                 </aside>
 
                                 <aside class="widget">
-                                    <h2 class="widget-title"><?php esc_html_e('Recent Posts', 'figma-custom-theme'); ?></h2>
+                                    <h2 class="widget-title"><?php esc_html_e('Recent Posts', 'estatein-theme'); ?></h2>
                                     <ul>
                                         <?php
                                         $recent_posts = wp_get_recent_posts(array(
@@ -68,14 +68,14 @@ get_header();
                                 </aside>
 
                                 <aside class="widget">
-                                    <h2 class="widget-title"><?php esc_html_e('Archives', 'figma-custom-theme'); ?></h2>
+                                    <h2 class="widget-title"><?php esc_html_e('Archives', 'estatein-theme'); ?></h2>
                                     <ul>
                                         <?php wp_get_archives(array('type' => 'monthly')); ?>
                                     </ul>
                                 </aside>
 
                                 <aside class="widget">
-                                    <h2 class="widget-title"><?php esc_html_e('Tag Cloud', 'figma-custom-theme'); ?></h2>
+                                    <h2 class="widget-title"><?php esc_html_e('Tag Cloud', 'estatein-theme'); ?></h2>
                                     <?php
                                     wp_tag_cloud(
                                         array(

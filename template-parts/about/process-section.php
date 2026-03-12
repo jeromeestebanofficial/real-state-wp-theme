@@ -2,10 +2,10 @@
 /**
  * Template part for displaying How It Works / Process section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
-$process_title = get_field('about_process_title') ?: esc_html__('Navigating the Estatein Experience', 'figma-custom-theme');
+$process_title = get_field('about_process_title') ?: esc_html__('Navigating the Estatein Experience', 'estatein-theme');
 $process_description = get_field('about_process_description') ?: '';
 $process_steps = get_field('about_process_steps') ?: array();
 ?>
@@ -90,7 +90,7 @@ $process_steps = get_field('about_process_steps') ?: array();
                 <?php foreach ($process_steps as $index => $step) : ?>
                     <div class="process-step">
                         <div class="step-number">
-                            <span><?php printf(esc_html__('Step %02d', 'figma-custom-theme'), $index + 1); ?></span>
+                            <span><?php printf(esc_html__('Step %02d', 'estatein-theme'), $index + 1); ?></span>
                         </div>
                         <div class="step-content">
                             <h3 class="step-title"><?php echo esc_html($step['title'] ?: ''); ?></h3>

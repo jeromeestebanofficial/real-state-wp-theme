@@ -4,15 +4,15 @@
  * Displays the main hero section with 4 main service cards
  * Reuses the features-section component for consistency
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 ?>
 
 <section class="services-hero-section">
     <div class="services-hero-wrapper">
         <div class="services-hero-content">
-            <h1 class="services-hero-title"><?php echo esc_html__('Elevate Your Real Estate Experience', 'figma-custom-theme'); ?></h1>
-            <p class="services-hero-description"><?php echo esc_html__('Welcome to Estatein, where your real estate aspirations meet expert guidance. Explore our comprehensive range of services, each designed to cater to your unique needs and dreams.', 'figma-custom-theme'); ?></p>
+            <h1 class="services-hero-title"><?php echo esc_html__('Elevate Your Real Estate Experience', 'estatein-theme'); ?></h1>
+            <p class="services-hero-description"><?php echo esc_html__('Welcome to Estatein, where your real estate aspirations meet expert guidance. Explore our comprehensive range of services, each designed to cater to your unique needs and dreams.', 'estatein-theme'); ?></p>
         </div>
     </div>
     

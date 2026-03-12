@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 if (!is_active_sidebar('sidebar-1')) {

@@ -2,7 +2,7 @@
 /**
  * The template for displaying property archives
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header(); ?>

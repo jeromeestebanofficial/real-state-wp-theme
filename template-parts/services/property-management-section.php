@@ -3,7 +3,7 @@
  * Property Management Service Section
  * Displays the "Effortless Property Management" service section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 ?>
 
@@ -11,8 +11,8 @@
     <div class="container">
         <div class="service-section-header">
             <div class="decorative-pattern"></div>
-            <h2 class="service-section-title"><?php echo esc_html__('Effortless Property Management', 'figma-custom-theme'); ?></h2>
-            <p class="service-section-description"><?php echo esc_html__('Owning a property should be a pleasure, not a hassle. Estatein\'s Property Management Service takes the stress out of property ownership, offering comprehensive solutions tailored to your needs. Explore the categories below to see how we can make property management effortless for you', 'figma-custom-theme'); ?></p>
+            <h2 class="service-section-title"><?php echo esc_html__('Effortless Property Management', 'estatein-theme'); ?></h2>
+            <p class="service-section-description"><?php echo esc_html__('Owning a property should be a pleasure, not a hassle. Estatein\'s Property Management Service takes the stress out of property ownership, offering comprehensive solutions tailored to your needs. Explore the categories below to see how we can make property management effortless for you', 'estatein-theme'); ?></p>
         </div>
         
         <div class="service-cards-grid">
@@ -28,9 +28,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 class="service-card-title"><?php echo esc_html__('Tenant Harmony', 'figma-custom-theme'); ?></h3>
+                        <h3 class="service-card-title"><?php echo esc_html__('Tenant Harmony', 'estatein-theme'); ?></h3>
                     </div>
-                    <p class="service-card-description"><?php echo esc_html__('Our Tenant Management services ensure that your tenants have a smooth and reducing vacancies.', 'figma-custom-theme'); ?></p>
+                    <p class="service-card-description"><?php echo esc_html__('Our Tenant Management services ensure that your tenants have a smooth and reducing vacancies.', 'estatein-theme'); ?></p>
                 </div>
                 
                 <div class="service-card">
@@ -44,9 +44,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 class="service-card-title"><?php echo esc_html__('Maintenance Ease', 'figma-custom-theme'); ?></h3>
+                        <h3 class="service-card-title"><?php echo esc_html__('Maintenance Ease', 'estatein-theme'); ?></h3>
                     </div>
-                    <p class="service-card-description"><?php echo esc_html__('Say goodbye to property maintenance headaches. We handle all aspects of property upkeep.', 'figma-custom-theme'); ?></p>
+                    <p class="service-card-description"><?php echo esc_html__('Say goodbye to property maintenance headaches. We handle all aspects of property upkeep.', 'estatein-theme'); ?></p>
                 </div>
                 
                 <div class="service-card">
@@ -60,9 +60,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 class="service-card-title"><?php echo esc_html__('Financial Peace of Mind', 'figma-custom-theme'); ?></h3>
+                        <h3 class="service-card-title"><?php echo esc_html__('Financial Peace of Mind', 'estatein-theme'); ?></h3>
                     </div>
-                    <p class="service-card-description"><?php echo esc_html__('Managing property finances can be complex. Our financial experts take care of rent collection', 'figma-custom-theme'); ?></p>
+                    <p class="service-card-description"><?php echo esc_html__('Managing property finances can be complex. Our financial experts take care of rent collection', 'estatein-theme'); ?></p>
                 </div>
             </div>
             
@@ -78,19 +78,19 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 class="service-card-title"><?php echo esc_html__('Legal Guardian', 'figma-custom-theme'); ?></h3>
+                        <h3 class="service-card-title"><?php echo esc_html__('Legal Guardian', 'estatein-theme'); ?></h3>
                     </div>
-                    <p class="service-card-description"><?php echo esc_html__('Stay compliant with property laws and regulations effortlessly.', 'figma-custom-theme'); ?></p>
+                    <p class="service-card-description"><?php echo esc_html__('Stay compliant with property laws and regulations effortlessly.', 'estatein-theme'); ?></p>
                 </div>
                 
                 <div class="service-card service-card-cta">
                     <div class="service-cta-pattern"></div>
                     <div class="service-cta-content">
                         <div class="service-cta-header">
-                            <h3 class="service-cta-title"><?php echo esc_html__('Experience Effortless Property Management', 'figma-custom-theme'); ?></h3>
-                            <a href="#" class="service-cta-button"><?php echo esc_html__('Learn More', 'figma-custom-theme'); ?></a>
+                            <h3 class="service-cta-title"><?php echo esc_html__('Experience Effortless Property Management', 'estatein-theme'); ?></h3>
+                            <a href="#" class="service-cta-button"><?php echo esc_html__('Learn More', 'estatein-theme'); ?></a>
                         </div>
-                        <p class="service-cta-description"><?php echo esc_html__('Ready to experience hassle-free property management? Explore our Property Management Service categories and let us handle the complexities while you enjoy the benefits of property ownership.', 'figma-custom-theme'); ?></p>
+                        <p class="service-cta-description"><?php echo esc_html__('Ready to experience hassle-free property management? Explore our Property Management Service categories and let us handle the complexities while you enjoy the benefits of property ownership.', 'estatein-theme'); ?></p>
                     </div>
                 </div>
             </div>

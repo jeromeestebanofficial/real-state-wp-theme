@@ -2,22 +2,22 @@
 /**
  * Template part for displaying Properties Hero/Search section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 // Get content - check if on page template first, then archive (customizer), then defaults
 if (is_page_template('page-properties.php') || (is_page() && get_queried_object() && get_queried_object()->post_name === 'properties')) {
     // Page template - use ACF fields
-    $hero_title = get_field('properties_hero_title') ?: esc_html__('Find Your Dream Property', 'figma-custom-theme');
-    $hero_description = get_field('properties_hero_description') ?: esc_html__('Welcome to Estatein, where your dream property awaits in every corner of our beautiful world. Explore our curated selection of properties, each offering a unique story and a chance to redefine your life. With categories to suit every dreamer, your journey', 'figma-custom-theme');
+    $hero_title = get_field('properties_hero_title') ?: esc_html__('Find Your Dream Property', 'estatein-theme');
+    $hero_description = get_field('properties_hero_description') ?: esc_html__('Welcome to Estatein, where your dream property awaits in every corner of our beautiful world. Explore our curated selection of properties, each offering a unique story and a chance to redefine your life. With categories to suit every dreamer, your journey', 'estatein-theme');
 } elseif (is_post_type_archive('property') || is_tax('property_type') || is_tax('property_location')) {
     // Archive page - use Customizer settings
     $hero_title = get_theme_mod('properties_archive_hero_title', 'Find Your Dream Property');
     $hero_description = get_theme_mod('properties_archive_hero_description', 'Welcome to Estatein, where your dream property awaits in every corner of our beautiful world. Explore our curated selection of properties, each offering a unique story and a chance to redefine your life. With categories to suit every dreamer, your journey');
 } else {
     // Defaults
-    $hero_title = esc_html__('Find Your Dream Property', 'figma-custom-theme');
-    $hero_description = esc_html__('Welcome to Estatein, where your dream property awaits in every corner of our beautiful world. Explore our curated selection of properties, each offering a unique story and a chance to redefine your life. With categories to suit every dreamer, your journey', 'figma-custom-theme');
+    $hero_title = esc_html__('Find Your Dream Property', 'estatein-theme');
+    $hero_description = esc_html__('Welcome to Estatein, where your dream property awaits in every corner of our beautiful world. Explore our curated selection of properties, each offering a unique story and a chance to redefine your life. With categories to suit every dreamer, your journey', 'estatein-theme');
 }
 
 // Get taxonomies for search form
@@ -58,9 +58,9 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                 <div class="search-form-inner">
                     <div class="search-header-wrapper">
                         <div class="search-header">
-                            <input type="text" name="search" class="search-input" placeholder="<?php echo esc_attr__('Search For A Property', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($search_filter); ?>">
+                            <input type="text" name="search" class="search-input" placeholder="<?php echo esc_attr__('Search For A Property', 'estatein-theme'); ?>" value="<?php echo esc_attr($search_filter); ?>">
                             <?php if ($has_active_filters) : ?>
-                                <a href="<?php echo esc_url(is_post_type_archive('property') ? get_post_type_archive_link('property') : get_permalink()); ?>" class="clear-filters-btn" title="<?php echo esc_attr__('Clear All Filters', 'figma-custom-theme'); ?>">
+                                <a href="<?php echo esc_url(is_post_type_archive('property') ? get_post_type_archive_link('property') : get_permalink()); ?>" class="clear-filters-btn" title="<?php echo esc_attr__('Clear All Filters', 'estatein-theme'); ?>">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                         <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
@@ -71,7 +71,7 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                     <circle cx="11" cy="11" r="8" stroke="white" stroke-width="1.5"/>
                                     <path d="m21 21-4.35-4.35" stroke="white" stroke-width="1.5"/>
                                 </svg>
-                                <span><?php echo esc_html__('Find Property', 'figma-custom-theme'); ?></span>
+                                <span><?php echo esc_html__('Find Property', 'estatein-theme'); ?></span>
                             </button>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                 </svg>
                                 <div class="filter-divider"></div>
                                 <select name="location" class="filter-select" data-filter="location">
-                                    <option value=""><?php echo esc_html__('Location', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Location', 'estatein-theme'); ?></option>
                                     <?php if ($property_locations) : ?>
                                         <?php foreach ($property_locations as $location) : ?>
                                             <option value="<?php echo esc_attr($location->slug); ?>" <?php selected($location_filter, $location->slug); ?>>
@@ -96,7 +96,7 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                     <?php endif; ?>
                                 </select>
                             </div>
-                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'figma-custom-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
+                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'estatein-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
                                 <svg width="15" height="7.5" viewBox="0 0 15 7.5" fill="none">
                                     <path d="M1 6.5L7.5 1L14 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -111,7 +111,7 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                 </svg>
                                 <div class="filter-divider"></div>
                                 <select name="property_type" class="filter-select" data-filter="property_type">
-                                    <option value=""><?php echo esc_html__('Property Type', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Property Type', 'estatein-theme'); ?></option>
                                     <?php if ($property_types) : ?>
                                         <?php foreach ($property_types as $type) : ?>
                                             <option value="<?php echo esc_attr($type->slug); ?>" <?php selected($property_type_filter, $type->slug); ?>>
@@ -121,7 +121,7 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                     <?php endif; ?>
                                 </select>
                             </div>
-                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'figma-custom-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
+                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'estatein-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
                                 <svg width="15" height="7.5" viewBox="0 0 15 7.5" fill="none">
                                     <path d="M1 6.5L7.5 1L14 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -135,14 +135,14 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                 </svg>
                                 <div class="filter-divider"></div>
                                 <select name="price_range" class="filter-select" data-filter="price_range">
-                                    <option value=""><?php echo esc_html__('Pricing Range', 'figma-custom-theme'); ?></option>
-                                    <option value="0-250000" <?php selected($price_range_filter, '0-250000'); ?>><?php echo esc_html__('$0 - $250,000', 'figma-custom-theme'); ?></option>
-                                    <option value="250000-500000" <?php selected($price_range_filter, '250000-500000'); ?>><?php echo esc_html__('$250,000 - $500,000', 'figma-custom-theme'); ?></option>
-                                    <option value="500000-1000000" <?php selected($price_range_filter, '500000-1000000'); ?>><?php echo esc_html__('$500,000 - $1,000,000', 'figma-custom-theme'); ?></option>
-                                    <option value="1000000+" <?php selected($price_range_filter, '1000000+'); ?>><?php echo esc_html__('$1,000,000+', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Pricing Range', 'estatein-theme'); ?></option>
+                                    <option value="0-250000" <?php selected($price_range_filter, '0-250000'); ?>><?php echo esc_html__('$0 - $250,000', 'estatein-theme'); ?></option>
+                                    <option value="250000-500000" <?php selected($price_range_filter, '250000-500000'); ?>><?php echo esc_html__('$250,000 - $500,000', 'estatein-theme'); ?></option>
+                                    <option value="500000-1000000" <?php selected($price_range_filter, '500000-1000000'); ?>><?php echo esc_html__('$500,000 - $1,000,000', 'estatein-theme'); ?></option>
+                                    <option value="1000000+" <?php selected($price_range_filter, '1000000+'); ?>><?php echo esc_html__('$1,000,000+', 'estatein-theme'); ?></option>
                                 </select>
                             </div>
-                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'figma-custom-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
+                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'estatein-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
                                 <svg width="15" height="7.5" viewBox="0 0 15 7.5" fill="none">
                                     <path d="M1 6.5L7.5 1L14 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -157,14 +157,14 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                 </svg>
                                 <div class="filter-divider"></div>
                                 <select name="property_size" class="filter-select" data-filter="property_size">
-                                    <option value=""><?php echo esc_html__('Property Size', 'figma-custom-theme'); ?></option>
-                                    <option value="0-1000" <?php selected($property_size_filter, '0-1000'); ?>><?php echo esc_html__('0 - 1,000 sq ft', 'figma-custom-theme'); ?></option>
-                                    <option value="1000-2000" <?php selected($property_size_filter, '1000-2000'); ?>><?php echo esc_html__('1,000 - 2,000 sq ft', 'figma-custom-theme'); ?></option>
-                                    <option value="2000-3000" <?php selected($property_size_filter, '2000-3000'); ?>><?php echo esc_html__('2,000 - 3,000 sq ft', 'figma-custom-theme'); ?></option>
-                                    <option value="3000+" <?php selected($property_size_filter, '3000+'); ?>><?php echo esc_html__('3,000+ sq ft', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Property Size', 'estatein-theme'); ?></option>
+                                    <option value="0-1000" <?php selected($property_size_filter, '0-1000'); ?>><?php echo esc_html__('0 - 1,000 sq ft', 'estatein-theme'); ?></option>
+                                    <option value="1000-2000" <?php selected($property_size_filter, '1000-2000'); ?>><?php echo esc_html__('1,000 - 2,000 sq ft', 'estatein-theme'); ?></option>
+                                    <option value="2000-3000" <?php selected($property_size_filter, '2000-3000'); ?>><?php echo esc_html__('2,000 - 3,000 sq ft', 'estatein-theme'); ?></option>
+                                    <option value="3000+" <?php selected($property_size_filter, '3000+'); ?>><?php echo esc_html__('3,000+ sq ft', 'estatein-theme'); ?></option>
                                 </select>
                             </div>
-                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'figma-custom-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
+                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'estatein-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
                                 <svg width="15" height="7.5" viewBox="0 0 15 7.5" fill="none">
                                     <path d="M1 6.5L7.5 1L14 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -179,15 +179,15 @@ $has_active_filters = !empty($location_filter) || !empty($property_type_filter) 
                                 </svg>
                                 <div class="filter-divider"></div>
                                 <select name="build_year" class="filter-select" data-filter="build_year">
-                                    <option value=""><?php echo esc_html__('Build Year', 'figma-custom-theme'); ?></option>
-                                    <option value="2020+" <?php selected($build_year_filter, '2020+'); ?>><?php echo esc_html__('2020+', 'figma-custom-theme'); ?></option>
-                                    <option value="2010-2019" <?php selected($build_year_filter, '2010-2019'); ?>><?php echo esc_html__('2010 - 2019', 'figma-custom-theme'); ?></option>
-                                    <option value="2000-2009" <?php selected($build_year_filter, '2000-2009'); ?>><?php echo esc_html__('2000 - 2009', 'figma-custom-theme'); ?></option>
-                                    <option value="1990-1999" <?php selected($build_year_filter, '1990-1999'); ?>><?php echo esc_html__('1990 - 1999', 'figma-custom-theme'); ?></option>
-                                    <option value="before-1990" <?php selected($build_year_filter, 'before-1990'); ?>><?php echo esc_html__('Before 1990', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Build Year', 'estatein-theme'); ?></option>
+                                    <option value="2020+" <?php selected($build_year_filter, '2020+'); ?>><?php echo esc_html__('2020+', 'estatein-theme'); ?></option>
+                                    <option value="2010-2019" <?php selected($build_year_filter, '2010-2019'); ?>><?php echo esc_html__('2010 - 2019', 'estatein-theme'); ?></option>
+                                    <option value="2000-2009" <?php selected($build_year_filter, '2000-2009'); ?>><?php echo esc_html__('2000 - 2009', 'estatein-theme'); ?></option>
+                                    <option value="1990-1999" <?php selected($build_year_filter, '1990-1999'); ?>><?php echo esc_html__('1990 - 1999', 'estatein-theme'); ?></option>
+                                    <option value="before-1990" <?php selected($build_year_filter, 'before-1990'); ?>><?php echo esc_html__('Before 1990', 'estatein-theme'); ?></option>
                                 </select>
                             </div>
-                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'figma-custom-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
+                            <button type="button" class="filter-arrow" aria-label="<?php echo esc_attr__('Open dropdown', 'estatein-theme'); ?>" onclick="this.closest('.filter-field').querySelector('.filter-select').focus();">
                                 <svg width="15" height="7.5" viewBox="0 0 15 7.5" fill="none">
                                     <path d="M1 6.5L7.5 1L14 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>

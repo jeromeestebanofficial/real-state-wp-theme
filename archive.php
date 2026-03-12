@@ -5,7 +5,7 @@
  * Used to display archive-type pages if nothing more specific matches a query.
  * For example, puts together date-based pages if no date.php file exists.
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header();
@@ -50,7 +50,7 @@ get_header();
                                                 </time>
                                             </span>
                                             <span class="byline">
-                                                <?php echo esc_html__('by', 'figma-custom-theme'); ?>
+                                                <?php echo esc_html__('by', 'estatein-theme'); ?>
                                                 <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
                                                     <?php echo esc_html(get_the_author()); ?>
                                                 </a>
@@ -63,7 +63,7 @@ get_header();
                                     <?php the_excerpt(); ?>
                                     <p>
                                         <a href="<?php echo esc_url(get_permalink()); ?>" class="read-more">
-                                            <?php echo esc_html__('Read More', 'figma-custom-theme'); ?>
+                                            <?php echo esc_html__('Read More', 'estatein-theme'); ?>
                                         </a>
                                     </p>
                                 </div>
@@ -72,7 +72,7 @@ get_header();
                                     <?php
                                     $categories_list = get_the_category_list(', ');
                                     if ($categories_list) {
-                                        echo '<span class="cat-links">' . esc_html__('Categories:', 'figma-custom-theme') . ' ' . $categories_list . '</span>';
+                                        echo '<span class="cat-links">' . esc_html__('Categories:', 'estatein-theme') . ' ' . $categories_list . '</span>';
                                     }
                                     ?>
                                 </footer>
@@ -84,8 +84,8 @@ get_header();
                     <?php
                     // Archive pagination
                     the_posts_pagination(array(
-                        'prev_text' => esc_html__('Previous', 'figma-custom-theme'),
-                        'next_text' => esc_html__('Next', 'figma-custom-theme'),
+                        'prev_text' => esc_html__('Previous', 'estatein-theme'),
+                        'next_text' => esc_html__('Next', 'estatein-theme'),
                     ));
                     ?>
 
@@ -93,11 +93,11 @@ get_header();
 
                     <section class="no-results not-found">
                         <header class="page-header">
-                            <h1 class="page-title"><?php esc_html_e('Nothing here', 'figma-custom-theme'); ?></h1>
+                            <h1 class="page-title"><?php esc_html_e('Nothing here', 'estatein-theme'); ?></h1>
                         </header>
 
                         <div class="page-content">
-                            <p><?php esc_html_e('It seems we can\'t find what you\'re looking for. Perhaps searching can help.', 'figma-custom-theme'); ?></p>
+                            <p><?php esc_html_e('It seems we can\'t find what you\'re looking for. Perhaps searching can help.', 'estatein-theme'); ?></p>
                             <?php get_search_form(); ?>
                         </div>
                     </section>

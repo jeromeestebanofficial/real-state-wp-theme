@@ -113,7 +113,8 @@ For page-level styling, use files under `assets/css/` and `assets/css/components
 
 ## Development Notes
 
-- Text domain: `figma-custom-theme`
+- Text domain: `estatein-theme`
+- Function prefix: `estatein_theme_`
 - Version: `1.0.0`
 - Author: Jerome Esteban
 - License: GPL v2 or later

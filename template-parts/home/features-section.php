@@ -2,7 +2,7 @@
 /**
  * Template part for displaying features section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 ?>
 

@@ -2,7 +2,7 @@
 /**
  * Template part for displaying testimonials section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 ?>
 
@@ -101,7 +101,7 @@
                 ?>
                 <div class="no-testimonials-found">
                     <p class="no-testimonials-message">
-                        <?php echo esc_html__('No testimonials found.', 'figma-custom-theme'); ?>
+                        <?php echo esc_html__('No testimonials found.', 'estatein-theme'); ?>
                     </p>
                 </div>
                 <?php
@@ -112,7 +112,7 @@
         <div class="testimonials-pagination">
             <span class="pagination-info">
                 <span class="current">01</span> 
-                <span class="total"><?php echo esc_html__('of 10', 'figma-custom-theme'); ?></span>
+                <span class="total"><?php echo esc_html__('of 10', 'estatein-theme'); ?></span>
             </span>
             <div class="pagination-nav">
                 <button class="nav-btn nav-prev" disabled>

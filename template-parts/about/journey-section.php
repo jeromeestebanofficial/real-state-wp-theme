@@ -2,17 +2,17 @@
 /**
  * Template part for displaying Our Journey section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
-$journey_title = get_field('about_journey_title') ?: esc_html__('Our Journey', 'figma-custom-theme');
+$journey_title = get_field('about_journey_title') ?: esc_html__('Our Journey', 'estatein-theme');
 $journey_description = get_field('about_journey_description') ?: "Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary. Over the years, we've expanded our reach, forged valuable partnerships, and gained the trust of countless clients.";
 $stat_1_number = get_field('about_stat_1_number') ?: '200+';
-$stat_1_label = get_field('about_stat_1_label') ?: esc_html__('Happy Customers', 'figma-custom-theme');
+$stat_1_label = get_field('about_stat_1_label') ?: esc_html__('Happy Customers', 'estatein-theme');
 $stat_2_number = get_field('about_stat_2_number') ?: '10k+';
-$stat_2_label = get_field('about_stat_2_label') ?: esc_html__('Properties For Clients', 'figma-custom-theme');
+$stat_2_label = get_field('about_stat_2_label') ?: esc_html__('Properties For Clients', 'estatein-theme');
 $stat_3_number = get_field('about_stat_3_number') ?: '16+';
-$stat_3_label = get_field('about_stat_3_label') ?: esc_html__('Years of Experience', 'figma-custom-theme');
+$stat_3_label = get_field('about_stat_3_label') ?: esc_html__('Years of Experience', 'estatein-theme');
 $journey_image = get_field('about_journey_image');
 ?>
 

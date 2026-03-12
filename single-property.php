@@ -2,7 +2,7 @@
 /**
  * The template for displaying single property posts
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header(); 
@@ -128,7 +128,7 @@ if (!function_exists('parse_property_field')) {
                             <?php endif; ?>
                         </div>
                         <div class="property-price-wrapper">
-                            <div class="price-label"><?php echo esc_html__('Price', 'figma-custom-theme'); ?></div>
+                            <div class="price-label"><?php echo esc_html__('Price', 'estatein-theme'); ?></div>
                             <div class="price-value">
                                 <?php 
                                 if ($property_listing_price) {
@@ -224,7 +224,7 @@ if (!function_exists('parse_property_field')) {
                         <!-- Gallery Navigation -->
                         <?php if (!empty($property_images) && count($property_images) > 2) : ?>
                             <div class="gallery-navigation">
-                                <button class="gallery-nav-btn prev-btn" aria-label="<?php echo esc_attr__('Previous', 'figma-custom-theme'); ?>">
+                                <button class="gallery-nav-btn prev-btn" aria-label="<?php echo esc_attr__('Previous', 'estatein-theme'); ?>">
                                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                                         <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
                                     </svg>
@@ -239,7 +239,7 @@ if (!function_exists('parse_property_field')) {
                                         <div class="gallery-dot <?php echo $is_active; ?>" data-slide="<?php echo $i; ?>"></div>
                                     <?php endfor; ?>
                                 </div>
-                                <button class="gallery-nav-btn next-btn" aria-label="<?php echo esc_attr__('Next', 'figma-custom-theme'); ?>">
+                                <button class="gallery-nav-btn next-btn" aria-label="<?php echo esc_attr__('Next', 'estatein-theme'); ?>">
                                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                                         <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
                                         </svg>
@@ -256,7 +256,7 @@ if (!function_exists('parse_property_field')) {
                         <!-- Left Column: Description & Features -->
                         <div class="property-description-column">
                             <div class="description-content">
-                                <h2 class="section-title"><?php echo esc_html__('Description', 'figma-custom-theme'); ?></h2>
+                                <h2 class="section-title"><?php echo esc_html__('Description', 'estatein-theme'); ?></h2>
                                 <div class="description-text">
                                     <?php the_content(); ?>
                                 </div>
@@ -270,7 +270,7 @@ if (!function_exists('parse_property_field')) {
                                                 <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
                                                 <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2"/>
                                         </svg>
-                                            <span class="spec-label"><?php echo esc_html__('Bedrooms', 'figma-custom-theme'); ?></span>
+                                            <span class="spec-label"><?php echo esc_html__('Bedrooms', 'estatein-theme'); ?></span>
                                         </div>
                                         <div class="spec-value"><?php echo esc_html($property_bedrooms); ?></div>
                                     </div>
@@ -283,7 +283,7 @@ if (!function_exists('parse_property_field')) {
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path d="M12 2C13.1046 2 14 2.89543 14 4V5H18C19.1046 5 20 5.89543 20 7V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V7C4 5.89543 4.89543 5 6 5H10V4C10 2.89543 10.8954 2 12 2Z" stroke="currentColor" stroke-width="2"/>
                                         </svg>
-                                            <span class="spec-label"><?php echo esc_html__('Bathrooms', 'figma-custom-theme'); ?></span>
+                                            <span class="spec-label"><?php echo esc_html__('Bathrooms', 'estatein-theme'); ?></span>
                                         </div>
                                         <div class="spec-value"><?php echo esc_html($property_bathrooms); ?></div>
                                     </div>
@@ -296,7 +296,7 @@ if (!function_exists('parse_property_field')) {
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                             <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
                                         </svg>
-                                            <span class="spec-label"><?php echo esc_html__('Area', 'figma-custom-theme'); ?></span>
+                                            <span class="spec-label"><?php echo esc_html__('Area', 'estatein-theme'); ?></span>
                                         </div>
                                         <div class="spec-value"><?php echo esc_html($property_area); ?></div>
                                     </div>
@@ -306,7 +306,7 @@ if (!function_exists('parse_property_field')) {
                         
                         <!-- Right Column: Key Features -->
                         <div class="property-features-column">
-                            <h2 class="section-title"><?php echo esc_html__('Key Features and Amenities', 'figma-custom-theme'); ?></h2>
+                            <h2 class="section-title"><?php echo esc_html__('Key Features and Amenities', 'estatein-theme'); ?></h2>
                             <?php if (!empty($property_features)) : ?>
                                 <div class="features-list">
                                     <?php foreach ($property_features as $feature) : ?>
@@ -319,7 +319,7 @@ if (!function_exists('parse_property_field')) {
                                     <?php endforeach; ?>
                             </div>
                             <?php else : ?>
-                                <p class="no-features"><?php echo esc_html__('No features listed.', 'figma-custom-theme'); ?></p>
+                                <p class="no-features"><?php echo esc_html__('No features listed.', 'estatein-theme'); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -338,8 +338,8 @@ if (!function_exists('parse_property_field')) {
                         ?>
                         <div class="contact-header">
                             <div class="decorative-pattern"></div>
-                            <h2 class="section-title-large"><?php echo esc_html__('Inquire About', 'figma-custom-theme'); ?> <?php the_title(); ?></h2>
-                            <p class="section-description"><?php echo esc_html__('Interested in this property? Fill out the form below, and our real estate experts will get back to you with more details, including scheduling a viewing and answering any questions you may have.', 'figma-custom-theme'); ?></p>
+                            <h2 class="section-title-large"><?php echo esc_html__('Inquire About', 'estatein-theme'); ?> <?php the_title(); ?></h2>
+                            <p class="section-description"><?php echo esc_html__('Interested in this property? Fill out the form below, and our real estate experts will get back to you with more details, including scheduling a viewing and answering any questions you may have.', 'estatein-theme'); ?></p>
                         </div>
                         
                         <div class="contact-form-container">
@@ -347,12 +347,12 @@ if (!function_exists('parse_property_field')) {
                             // Display success/error messages
                             if ('success' === $form_submitted_status) {
                                 echo '<div class="form-message form-success">';
-                                echo esc_html__('Thank you! Your message has been sent successfully. We will get back to you soon.', 'figma-custom-theme');
+                                echo esc_html__('Thank you! Your message has been sent successfully. We will get back to you soon.', 'estatein-theme');
                                 echo '</div>';
                             }
                             if ('error' === $form_submitted_status) {
                                 echo '<div class="form-message form-error">';
-                                echo esc_html__('Sorry, there was an error sending your message. Please try again.', 'figma-custom-theme');
+                                echo esc_html__('Sorry, there was an error sending your message. Please try again.', 'estatein-theme');
                                 echo '</div>';
                             }
                             ?>
@@ -364,28 +364,28 @@ if (!function_exists('parse_property_field')) {
                                 <div class="form-fields-grid">
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="first_name"><?php echo esc_html__('First Name', 'figma-custom-theme'); ?></label>
-                                            <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_first_name); ?>" required>
+                                            <label for="first_name"><?php echo esc_html__('First Name', 'estatein-theme'); ?></label>
+                                            <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_first_name); ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="last_name"><?php echo esc_html__('Last Name', 'figma-custom-theme'); ?></label>
-                                            <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_last_name); ?>" required>
+                                            <label for="last_name"><?php echo esc_html__('Last Name', 'estatein-theme'); ?></label>
+                                            <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_last_name); ?>" required>
                                         </div>
                                     </div>
                                     
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="email"><?php echo esc_html__('Email', 'figma-custom-theme'); ?></label>
-                                            <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_email); ?>" required>
+                                            <label for="email"><?php echo esc_html__('Email', 'estatein-theme'); ?></label>
+                                            <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_email); ?>" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="phone"><?php echo esc_html__('Phone', 'figma-custom-theme'); ?></label>
-                                            <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_phone); ?>" required>
+                                            <label for="phone"><?php echo esc_html__('Phone', 'estatein-theme'); ?></label>
+                                            <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_phone); ?>" required>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group full-width">
-                                        <label for="selected_property_display"><?php echo esc_html__('Selected Property', 'figma-custom-theme'); ?></label>
+                                        <label for="selected_property_display"><?php echo esc_html__('Selected Property', 'estatein-theme'); ?></label>
                                         <div class="property-select-display">
                                             <span><?php echo esc_html(get_the_title() . ($property_location ? ', ' . $property_location : '')); ?></span>
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -396,22 +396,22 @@ if (!function_exists('parse_property_field')) {
                                     </div>
                                     
                                     <div class="form-group full-width">
-                                        <label for="message"><?php echo esc_html__('Message', 'figma-custom-theme'); ?></label>
-                                        <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'figma-custom-theme'); ?>" required><?php echo esc_textarea($posted_message); ?></textarea>
+                                        <label for="message"><?php echo esc_html__('Message', 'estatein-theme'); ?></label>
+                                        <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'estatein-theme'); ?>" required><?php echo esc_textarea($posted_message); ?></textarea>
                                     </div>
                                 </div>
                                 
                                 <div class="form-footer">
                                     <label class="terms-checkbox">
                                         <input type="checkbox" name="terms" required>
-                                        <span><?php echo esc_html__('I agree with ', 'figma-custom-theme'); ?>
-                                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Terms of Use', 'figma-custom-theme'); ?></a>
-                                            <?php echo esc_html__(' and ', 'figma-custom-theme'); ?>
-                                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Privacy Policy', 'figma-custom-theme'); ?></a>
+                                        <span><?php echo esc_html__('I agree with ', 'estatein-theme'); ?>
+                                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Terms of Use', 'estatein-theme'); ?></a>
+                                            <?php echo esc_html__(' and ', 'estatein-theme'); ?>
+                                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Privacy Policy', 'estatein-theme'); ?></a>
                                         </span>
                                     </label>
                                     <button type="submit" class="btn-submit">
-                                        <?php echo esc_html__('Send Your Message', 'figma-custom-theme'); ?>
+                                        <?php echo esc_html__('Send Your Message', 'estatein-theme'); ?>
                                     </button>
                                 </div>
                             </form>
@@ -426,21 +426,21 @@ if (!function_exists('parse_property_field')) {
                         <div class="pricing-header">
                             <div class="pricing-title-wrapper">
                                 <div class="decorative-pattern"></div>
-                                <h2 class="section-title-large"><?php echo esc_html__('Comprehensive Pricing Details', 'figma-custom-theme'); ?></h2>
-                                <p class="section-description"><?php echo esc_html__('At Estatein, transparency is key. We want you to have a clear understanding of all costs associated with your property investment. Below, we break down the pricing to help you make an informed decision.', 'figma-custom-theme'); ?></p>
+                                <h2 class="section-title-large"><?php echo esc_html__('Comprehensive Pricing Details', 'estatein-theme'); ?></h2>
+                                <p class="section-description"><?php echo esc_html__('At Estatein, transparency is key. We want you to have a clear understanding of all costs associated with your property investment. Below, we break down the pricing to help you make an informed decision.', 'estatein-theme'); ?></p>
                             </div>
                         </div>
                         
                         <div class="pricing-note">
-                            <div class="note-label"><?php echo esc_html__('Note', 'figma-custom-theme'); ?></div>
+                            <div class="note-label"><?php echo esc_html__('Note', 'estatein-theme'); ?></div>
                             <div class="note-divider"></div>
-                            <div class="note-text"><?php echo esc_html__('The figures provided above are estimates and may vary depending on the property, location, and individual circumstances.', 'figma-custom-theme'); ?></div>
+                            <div class="note-text"><?php echo esc_html__('The figures provided above are estimates and may vary depending on the property, location, and individual circumstances.', 'estatein-theme'); ?></div>
                         </div>
                         
                         <div class="pricing-content-wrapper">
                             <!-- Listing Price Sidebar -->
                             <div class="listing-price-sidebar">
-                                <div class="price-label-small"><?php echo esc_html__('Listing Price', 'figma-custom-theme'); ?></div>
+                                <div class="price-label-small"><?php echo esc_html__('Listing Price', 'estatein-theme'); ?></div>
                                 <div class="price-value-large">
                 <?php
                                     if ($property_listing_price) {
@@ -459,8 +459,8 @@ if (!function_exists('parse_property_field')) {
                                 if (!empty($additional_fees_parsed)) : ?>
                                     <div class="pricing-card">
                                         <div class="pricing-card-header">
-                                            <h3 class="pricing-card-title"><?php echo esc_html__('Additional Fees', 'figma-custom-theme'); ?></h3>
-                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'figma-custom-theme'); ?></button>
+                                            <h3 class="pricing-card-title"><?php echo esc_html__('Additional Fees', 'estatein-theme'); ?></h3>
+                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'estatein-theme'); ?></button>
                                         </div>
                                         <div class="pricing-card-divider"></div>
                                         <div class="pricing-card-content">
@@ -474,7 +474,7 @@ if (!function_exists('parse_property_field')) {
                                                             <div class="pricing-item-value-wrapper">
                                                                 <div class="pricing-item-value"><?php echo esc_html($fee['amount']); ?></div>
                                                                 <?php if (!empty($fee['amount'])) : ?>
-                                                                    <div class="pricing-item-badge"><?php echo esc_html__('Details', 'figma-custom-theme'); ?></div>
+                                                                    <div class="pricing-item-badge"><?php echo esc_html__('Details', 'estatein-theme'); ?></div>
                                                                 <?php endif; ?>
                                                             </div>
                                                         </div>
@@ -496,8 +496,8 @@ if (!function_exists('parse_property_field')) {
                                 if (!empty($monthly_costs_parsed)) : ?>
                                     <div class="pricing-card">
                                         <div class="pricing-card-header">
-                                            <h3 class="pricing-card-title"><?php echo esc_html__('Monthly Costs', 'figma-custom-theme'); ?></h3>
-                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'figma-custom-theme'); ?></button>
+                                            <h3 class="pricing-card-title"><?php echo esc_html__('Monthly Costs', 'estatein-theme'); ?></h3>
+                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'estatein-theme'); ?></button>
                                         </div>
                                         <div class="pricing-card-divider"></div>
                                         <div class="pricing-card-content">
@@ -507,7 +507,7 @@ if (!function_exists('parse_property_field')) {
                                                     <div class="pricing-item-value-wrapper">
                                                         <div class="pricing-item-value"><?php echo esc_html($cost['amount']); ?></div>
                                                         <?php if (!empty($cost['amount'])) : ?>
-                                                            <div class="pricing-item-badge"><?php echo esc_html__('Monthly', 'figma-custom-theme'); ?></div>
+                                                            <div class="pricing-item-badge"><?php echo esc_html__('Monthly', 'estatein-theme'); ?></div>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -524,8 +524,8 @@ if (!function_exists('parse_property_field')) {
                                 if (!empty($initial_costs_parsed)) : ?>
                                     <div class="pricing-card">
                                         <div class="pricing-card-header">
-                                            <h3 class="pricing-card-title"><?php echo esc_html__('Total Initial Costs', 'figma-custom-theme'); ?></h3>
-                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'figma-custom-theme'); ?></button>
+                                            <h3 class="pricing-card-title"><?php echo esc_html__('Total Initial Costs', 'estatein-theme'); ?></h3>
+                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'estatein-theme'); ?></button>
                                         </div>
                                         <div class="pricing-card-divider"></div>
                                         <div class="pricing-card-content">
@@ -556,8 +556,8 @@ if (!function_exists('parse_property_field')) {
                                 if (!empty($monthly_expenses_parsed)) : ?>
                                     <div class="pricing-card">
                                         <div class="pricing-card-header">
-                                            <h3 class="pricing-card-title"><?php echo esc_html__('Monthly Expenses', 'figma-custom-theme'); ?></h3>
-                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'figma-custom-theme'); ?></button>
+                                            <h3 class="pricing-card-title"><?php echo esc_html__('Monthly Expenses', 'estatein-theme'); ?></h3>
+                                            <button class="learn-more-btn"><?php echo esc_html__('Learn More', 'estatein-theme'); ?></button>
                                         </div>
                                         <div class="pricing-card-divider"></div>
                                         <div class="pricing-card-content">
@@ -592,30 +592,30 @@ if (!function_exists('parse_property_field')) {
                     <div class="faq-header">
                         <div class="faq-title-wrapper">
                             <div class="decorative-pattern"></div>
-                            <h2 class="section-title-large"><?php echo esc_html__('Frequently Asked Questions', 'figma-custom-theme'); ?></h2>
-                            <p class="section-description"><?php echo esc_html__('Find answers to common questions about Estatein\'s services, property listings, and the real estate process. We\'re here to provide clarity and assist you every step of the way.', 'figma-custom-theme'); ?></p>
+                            <h2 class="section-title-large"><?php echo esc_html__('Frequently Asked Questions', 'estatein-theme'); ?></h2>
+                            <p class="section-description"><?php echo esc_html__('Find answers to common questions about Estatein\'s services, property listings, and the real estate process. We\'re here to provide clarity and assist you every step of the way.', 'estatein-theme'); ?></p>
                         </div>
-                        <a href="#" class="view-all-faqs-btn"><?php echo esc_html__('View All FAQ\'s', 'figma-custom-theme'); ?></a>
+                        <a href="#" class="view-all-faqs-btn"><?php echo esc_html__('View All FAQ\'s', 'estatein-theme'); ?></a>
                     </div>
                     
                     <div class="faq-content">
                         <div class="faq-grid">
                             <div class="faq-card">
-                                <h3 class="faq-question"><?php echo esc_html__('How do I search for properties on Estatein?', 'figma-custom-theme'); ?></h3>
-                                <p class="faq-answer"><?php echo esc_html__('Learn how to use our user-friendly search tools to find properties that match your criteria.', 'figma-custom-theme'); ?></p>
-                                <button class="faq-read-more-btn"><?php echo esc_html__('Read More', 'figma-custom-theme'); ?></button>
+                                <h3 class="faq-question"><?php echo esc_html__('How do I search for properties on Estatein?', 'estatein-theme'); ?></h3>
+                                <p class="faq-answer"><?php echo esc_html__('Learn how to use our user-friendly search tools to find properties that match your criteria.', 'estatein-theme'); ?></p>
+                                <button class="faq-read-more-btn"><?php echo esc_html__('Read More', 'estatein-theme'); ?></button>
                             </div>
                             
                             <div class="faq-card">
-                                <h3 class="faq-question"><?php echo esc_html__('What documents do I need to sell my property through Estatein?', 'figma-custom-theme'); ?></h3>
-                                <p class="faq-answer"><?php echo esc_html__('Find out about the necessary documentation for listing your property with us.', 'figma-custom-theme'); ?></p>
-                                <button class="faq-read-more-btn"><?php echo esc_html__('Read More', 'figma-custom-theme'); ?></button>
+                                <h3 class="faq-question"><?php echo esc_html__('What documents do I need to sell my property through Estatein?', 'estatein-theme'); ?></h3>
+                                <p class="faq-answer"><?php echo esc_html__('Find out about the necessary documentation for listing your property with us.', 'estatein-theme'); ?></p>
+                                <button class="faq-read-more-btn"><?php echo esc_html__('Read More', 'estatein-theme'); ?></button>
                             </div>
                             
                             <div class="faq-card">
-                                <h3 class="faq-question"><?php echo esc_html__('How can I contact an Estatein agent?', 'figma-custom-theme'); ?></h3>
-                                <p class="faq-answer"><?php echo esc_html__('Discover the different ways you can get in touch with our experienced agents.', 'figma-custom-theme'); ?></p>
-                                <button class="faq-read-more-btn"><?php echo esc_html__('Read More', 'figma-custom-theme'); ?></button>
+                                <h3 class="faq-question"><?php echo esc_html__('How can I contact an Estatein agent?', 'estatein-theme'); ?></h3>
+                                <p class="faq-answer"><?php echo esc_html__('Discover the different ways you can get in touch with our experienced agents.', 'estatein-theme'); ?></p>
+                                <button class="faq-read-more-btn"><?php echo esc_html__('Read More', 'estatein-theme'); ?></button>
                             </div>
                         </div>
                         
@@ -625,12 +625,12 @@ if (!function_exists('parse_property_field')) {
                                 <span class="total-pages"> of 10</span>
                             </div>
                             <div class="faq-pagination-nav">
-                                <button class="faq-nav-btn prev-btn" aria-label="<?php echo esc_attr__('Previous', 'figma-custom-theme'); ?>" disabled>
+                                <button class="faq-nav-btn prev-btn" aria-label="<?php echo esc_attr__('Previous', 'estatein-theme'); ?>" disabled>
                                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                                         <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
                                     </svg>
                                 </button>
-                                <button class="faq-nav-btn next-btn" aria-label="<?php echo esc_attr__('Next', 'figma-custom-theme'); ?>">
+                                <button class="faq-nav-btn next-btn" aria-label="<?php echo esc_attr__('Next', 'estatein-theme'); ?>">
                                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                                         <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
                                     </svg>

@@ -2,22 +2,22 @@
 /**
  * Template part for displaying Properties Contact Form section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 // Get content - check if on page template first, then archive (customizer), then defaults
 if (is_page_template('page-properties.php') || (is_page() && get_queried_object() && get_queried_object()->post_name === 'properties')) {
     // Page template - use ACF fields
-    $contact_title = get_field('properties_contact_title') ?: esc_html__('Let\'s Make it Happen', 'figma-custom-theme');
-    $contact_description = get_field('properties_contact_description') ?: esc_html__('Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don\'t wait; let\'s embark on this exciting journey together.', 'figma-custom-theme');
+    $contact_title = get_field('properties_contact_title') ?: esc_html__('Let\'s Make it Happen', 'estatein-theme');
+    $contact_description = get_field('properties_contact_description') ?: esc_html__('Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don\'t wait; let\'s embark on this exciting journey together.', 'estatein-theme');
 } elseif (is_post_type_archive('property') || is_tax('property_type') || is_tax('property_location')) {
     // Archive page - use Customizer settings
     $contact_title = get_theme_mod('properties_archive_contact_title', 'Let\'s Make it Happen');
     $contact_description = get_theme_mod('properties_archive_contact_description', 'Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don\'t wait; let\'s embark on this exciting journey together.');
 } else {
     // Defaults
-    $contact_title = esc_html__('Let\'s Make it Happen', 'figma-custom-theme');
-    $contact_description = esc_html__('Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don\'t wait; let\'s embark on this exciting journey together.', 'figma-custom-theme');
+    $contact_title = esc_html__('Let\'s Make it Happen', 'estatein-theme');
+    $contact_description = esc_html__('Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don\'t wait; let\'s embark on this exciting journey together.', 'estatein-theme');
 }
 
 $form_submitted_status = isset($_GET['form_submitted']) ? sanitize_key(wp_unslash($_GET['form_submitted'])) : '';
@@ -50,12 +50,12 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
             // Display success/error messages
             if ('success' === $form_submitted_status) {
                 echo '<div class="form-message form-success">';
-                echo esc_html__('Thank you! Your message has been sent successfully. We will get back to you soon.', 'figma-custom-theme');
+                echo esc_html__('Thank you! Your message has been sent successfully. We will get back to you soon.', 'estatein-theme');
                 echo '</div>';
             }
             if ('error' === $form_submitted_status) {
                 echo '<div class="form-message form-error">';
-                echo esc_html__('Sorry, there was an error sending your message. Please try again.', 'figma-custom-theme');
+                echo esc_html__('Sorry, there was an error sending your message. Please try again.', 'estatein-theme');
                 echo '</div>';
             }
             ?>
@@ -65,37 +65,37 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                 <div class="form-fields">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="first_name"><?php echo esc_html__('First Name', 'figma-custom-theme'); ?></label>
+                            <label for="first_name"><?php echo esc_html__('First Name', 'estatein-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_first_name); ?>" required>
+                                <input type="text" id="first_name" name="first_name" placeholder="<?php echo esc_attr__('Enter First Name', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_first_name); ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="last_name"><?php echo esc_html__('Last Name', 'figma-custom-theme'); ?></label>
+                            <label for="last_name"><?php echo esc_html__('Last Name', 'estatein-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_last_name); ?>" required>
+                                <input type="text" id="last_name" name="last_name" placeholder="<?php echo esc_attr__('Enter Last Name', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_last_name); ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email"><?php echo esc_html__('Email', 'figma-custom-theme'); ?></label>
+                            <label for="email"><?php echo esc_html__('Email', 'estatein-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_email); ?>" required>
+                                <input type="email" id="email" name="email" placeholder="<?php echo esc_attr__('Enter your Email', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_email); ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="phone"><?php echo esc_html__('Phone', 'figma-custom-theme'); ?></label>
+                            <label for="phone"><?php echo esc_html__('Phone', 'estatein-theme'); ?></label>
                             <div class="form-input-wrapper">
-                                <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'figma-custom-theme'); ?>" value="<?php echo esc_attr($posted_phone); ?>" required>
+                                <input type="tel" id="phone" name="phone" placeholder="<?php echo esc_attr__('Enter Phone Number', 'estatein-theme'); ?>" value="<?php echo esc_attr($posted_phone); ?>" required>
                             </div>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="preferred_location"><?php echo esc_html__('Preferred Location', 'figma-custom-theme'); ?></label>
+                            <label for="preferred_location"><?php echo esc_html__('Preferred Location', 'estatein-theme'); ?></label>
                             <div class="form-select-wrapper">
                                 <select id="preferred_location" name="preferred_location" class="form-select">
-                                    <option value=""><?php echo esc_html__('Select Location', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Select Location', 'estatein-theme'); ?></option>
                                     <?php
                                     $locations = get_terms(array(
                                         'taxonomy' => 'property_location',
@@ -119,10 +119,10 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="property_type_select"><?php echo esc_html__('Property Type', 'figma-custom-theme'); ?></label>
+                            <label for="property_type_select"><?php echo esc_html__('Property Type', 'estatein-theme'); ?></label>
                             <div class="form-select-wrapper">
                                 <select id="property_type_select" name="property_type_select" class="form-select">
-                                    <option value=""><?php echo esc_html__('Select Property Type', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Select Property Type', 'estatein-theme'); ?></option>
                                     <?php
                                     $types = get_terms(array(
                                         'taxonomy' => 'property_type',
@@ -146,10 +146,10 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="bathrooms"><?php echo esc_html__('No. of Bathrooms', 'figma-custom-theme'); ?></label>
+                            <label for="bathrooms"><?php echo esc_html__('No. of Bathrooms', 'estatein-theme'); ?></label>
                             <div class="form-select-wrapper">
                                 <select id="bathrooms" name="bathrooms" class="form-select">
-                                    <option value=""><?php echo esc_html__('Select no. of Bathrooms', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Select no. of Bathrooms', 'estatein-theme'); ?></option>
                                     <?php
                                     $selected_bathrooms = $posted_bathrooms;
                                     ?>
@@ -166,10 +166,10 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="bedrooms"><?php echo esc_html__('No. of Bedrooms', 'figma-custom-theme'); ?></label>
+                            <label for="bedrooms"><?php echo esc_html__('No. of Bedrooms', 'estatein-theme'); ?></label>
                             <div class="form-select-wrapper">
                                 <select id="bedrooms" name="bedrooms" class="form-select">
-                                    <option value=""><?php echo esc_html__('Select no. of Bedrooms', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Select no. of Bedrooms', 'estatein-theme'); ?></option>
                                     <?php
                                     $selected_bedrooms = $posted_bedrooms;
                                     ?>
@@ -189,10 +189,10 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                     
                     <div class="form-row form-row-two-columns">
                         <div class="form-group">
-                            <label for="budget"><?php echo esc_html__('Budget', 'figma-custom-theme'); ?></label>
+                            <label for="budget"><?php echo esc_html__('Budget', 'estatein-theme'); ?></label>
                             <div class="form-select-wrapper">
                                 <select id="budget" name="budget" class="form-select">
-                                    <option value=""><?php echo esc_html__('Select Budget', 'figma-custom-theme'); ?></option>
+                                    <option value=""><?php echo esc_html__('Select Budget', 'estatein-theme'); ?></option>
                                     <?php
                                     $selected_budget = $posted_budget;
                                     ?>
@@ -209,7 +209,7 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                             </div>
                         </div>
                         <div class="form-group">
-                            <label><?php echo esc_html__('Preferred Contact Method', 'figma-custom-theme'); ?></label>
+                            <label><?php echo esc_html__('Preferred Contact Method', 'estatein-theme'); ?></label>
                             <div class="contact-method-group">
                                 <?php
                                 $selected_method = $posted_contact_method;
@@ -220,7 +220,7 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                             <rect x="5" y="2" width="14" height="20" rx="2" fill="white"/>
                                         </svg>
-                                        <span class="method-label"><?php echo esc_html__('Enter Your Number', 'figma-custom-theme'); ?></span>
+                                        <span class="method-label"><?php echo esc_html__('Enter Your Number', 'estatein-theme'); ?></span>
                                         <span class="method-radio"></span>
                                     </div>
                                 </label>
@@ -231,7 +231,7 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                                             <rect x="3" y="5" width="18" height="14" rx="2" fill="white"/>
                                             <path d="M3 7L12 13L21 7" stroke="white" stroke-width="1.5"/>
                                         </svg>
-                                        <span class="method-label"><?php echo esc_html__('Enter Your Email', 'figma-custom-theme'); ?></span>
+                                        <span class="method-label"><?php echo esc_html__('Enter Your Email', 'estatein-theme'); ?></span>
                                         <span class="method-radio"></span>
                                     </div>
                                 </label>
@@ -240,9 +240,9 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                     </div>
                     
                     <div class="form-group">
-                        <label for="message"><?php echo esc_html__('Message', 'figma-custom-theme'); ?></label>
+                        <label for="message"><?php echo esc_html__('Message', 'estatein-theme'); ?></label>
                         <div class="form-textarea-wrapper">
-                            <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'figma-custom-theme'); ?>"><?php echo esc_textarea($posted_message); ?></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="<?php echo esc_attr__('Enter your Message here..', 'estatein-theme'); ?>"><?php echo esc_textarea($posted_message); ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -250,14 +250,14 @@ $posted_message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash(
                 <div class="form-footer">
                     <label class="terms-checkbox">
                         <input type="checkbox" name="terms" required>
-                        <span><?php echo esc_html__('I agree with ', 'figma-custom-theme'); ?>
-                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Terms of Use', 'figma-custom-theme'); ?></a>
-                            <?php echo esc_html__(' and ', 'figma-custom-theme'); ?>
-                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Privacy Policy', 'figma-custom-theme'); ?></a>
+                        <span><?php echo esc_html__('I agree with ', 'estatein-theme'); ?>
+                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Terms of Use', 'estatein-theme'); ?></a>
+                            <?php echo esc_html__(' and ', 'estatein-theme'); ?>
+                            <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" target="_blank"><?php echo esc_html__('Privacy Policy', 'estatein-theme'); ?></a>
                         </span>
                     </label>
                     <button type="submit" class="btn btn-primary submit-btn">
-                        <?php echo esc_html__('Send Your Message', 'figma-custom-theme'); ?>
+                        <?php echo esc_html__('Send Your Message', 'estatein-theme'); ?>
                     </button>
                 </div>
             </form>

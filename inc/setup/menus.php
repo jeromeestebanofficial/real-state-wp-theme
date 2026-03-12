@@ -1,7 +1,7 @@
 <?php
 
-add_action('after_switch_theme', 'figma_custom_theme_create_menu');
-function figma_custom_theme_create_menu() {
+add_action('after_switch_theme', 'estatein_theme_create_menu');
+function estatein_theme_create_menu() {
 
     $menu_name = 'Primary Menu';
 

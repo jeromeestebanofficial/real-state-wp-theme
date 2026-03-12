@@ -4,7 +4,7 @@
  * 
  * This template automatically applies to pages with slug "about"
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header();

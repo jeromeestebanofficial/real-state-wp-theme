@@ -2,10 +2,10 @@
 /**
  * Template part for displaying Team section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
-$team_title = get_field('about_team_title') ?: esc_html__('Meet the Estatein Team', 'figma-custom-theme');
+$team_title = get_field('about_team_title') ?: esc_html__('Meet the Estatein Team', 'estatein-theme');
 $team_description = get_field('about_team_description') ?: '';
 
 $team_query = new WP_Query(array(
@@ -53,7 +53,7 @@ $team_query = new WP_Query(array(
                             </div>
                             
                             <a href="<?php the_permalink(); ?>" class="team-contact-btn">
-                                <span><?php echo esc_html__('Say Hello', 'figma-custom-theme'); ?> 👋</span>
+                                <span><?php echo esc_html__('Say Hello', 'estatein-theme'); ?> 👋</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"/>
                                     <polygon points="22,2 15,22 11,13 2,9 22,2" fill="currentColor"/>
@@ -61,7 +61,7 @@ $team_query = new WP_Query(array(
                             </a>
                         </div>
                         
-                        <a href="<?php the_permalink(); ?>" class="team-link-icon" aria-label="<?php echo esc_attr(sprintf(__('View %s profile', 'figma-custom-theme'), get_the_title())); ?>">
+                        <a href="<?php the_permalink(); ?>" class="team-link-icon" aria-label="<?php echo esc_attr(sprintf(__('View %s profile', 'estatein-theme'), get_the_title())); ?>">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M18 13V19A2 2 0 0 1 16 21H5A2 2 0 0 1 3 19V8A2 2 0 0 1 5 6H11" stroke="currentColor" stroke-width="2"/>
                                 <path d="M15 3H21V9" stroke="currentColor" stroke-width="2"/>
@@ -74,7 +74,7 @@ $team_query = new WP_Query(array(
             <?php wp_reset_postdata(); ?>
         <?php else : ?>
             <div class="no-team-found">
-                <p><?php echo esc_html__('No team members found.', 'figma-custom-theme'); ?></p>
+                <p><?php echo esc_html__('No team members found.', 'estatein-theme'); ?></p>
             </div>
         <?php endif; ?>
     </div>

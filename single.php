@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
 get_header();
@@ -21,20 +21,20 @@ get_header();
                             
                             <div class="post-meta">
                                 <span class="posted-on">
-                                    <?php echo esc_html__('Posted on', 'figma-custom-theme'); ?>
+                                    <?php echo esc_html__('Posted on', 'estatein-theme'); ?>
                                     <time datetime="<?php echo esc_attr(get_the_date('c')); ?>">
                                         <?php echo esc_html(get_the_date()); ?>
                                     </time>
                                 </span>
                                 <span class="byline">
-                                    <?php echo esc_html__('by', 'figma-custom-theme'); ?>
+                                    <?php echo esc_html__('by', 'estatein-theme'); ?>
                                     <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
                                         <?php echo esc_html(get_the_author()); ?>
                                     </a>
                                 </span>
                                 <?php if (has_category()) : ?>
                                     <span class="cat-links">
-                                        <?php echo esc_html__('in', 'figma-custom-theme'); ?>
+                                        <?php echo esc_html__('in', 'estatein-theme'); ?>
                                         <?php the_category(', '); ?>
                                     </span>
                                 <?php endif; ?>
@@ -53,7 +53,7 @@ get_header();
                                 sprintf(
                                     wp_kses(
                                         /* translators: %s: Name of current post. Only visible to screen readers */
-                                        __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'figma-custom-theme'),
+                                        __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'estatein-theme'),
                                         array(
                                             'span' => array(
                                                 'class' => array(),
@@ -66,7 +66,7 @@ get_header();
 
                             wp_link_pages(
                                 array(
-                                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'figma-custom-theme'),
+                                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'estatein-theme'),
                                     'after'  => '</div>',
                                 )
                             );
@@ -77,7 +77,7 @@ get_header();
                             <?php
                             $tags_list = get_the_tag_list('', ', ');
                             if ($tags_list) {
-                                printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'figma-custom-theme') . '</span>', $tags_list);
+                                printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'estatein-theme') . '</span>', $tags_list);
                             }
                             ?>
                         </footer>
@@ -87,8 +87,8 @@ get_header();
                     // Post navigation
                     the_post_navigation(
                         array(
-                            'prev_text'                  => '<span class="nav-subtitle">' . esc_html__('Previous:', 'figma-custom-theme') . '</span> <span class="nav-title">%title</span>',
-                            'next_text'                  => '<span class="nav-subtitle">' . esc_html__('Next:', 'figma-custom-theme') . '</span> <span class="nav-title">%title</span>',
+                            'prev_text'                  => '<span class="nav-subtitle">' . esc_html__('Previous:', 'estatein-theme') . '</span> <span class="nav-title">%title</span>',
+                            'next_text'                  => '<span class="nav-subtitle">' . esc_html__('Next:', 'estatein-theme') . '</span> <span class="nav-title">%title</span>',
                         )
                     );
 

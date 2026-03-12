@@ -2,10 +2,10 @@
 /**
  * Template part for displaying Our Values section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 
-$values_title = get_field('about_values_title') ?: esc_html__('Our Values', 'figma-custom-theme');
+$values_title = get_field('about_values_title') ?: esc_html__('Our Values', 'estatein-theme');
 $values_description = get_field('about_values_description') ?: "Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.";
 $values = get_field('about_values') ?: array();
 ?>

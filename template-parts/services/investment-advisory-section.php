@@ -3,7 +3,7 @@
  * Investment Advisory Service Section
  * Displays the "Smart Investments, Informed Decisions" service section
  *
- * @package Figma_Custom_Theme
+ * @package Estatein_Theme
  */
 ?>
 
@@ -13,16 +13,16 @@
             <div class="investment-service-left">
                 <div class="service-section-header">
                     <div class="decorative-pattern"></div>
-                    <h2 class="service-section-title"><?php echo esc_html__('Smart Investments, Informed Decisions', 'figma-custom-theme'); ?></h2>
-                    <p class="service-section-description"><?php echo esc_html__('Building a real estate portfolio requires a strategic approach. Estatein\'s Investment Advisory Service empowers you to make smart investments and informed decisions.', 'figma-custom-theme'); ?></p>
+                    <h2 class="service-section-title"><?php echo esc_html__('Smart Investments, Informed Decisions', 'estatein-theme'); ?></h2>
+                    <p class="service-section-description"><?php echo esc_html__('Building a real estate portfolio requires a strategic approach. Estatein\'s Investment Advisory Service empowers you to make smart investments and informed decisions.', 'estatein-theme'); ?></p>
                 </div>
                 
                 <div class="service-card service-card-cta service-card-cta-vertical">
                     <div class="service-cta-pattern"></div>
                     <div class="service-cta-content">
-                        <h3 class="service-cta-title"><?php echo esc_html__('Unlock Your Investment Potential', 'figma-custom-theme'); ?></h3>
-                        <p class="service-cta-description"><?php echo esc_html__('Explore our Property Management Service categories and let us handle the complexities while you enjoy the benefits of property ownership.', 'figma-custom-theme'); ?></p>
-                        <a href="#" class="service-cta-button service-cta-button-full"><?php echo esc_html__('Learn More', 'figma-custom-theme'); ?></a>
+                        <h3 class="service-cta-title"><?php echo esc_html__('Unlock Your Investment Potential', 'estatein-theme'); ?></h3>
+                        <p class="service-cta-description"><?php echo esc_html__('Explore our Property Management Service categories and let us handle the complexities while you enjoy the benefits of property ownership.', 'estatein-theme'); ?></p>
+                        <a href="#" class="service-cta-button service-cta-button-full"><?php echo esc_html__('Learn More', 'estatein-theme'); ?></a>
                     </div>
                 </div>
             </div>
@@ -41,9 +41,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="service-card-title"><?php echo esc_html__('Market Insight', 'figma-custom-theme'); ?></h3>
+                                <h3 class="service-card-title"><?php echo esc_html__('Market Insight', 'estatein-theme'); ?></h3>
                             </div>
-                            <p class="service-card-description"><?php echo esc_html__('Stay ahead of market trends with our expert Market Analysis. We provide in-depth insights into real estate market conditions', 'figma-custom-theme'); ?></p>
+                            <p class="service-card-description"><?php echo esc_html__('Stay ahead of market trends with our expert Market Analysis. We provide in-depth insights into real estate market conditions', 'estatein-theme'); ?></p>
                         </div>
                         
                         <div class="service-card service-card-investment">
@@ -57,9 +57,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="service-card-title"><?php echo esc_html__('ROI Assessment', 'figma-custom-theme'); ?></h3>
+                                <h3 class="service-card-title"><?php echo esc_html__('ROI Assessment', 'estatein-theme'); ?></h3>
                             </div>
-                            <p class="service-card-description"><?php echo esc_html__('Make investment decisions with confidence. Our ROI Assessment services evaluate the potential returns on your investments', 'figma-custom-theme'); ?></p>
+                            <p class="service-card-description"><?php echo esc_html__('Make investment decisions with confidence. Our ROI Assessment services evaluate the potential returns on your investments', 'estatein-theme'); ?></p>
                         </div>
                     </div>
                     
@@ -75,9 +75,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="service-card-title"><?php echo esc_html__('Customized Strategies', 'figma-custom-theme'); ?></h3>
+                                <h3 class="service-card-title"><?php echo esc_html__('Customized Strategies', 'estatein-theme'); ?></h3>
                             </div>
-                            <p class="service-card-description"><?php echo esc_html__('Every investor is unique, and so are their goals. We develop Customized Investment Strategies tailored to your specific needs', 'figma-custom-theme'); ?></p>
+                            <p class="service-card-description"><?php echo esc_html__('Every investor is unique, and so are their goals. We develop Customized Investment Strategies tailored to your specific needs', 'estatein-theme'); ?></p>
                         </div>
                         
                         <div class="service-card service-card-investment">
@@ -91,9 +91,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="service-card-title"><?php echo esc_html__('Diversification Mastery', 'figma-custom-theme'); ?></h3>
+                                <h3 class="service-card-title"><?php echo esc_html__('Diversification Mastery', 'estatein-theme'); ?></h3>
                             </div>
-                            <p class="service-card-description"><?php echo esc_html__('Diversify your real estate portfolio effectively. Our experts guide you in spreading your investments across various property types and locations', 'figma-custom-theme'); ?></p>
+                            <p class="service-card-description"><?php echo esc_html__('Diversify your real estate portfolio effectively. Our experts guide you in spreading your investments across various property types and locations', 'estatein-theme'); ?></p>
                         </div>
                     </div>
                 </div>
