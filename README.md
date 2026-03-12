@@ -1,168 +1,122 @@
 # Estatein Real Estate Theme
 
-Professional WordPress theme for real estate businesses with property listings, team management, and ACF integration. Features custom post types, responsive design, and easy content management.
+A professional WordPress theme built for real estate businesses, agencies, and property showcase websites.
 
-**UI Design Reference:** [Figma Template](https://www.figma.com/community/file/1314076616839640516)
+It includes custom content models for properties, team members, services, testimonials, and contact submissions, plus responsive frontend templates and About/Services/Properties page experiences.
 
-## Theme Features
+**Design reference:** [Figma Community Template](https://www.figma.com/community/file/1314076616839640516)
 
-### Property Management
-- Custom Post Type: Properties with advanced fields
-- Property Details: Price, bedrooms, bathrooms, area, gallery
-- Property Types: Villa, Apartment, Townhouse, Commercial
-- Property Locations: Cities, neighborhoods, regions
-- Property Archives: Filterable property listings
-- Individual Property Pages: Detailed property showcase with image galleries
+## Highlights
 
-### Team Management
-- Team Member Profiles with contact information
-- Social Media Integration for each team member
-- Position & Biography management
-- Team Archive Pages
-
-### Services & Testimonials
-- Services Management: Showcase your offerings
-- Customer Testimonials: With ratings and client info
-- Easy Admin Interface for content management
-
-### Design Features
-- Responsive Design: Works on all devices
-- Modern UI: Clean, professional appearance based on Figma design
-- Dark Theme: Elegant color scheme
-- Custom CSS: Easy customization
-- SEO Optimized: Search engine friendly
-- Performance Optimized: Fast loading times
+- Modern dark UI with responsive layouts for desktop, tablet, and mobile.
+- Custom Post Types for `property`, `team_member`, `service`, `testimonial`, and `contact_submission`.
+- Property taxonomies for `property_type` and `property_location`.
+- Filterable property listing and dedicated single-property detail pages.
+- About page sections (journey, values, achievements, process, team, clients).
+- Built-in contact/inquiry form handling and admin submission records.
+- Theme setup helpers for pages, menus, and homepage bootstrap.
 
 ## Requirements
 
-- WordPress 5.0 or higher
-- PHP 7.4 or higher
-- Advanced Custom Fields (ACF) Free plugin (required)
+- WordPress `5.0+` (tested up to `6.4`)
+- PHP `7.4+`
+- Advanced Custom Fields (ACF) Free plugin
 
 ## Installation
 
-### Step 1: Install Theme
+### Option A: WordPress Admin Upload
 
-1. **Download the theme**.  
-2. **Rename the folder** to `"figma-custom-theme"`.  
-3. Upload the theme folder to `/wp-content/themes/`  
-4. Go to `WordPress Admin → Appearance → Themes`  
-5. Activate **"Estatein Real Estate Theme"**  
+1. Zip the theme folder.
+2. In WordPress Admin, go to `Appearance -> Themes -> Add New -> Upload Theme`.
+3. Upload and activate the theme.
+4. Install required plugins when prompted.
 
-### Step 2: Install Required Plugins
+### Option B: Manual Install
 
-**Essential Plugin:**
-- **Advanced Custom Fields (ACF) Free** - Required for property fields and content management
-  - Download: https://wordpress.org/plugins/advanced-custom-fields/
+1. Copy theme folder to `wp-content/themes/`.
+2. Activate `Estatein Real Estate Theme` from `Appearance -> Themes`.
+3. Install/activate ACF Free.
+4. Go to `Settings -> Permalinks` and click **Save Changes** once.
 
-**Recommended Plugins:**
-- Contact Form 7 - Property inquiry forms
-- Yoast SEO - Search engine optimization
-- WP Google Maps - Property location maps
+## Post-Install Setup
 
-### Step 3: Configure Theme
+1. Create and assign a primary menu in `Appearance -> Menus`.
+2. Create core pages (Home, Properties, About, Services, Contact).
+3. Set page templates where applicable:
+   - `page-properties.php`
+   - `page-about.php`
+   - `page-services.php`
+4. Add Property Types and Property Locations taxonomy terms.
+5. Add sample content for properties, team members, and services.
 
-1. **Create Navigation Menu:**
-   - Go to `Appearance → Menus`
-   - Create menu with: Home, Properties, About, Team, Services, Contact
-   - Assign to "Primary Menu" location
+## Project Structure
 
-2. **Set Up Property Types & Locations:**
-   - Go to `Properties → Property Types`
-   - Add types: Villa, Apartment, Townhouse, Commercial
-   - Go to `Properties → Locations`
-
-3. **Create Pages:**
-   - Create a "Services" page and select "Services Page" template
-   - Create other pages as needed
-
-4. **Flush Permalinks:**
-   - Go to `Settings → Permalinks`
-   - Click "Save Changes"
-
-## Theme Structure
-
-### Template Files
+```text
+real-state-theme/
+├── assets/
+│   ├── css/
+│   └── js/
+├── inc/
+│   ├── customizer.php
+│   ├── setup-homepage.php
+│   ├── setup-menus.php
+│   └── ...
+├── template-parts/
+│   ├── hero-section.php
+│   ├── properties-*.php
+│   ├── services-*.php
+│   └── about-*.php
+├── functions.php
+├── style.css
+├── front-page.php
+├── archive-property.php
+├── single-property.php
+├── page-about.php
+├── page-properties.php
+└── page-services.php
 ```
-├── style.css (Theme header & main styles)
-├── functions.php (Theme functionality)
-├── index.php (Homepage template)
-├── header.php (Site header)
-├── footer.php (Site footer)
-├── single-property.php (Individual property pages)
-├── archive-property.php (Property listings)
-├── page-services.php (Services page template)
-├── page-properties.php (Properties page template)
-└── template-parts/ (Reusable template components)
-```
+
+## Core Content Models
 
 ### Custom Post Types
-1. **Properties** (`property`)
-   - Archives: `/properties/`
-   - Single: `/property/property-name/`
-   - Taxonomies: `property_type`, `property_location`
 
-2. **Team Members** (`team_member`)
-   - Archives: `/team/`
-   - Single: `/team-member/name/`
+- `property` - property listings and details
+- `team_member` - team profiles
+- `service` - service entries
+- `testimonial` - testimonial entries
+- `contact_submission` - inquiry records from forms
 
-3. **Services** (`service`)
-   - Archives: `/service-archive/`
-   - Single: `/service/service-name/`
+### Taxonomies
 
-4. **Testimonials** (`testimonial`)
-   - Admin only (no public pages)
-   - Used in widgets/shortcodes
+- `property_type` - category/type of property
+- `property_location` - location hierarchy for properties
 
-## Customization
+## Styling and Branding
 
-### Colors & Branding
-Edit in `/style.css`:
-```css
-:root {
-    --color-primary: #703BF7;
-    --color-accent: #A685FA;
-    --color-bg-primary: #141414;
-    --color-text-primary: #FFFFFF;
-}
-```
+Global design tokens are defined in `style.css` under `:root`:
 
-### Logo
-1. Go to `Appearance → Customize → Site Identity`
-2. Upload your logo image
-3. Save & Publish
+- Primary colors
+- Typography scale
+- Spacing system
+- Border radius and transitions
 
-## Mobile Responsiveness
+For page-level styling, use files under `assets/css/` and `assets/css/components/`.
 
-The theme is fully responsive with breakpoints:
-- **Desktop**: 1920px and up
-- **Laptop**: 1024px - 1919px
-- **Tablet**: 768px - 1023px
-- **Mobile**: 767px and below
+## Security Notes
 
-## Browser Support
+- Form inputs are sanitized before storage.
+- Nonce verification is used for contact form submissions.
+- Safe redirects are used after form handling.
+- Submissions are stored as private records.
 
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
-- Mobile browsers (iOS Safari, Chrome Mobile)
+## Development Notes
+
+- Text domain: `figma-custom-theme`
+- Version: `1.0.0`
+- Author: Jerome Esteban
+- License: GPL v2 or later
 
 ## License
 
-This theme is released under GPL v2 or later license.
+This theme is licensed under GNU GPL v2 or later.
 
-## Credits
-
-- **Framework**: WordPress
-- **Fields**: Advanced Custom Fields
-- **UI Design**: Based on [Figma Template](https://www.figma.com/community/file/1314076616839640516)
-- **Fonts**: Google Fonts (Urbanist)
-
----
-
-**Version:** 1.0.0  
-**Author:** Jerome Esteban
-**UI Reference:** [Figma Design](https://www.figma.com/community/file/1314076616839640516)
-
-# real-state-wp-theme
