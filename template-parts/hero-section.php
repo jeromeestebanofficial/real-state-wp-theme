@@ -48,12 +48,18 @@
                 <div class="hero-image-container">
                     <?php
                     $hero_image_id = get_theme_mod('hero_image');
-                    if ($hero_image_id) {
+                    $hero_image_custom_url = get_theme_mod('hero_image_url', '');
+                    $default_hero_image_url = 'https://cdn.confident-group.com/wp-content/uploads/2024/12/27103036/types-of-real-estate-overview-scaled.jpg';
+
+                    if ($hero_image_id && wp_get_attachment_image_url($hero_image_id, 'large')) {
                         $hero_image_url = wp_get_attachment_image_url($hero_image_id, 'large');
                         $hero_image_alt = get_post_meta($hero_image_id, '_wp_attachment_image_alt', true);
+                    } elseif (!empty($hero_image_custom_url)) {
+                        $hero_image_url = $hero_image_custom_url;
+                        $hero_image_alt = __('Hero section image', 'figma-custom-theme');
                     } else {
-                        $hero_image_url = get_template_directory_uri() . '/assets/images/hero-property.jpg';
-                        $hero_image_alt = __('Dream property showcase', 'figma-custom-theme');
+                        $hero_image_url = $default_hero_image_url;
+                        $hero_image_alt = __('Types of real estate overview', 'figma-custom-theme');
                     }
                     ?>
                     <img src="<?php echo esc_url($hero_image_url); ?>" 

@@ -115,8 +115,22 @@ if (!function_exists('figma_custom_theme_customize_register')) {
         'label'     => esc_html__('Hero Section Image', 'figma-custom-theme'),
         'section'   => 'figma_custom_theme_images',
         'mime_type' => 'image',
-        'description' => esc_html__('Upload an image for the hero section. Recommended size: 600x600px', 'figma-custom-theme'),
+        'description' => esc_html__('Upload an image for the hero section. Recommended size: 600x600px. This takes priority over the URL field below.', 'figma-custom-theme'),
     )));
+
+    // Hero Image URL (fallback when no upload is selected)
+    $wp_customize->add_setting('hero_image_url', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ));
+
+    $wp_customize->add_control('hero_image_url', array(
+        'label'       => esc_html__('Hero Section Image URL', 'figma-custom-theme'),
+        'section'     => 'figma_custom_theme_images',
+        'type'        => 'url',
+        'description' => esc_html__('Paste a direct image URL. Used only when no uploaded Hero Section Image is selected.', 'figma-custom-theme'),
+    ));
 
     // Property Images
     for ($i = 1; $i <= 3; $i++) {
