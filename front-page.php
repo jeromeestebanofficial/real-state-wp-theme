@@ -8,16 +8,16 @@ get_header(); ?>
 <main id="primary" class="site-main">
 
     <!-- Hero Section -->
-    <?php get_template_part('template-parts/hero-section'); ?>
+    <?php get_template_part('template-parts/home/hero-section'); ?>
 
     <!-- Features Section -->
-    <?php get_template_part('template-parts/features-section'); ?>
+    <?php get_template_part('template-parts/home/features-section'); ?>
 
     <!-- Properties Section -->
-    <?php get_template_part('template-parts/properties-section'); ?>
+    <?php get_template_part('template-parts/home/properties-section'); ?>
 
     <!-- Testimonials Section -->
-    <?php get_template_part('template-parts/testimonials-section'); ?>
+    <?php get_template_part('template-parts/home/testimonials-section'); ?>
 
 </main>
 

@@ -11,13 +11,13 @@ get_header(); ?>
 <main id="primary" class="site-main properties-page">
     <?php
     // Hero/Search Section
-    get_template_part('template-parts/properties-hero-section');
+    get_template_part('template-parts/properties/hero-section');
     
     // Properties Listing Section
-    get_template_part('template-parts/properties-listing-section');
+    get_template_part('template-parts/properties/listing-section');
     
     // Contact Form Section
-    get_template_part('template-parts/properties-contact-section');
+    get_template_part('template-parts/properties/contact-section');
     ?>
 </main>
 

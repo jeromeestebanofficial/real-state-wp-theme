@@ -47,10 +47,10 @@ add_action('after_setup_theme', function () {
         'primary' => 'Primary Menu',
     ]);
 });
-require_once get_template_directory() . '/inc/setup-menus.php';
-require_once get_template_directory() . '/inc/setup-create-pages.php';
-require_once get_template_directory() . '/inc/setup-homepage.php';
-require_once get_template_directory() . '/inc/setup-create-menus.php';
+require_once get_template_directory() . '/inc/setup/menus.php';
+require_once get_template_directory() . '/inc/setup/create-pages.php';
+require_once get_template_directory() . '/inc/setup/homepage.php';
+require_once get_template_directory() . '/inc/setup/create-menus.php';
 
 /**
  * Theme setup function

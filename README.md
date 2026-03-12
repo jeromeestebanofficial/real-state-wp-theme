@@ -60,14 +60,16 @@ real-state-theme/
 │   └── js/
 ├── inc/
 │   ├── customizer.php
-│   ├── setup-homepage.php
-│   ├── setup-menus.php
+│   ├── setup/
+│   │   ├── homepage.php
+│   │   ├── menus.php
+│   │   └── create-pages.php
 │   └── ...
 ├── template-parts/
-│   ├── hero-section.php
-│   ├── properties-*.php
-│   ├── services-*.php
-│   └── about-*.php
+│   ├── home/
+│   ├── properties/
+│   ├── services/
+│   └── about/
 ├── functions.php
 ├── style.css
 ├── front-page.php
